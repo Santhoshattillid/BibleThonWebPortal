@@ -4,8 +4,7 @@
 
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <telerik:RadAjaxManager runat="server" ID="RadAjaxManager1" OnAjaxRequest="RadAjaxManager1_AjaxRequest"
-        >
+    <telerik:RadAjaxManager runat="server" ID="RadAjaxManager1" OnAjaxRequest="RadAjaxManager1_AjaxRequest">
         <AjaxSettings>
             <telerik:AjaxSetting AjaxControlID="RadGrid2">
                 <UpdatedControls>
@@ -13,12 +12,12 @@
                     <telerik:AjaxUpdatedControl ControlID="RadGrid3" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
-            <telerik:AjaxSetting AjaxControlID="RadAjaxManager1">  
-                <UpdatedControls>  
-                    <telerik:AjaxUpdatedControl ControlID="RadGrid2" />  
-                    <telerik:AjaxUpdatedControl ControlID="RadGrid3" />  
-                </UpdatedControls>  
-            </telerik:AjaxSetting>  
+            <telerik:AjaxSetting AjaxControlID="RadAjaxManager1">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="RadGrid2" />
+                    <telerik:AjaxUpdatedControl ControlID="RadGrid3" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
         </AjaxSettings>
     </telerik:RadAjaxManager>
     <telerik:RadAjaxLoadingPanel runat="server" ID="RadAjaxLoadingPanel1">
@@ -85,8 +84,13 @@
                 else
                 {
                     var wfDocType = args.get_item().get_text();
-                    wfDocType = wfDocType.replace(/ /g, "");
-                    openWin("Documents/frm" + wfDocType + ".aspx");
+                    if(wfDocType == "Purchase Order Entry") {
+                        openWin("Biblethon/OrderEntry.aspx");
+                    }
+                    else {
+                        wfDocType = wfDocType.replace(/ /g, "");
+                        openWin("Documents/frm" + wfDocType + ".aspx");
+                    }
                 }
 			}
 

@@ -48,7 +48,17 @@ namespace Biblethon.Controller
         public string PHNUMBR1 { get; set; }
         public decimal SUBTOTAL { get; set; }
         public decimal DOCAMNT { get; set; }
+        public decimal CALDOCAMT { get; set; }
         public string BACHNUMB { get; set; }
         public string ORDRDATE { get; set; }
+
+        public decimal FREIGHT { get; set; }
+
+        public decimal TAXAMNT { get; set; }
+        public decimal FRTTXAMT { get; set; }
+        public decimal MSCTXAMT { get; set; }
+
+        public decimal MISCAMNT { get; set; }
+        public decimal TRDISAMT { get; set; }
     }
 }

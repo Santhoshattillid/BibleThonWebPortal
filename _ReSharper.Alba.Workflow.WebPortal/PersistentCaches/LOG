@@ -1,5 +1,5 @@
-2013/02/18-16:26:09.986 eac Recovering log #3
-2013/02/18-16:26:10.009 eac Level-0 table #5: started
-2013/02/18-16:26:10.127 eac Level-0 table #5: 452610 bytes OK
-2013/02/18-16:26:10.180 eac Delete type=0 #3
-2013/02/18-16:26:10.180 eac Delete type=3 #2
+2013/02/18-17:07:29.028 e10 Recovering log #6
+2013/02/18-17:07:29.028 e10 Level-0 table #8: started
+2013/02/18-17:07:29.028 e10 Level-0 table #8: 0 bytes OK
+2013/02/18-17:07:29.058 e10 Delete type=0 #6
+2013/02/18-17:07:29.058 e10 Delete type=3 #4

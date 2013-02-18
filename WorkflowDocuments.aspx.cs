@@ -197,22 +197,14 @@ namespace Alba.Workflow.WebPortal
         {
             //string connString = ConfigurationManager.ConnectionStrings["TWOConnectionString"].ConnectionString;
             string connString = ConfigurationManager.ConnectionStrings["GPConnectionString"].ConnectionString;
-            SqlConnection dbConn = new SqlConnection(connString);
+            var dbConn = new SqlConnection(connString);
 
             return dbConn;
         }
 
         private void RefreshData()
         {
-            if (Session["UserRole"].ToString().ToUpper() != "WORKFLOW ADMIN")
-            {
-                RadGrid2.DataSource = RetrieveWorkflowData(false, Session["LoggedInUser"].ToString());
-            }
-            else
-            {
-                RadGrid2.DataSource = RetrieveWorkflowData(true, Session["LoggedInUser"].ToString());
-            }
-
+            RadGrid2.DataSource = RetrieveWorkflowData(Session["UserRole"].ToString().ToUpper() == "WORKFLOW ADMIN", Session["LoggedInUser"].ToString());
         }
 
         private void LoadWorkflowDocumentTypes()
@@ -240,7 +232,7 @@ namespace Alba.Workflow.WebPortal
 
                     var btnNew = new RadToolBarButton { Text = "Purchase Order Entry" };
                     rtDropDownNew.Buttons.Add(btnNew);
-                    btnNew.NavigateUrl = "Biblethon/OrderEntry.aspx";
+                    //btnNew.NavigateUrl = "Biblethon/OrderEntry.aspx";
                     var btnSeparatorNew = new RadToolBarButton { IsSeparator = true };
                     rtDropDownNew.Buttons.Add(btnSeparatorNew);
 

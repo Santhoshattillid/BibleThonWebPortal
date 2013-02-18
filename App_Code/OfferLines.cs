@@ -65,6 +65,7 @@ namespace Biblethon.Controller
         public string SLPRSNID { get; set; }
         public decimal TOTALQTY { get; set; }
         public string CURNCYID { get; set; }
+        public string UOFM { get; set; }
         public string ShipToName { get; set; }
         public string ADDRESS1 { get; set; }
         public string ADDRESS2 { get; set; }
