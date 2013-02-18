@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TWO" Class="ChargebackDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=RIC-ASUS\ALBA;Initial Catalog=TWO;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TWOConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AS_WF_VW_WorkflowDocuments" Member="AS_WF_VW_WorkflowDocuments">
+    <Type Name="AS_WF_VW_WorkflowDocument">
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Doc_Type" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Document_Key" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Customer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_GAIAM_Chargeback_Header" Member="AS_GAIAM_Chargeback_Headers">
+    <Type Name="AS_GAIAM_Chargeback_Header">
+      <Column Name="AuthorizationNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AccountName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="GAIAMAccountNumber" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="EventName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="AddressStreet" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="AddressCity" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="AddressState" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="AddressZip" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="AddressCountry" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="SalesPerson" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="IndirectAccountName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="VendorID" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="VendorName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="DateStartEvent" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateEndEvent" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ExpenseType" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ExpenseSubType" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="IsExpenseStudioApproved" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsExpensePaidByInvoice" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Estimate" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TotalAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ClaimedAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="SpecialInstructions" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="WorkflowState" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="AttachedFilePath" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_GAIAM_Chargeback_Detail_Temp" Member="AS_GAIAM_Chargeback_Detail_Temps">
+    <Type Name="AS_GAIAM_Chargeback_Detail_Temp">
+      <Column Name="AuthorizationNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GAIAMItemNumber" Type="System.String" DbType="NVarChar(250) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TitlePromotion" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="UPCCode" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Studio" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="AmountPerUnit" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="AuthorizedAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="InvalidText" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_GAIAM_Chargeback_Detail" Member="AS_GAIAM_Chargeback_Details">
+    <Type Name="AS_GAIAM_Chargeback_Detail">
+      <Column Name="RecordID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AuthorizationNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="GAIAMItemNumber" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="TitlePromotion" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="UPCCode" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Studio" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="AmountPerUnit" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="AuthorizedAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="InvalidText" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AccountNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_GAIAM_Chargeback_ExpenseTypes" Member="AS_GAIAM_Chargeback_ExpenseTypes">
+    <Type Name="AS_GAIAM_Chargeback_ExpenseType">
+      <Column Name="ExpenseType" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ExpenseSubType" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AccountIndex" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

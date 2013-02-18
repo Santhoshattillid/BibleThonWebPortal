@@ -1,0 +1,440 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Appointments>
+  <NextID>45</NextID>
+  <Resources>
+    <Calendar>
+      <Key>1</Key>
+      <Text>Development</Text>
+    </Calendar>
+    <Calendar>
+      <Key>2</Key>
+      <Text>Marketing</Text>
+    </Calendar>
+    <Calendar>
+      <Key>3</Key>
+      <Text>Personal</Text>
+    </Calendar>
+    <Calendar>
+      <Key>4</Key>
+      <Text>Work</Text>
+    </Calendar>
+  </Resources>
+  <Appointment>
+    <ID>1</ID>
+    <Subject>Product planning</Subject>
+    <Start>2009-02-02T07:00Z</Start>
+    <End>2009-02-02T08:00Z</End>
+    <RecurrenceRule><![CDATA[DTSTART:20090202T070000Z
+DTEND:20090202T080000Z
+RRULE:FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=2
+]]></RecurrenceRule>
+    <Resources>
+      <Calendar Key="1" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>2</ID>
+    <Subject>Architecture Review</Subject>
+    <Start>2009-01-05T09:00Z</Start>
+    <End>2009-01-05T10:00Z</End>
+    <RecurrenceRule><![CDATA[DTSTART:20090105T090000Z
+DTEND:20090105T100000Z
+RRULE:FREQ=WEEKLY;INTERVAL=2;BYDAY=MO;WKST=MO
+]]></RecurrenceRule>
+    <Resources>
+      <Calendar Key="1" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>3</ID>
+    <Subject>TDD Presentation</Subject>
+    <Start>2009-02-03T08:00Z</Start>
+    <End>2009-02-03T09:00Z</End>
+    <Resources>
+      <Calendar Key="1" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>4</ID>
+    <Subject>ASP.NET MVC Presentation</Subject>
+    <Start>2009-02-03T09:00Z</Start>
+    <End>2009-02-03T10:00Z</End>
+    <Resources>
+      <Calendar Key="1" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>5</ID>
+    <Subject>Entity Framework Presentation</Subject>
+    <Start>2009-02-02T11:00Z</Start>
+    <End>2009-02-02T12:00Z</End>
+    <Resources>
+      <Calendar Key="1" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>6</ID>
+    <Subject>Visual Studio Integration Conference</Subject>
+    <Start>2009-02-01T21:00Z</Start>
+    <End>2009-02-04T21:00Z</End>
+    <Resources>
+      <Calendar Key="1" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>7</ID>
+    <Subject>Interview with Junior WPF Developer candidate</Subject>
+    <Start>2009-02-04T07:00Z</Start>
+    <End>2009-02-04T08:00Z</End>
+    <Resources>
+      <Calendar Key="1" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>8</ID>
+    <Subject>Interview for Senior Silverlight Developer</Subject>
+    <Start>2009-02-05T08:00Z</Start>
+    <End>2009-02-05T09:00Z</End>
+    <Resources>
+      <Calendar Key="1" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>9</ID>
+    <Subject>MCPD Exam</Subject>
+    <Start>2009-02-06T07:00Z</Start>
+    <End>2009-02-06T08:00Z</End>
+    <Resources>
+      <Calendar Key="1" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>12</ID>
+    <Subject>.NET User Group Meeting</Subject>
+    <Start>2009-01-01T12:00Z</Start>
+    <End>2009-01-01T13:00Z</End>
+    <RecurrenceRule><![CDATA[DTSTART:20090101T120000Z
+DTEND:20090101T130000Z
+RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=TH;WKST=MO
+]]></RecurrenceRule>
+    <Resources>
+      <Calendar Key="1" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>13</ID>
+    <Subject>Scrum Training</Subject>
+    <Start>2009-01-25T21:00Z</Start>
+    <End>2009-01-27T21:00Z</End>
+  </Appointment>
+  <Appointment>
+    <ID>14</ID>
+    <Subject>Integration Partners Conference Call</Subject>
+    <Start>2009-01-26T11:00Z</Start>
+    <End>2009-01-26T12:00Z</End>
+    <RecurrenceRule><![CDATA[DTSTART:20090126T110000Z
+DTEND:20090126T120000Z
+RRULE:FREQ=WEEKLY;INTERVAL=2;BYDAY=MO;WKST=MO
+]]></RecurrenceRule>
+    <Resources>
+      <Calendar Key="1" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>16</ID>
+    <Subject>DevConnect conference</Subject>
+    <Start>2009-02-08T21:00Z</Start>
+    <End>2009-02-11T21:00Z</End>
+    <Resources>
+      <Calendar Key="2" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>17</ID>
+    <Subject>DevMedia conference</Subject>
+    <Start>2009-02-01T21:00Z</Start>
+    <End>2009-02-03T21:00Z</End>
+    <Resources>
+      <Calendar Key="2" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>18</ID>
+    <Subject>Print Ad Brainstorming</Subject>
+    <Start>2009-02-09T07:00Z</Start>
+    <End>2009-02-09T08:00Z</End>
+    <Resources>
+      <Calendar Key="2" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>19</ID>
+    <Subject>Shooting Video Ad</Subject>
+    <Start>2009-02-11T09:00Z</Start>
+    <End>2009-02-11T10:00Z</End>
+    <Resources>
+      <Calendar Key="2" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>20</ID>
+    <Subject>Budget Committee Meeting</Subject>
+    <Start>2009-01-06T11:00Z</Start>
+    <End>2009-01-06T12:00Z</End>
+    <RecurrenceRule><![CDATA[DTSTART:20090106T110000Z
+DTEND:20090106T120000Z
+RRULE:FREQ=WEEKLY;INTERVAL=2;BYDAY=TU;WKST=MO
+]]></RecurrenceRule>
+    <Resources>
+      <Calendar Key="2" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>21</ID>
+    <Subject>Review Ad Campaign Results</Subject>
+    <Start>2009-02-02T07:00Z</Start>
+    <End>2009-02-02T08:30Z</End>
+    <Resources>
+      <Calendar Key="2" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>22</ID>
+    <Subject>Media Planning meeting</Subject>
+    <Start>2009-02-02T14:00Z</Start>
+    <End>2009-02-02T15:00Z</End>
+    <RecurrenceRule><![CDATA[DTSTART:20090202T140000Z
+DTEND:20090202T150000Z
+RRULE:FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=2
+]]></RecurrenceRule>
+    <Resources>
+      <Calendar Key="2" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>23</ID>
+    <Subject>Brand Managers Workshop</Subject>
+    <Start>2009-02-13T11:00Z</Start>
+    <End>2009-02-13T12:00Z</End>
+    <Resources>
+      <Calendar Key="2" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>24</ID>
+    <Subject>Presentation at STU</Subject>
+    <Start>2009-01-27T09:00Z</Start>
+    <End>2009-01-27T10:00Z</End>
+    <Resources>
+      <Calendar Key="2" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>25</ID>
+    <Subject>Evangelist Webinar</Subject>
+    <Start>2009-01-30T12:00Z</Start>
+    <End>2009-01-30T13:00Z</End>
+    <RecurrenceRule><![CDATA[DTSTART:20090130T120000Z
+DTEND:20090130T130000Z
+RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=FR;WKST=MO
+]]></RecurrenceRule>
+    <Resources>
+      <Calendar Key="2" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>26</ID>
+    <Subject>Samantha's Birthday</Subject>
+    <Start>2009-01-28T21:00Z</Start>
+    <End>2009-01-29T21:00Z</End>
+    <RecurrenceRule><![CDATA[DTSTART:20090128T210000Z
+DTEND:20090129T210000Z
+RRULE:FREQ=YEARLY;INTERVAL=1;BYMONTHDAY=28;BYDAY=MO,TU,WE,TH,FR,SA,SU;BYMONTH=1
+]]></RecurrenceRule>
+    <Resources>
+      <Calendar Key="3" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>27</ID>
+    <Subject>Dentist Appointment</Subject>
+    <Start>2009-02-02T05:00Z</Start>
+    <End>2009-02-02T06:00Z</End>
+    <Resources>
+      <Calendar Key="3" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>28</ID>
+    <Subject>Basketball Game</Subject>
+    <Start>2009-01-27T14:00Z</Start>
+    <End>2009-01-27T15:00Z</End>
+    <RecurrenceRule><![CDATA[DTSTART:20090127T140000Z
+DTEND:20090127T150000Z
+RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=TU;WKST=MO
+]]></RecurrenceRule>
+    <Resources>
+      <Calendar Key="3" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>29</ID>
+    <Subject>Community Concert</Subject>
+    <Start>2009-02-06T17:00Z</Start>
+    <End>2009-02-06T18:00Z</End>
+    <Resources>
+      <Calendar Key="3" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>30</ID>
+    <Subject>Car Repair</Subject>
+    <Start>2009-01-28T06:00Z</Start>
+    <End>2009-01-28T07:00Z</End>
+    <Resources>
+      <Calendar Key="3" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>31</ID>
+    <Subject>Dinner with Carla's Parents </Subject>
+    <Start>2009-01-29T16:00Z</Start>
+    <End>2009-01-29T17:00Z</End>
+    <Resources>
+      <Calendar Key="3" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>32</ID>
+    <Subject>Documentation Review</Subject>
+    <Start>2009-01-26T10:00Z</Start>
+    <End>2009-01-26T11:00Z</End>
+    <RecurrenceRule><![CDATA[DTSTART:20090126T100000Z
+DTEND:20090126T110000Z
+RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=MO;WKST=MO
+]]></RecurrenceRule>
+    <Resources>
+      <Calendar Key="4" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>33</ID>
+    <Subject>Review Sales Performance</Subject>
+    <Start>2009-01-29T11:00Z</Start>
+    <End>2009-01-29T12:00Z</End>
+    <RecurrenceRule><![CDATA[DTSTART:20090129T110000Z
+DTEND:20090129T120000Z
+RRULE:FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=29
+]]></RecurrenceRule>
+    <Resources>
+      <Calendar Key="4" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>34</ID>
+    <Subject>Meeting at SNT Office</Subject>
+    <Start>2009-01-27T12:00Z</Start>
+    <End>2009-01-27T13:00Z</End>
+    <Resources>
+      <Calendar Key="4" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>35</ID>
+    <Subject>Evaluation Meeting</Subject>
+    <Start>2009-02-04T09:00Z</Start>
+    <End>2009-02-04T10:00Z</End>
+    <Resources>
+      <Calendar Key="4" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>36</ID>
+    <Subject>Interview with PM candidate</Subject>
+    <Start>2009-02-12T08:00Z</Start>
+    <End>2009-02-12T09:00Z</End>
+    <Resources>
+      <Calendar Key="4" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>37</ID>
+    <Subject>Conference call with Ted Stewart</Subject>
+    <Start>2009-02-10T12:00Z</Start>
+    <End>2009-02-10T13:00Z</End>
+    <Resources>
+      <Calendar Key="4" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>38</ID>
+    <Subject>Lunch with BTQ Representative</Subject>
+    <Start>2009-02-02T11:00Z</Start>
+    <End>2009-02-02T12:30Z</End>
+    <Resources>
+      <Calendar Key="4" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>39</ID>
+    <Subject>Presentation for Key Accounts</Subject>
+    <Start>2009-01-28T10:00Z</Start>
+    <End>2009-01-28T11:00Z</End>
+    <RecurrenceRule><![CDATA[DTSTART:20090128T100000Z
+DTEND:20090128T110000Z
+RRULE:FREQ=WEEKLY;INTERVAL=2;BYDAY=WE;WKST=MO
+]]></RecurrenceRule>
+    <Resources>
+      <Calendar Key="4" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>40</ID>
+    <Subject>Strategic planning</Subject>
+    <Start>2009-01-30T07:00Z</Start>
+    <End>2009-01-30T08:00Z</End>
+    <RecurrenceRule><![CDATA[DTSTART:20090130T070000Z
+DTEND:20090130T080000Z
+RRULE:FREQ=MONTHLY;INTERVAL=4;BYMONTHDAY=30
+]]></RecurrenceRule>
+    <Resources>
+      <Calendar Key="4" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>41</ID>
+    <Subject>Introduce Ann Blake to Marketing</Subject>
+    <Start>2009-02-10T08:00Z</Start>
+    <End>2009-02-10T09:00Z</End>
+    <Resources>
+      <Calendar Key="2" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>42</ID>
+    <Subject>Submit Status Report</Subject>
+    <Start>2009-01-26T06:30Z</Start>
+    <End>2009-01-26T07:30Z</End>
+    <Resources>
+      <Calendar Key="4" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>43</ID>
+    <Subject>Submit Whitepaper for publishing</Subject>
+    <Start>2009-01-29T08:00Z</Start>
+    <End>2009-01-29T09:00Z</End>
+    <Resources>
+      <Calendar Key="4" />
+    </Resources>
+  </Appointment>
+  <Appointment>
+    <ID>44</ID>
+    <Subject>Meeting with Book Editor</Subject>
+    <Start>2009-02-06T11:00Z</Start>
+    <End>2009-02-06T12:00Z</End>
+    <Resources>
+      <Calendar Key="4" />
+    </Resources>
+  </Appointment>
+</Appointments>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="ChargebackData">
+  <DataContextMoniker Name="/ChargebackDataDataContext" />
+  <nestedChildShapes>
+    <classShape Id="e1a8acb3-7a94-4119-90d8-fd584c52c082" absoluteBounds="4.875, 0.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/ChargebackDataDataContext/AS_WF_VW_WorkflowDocument" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8739636f-e622-49f0-a68e-23fe81e6933b" absoluteBounds="4.8900000000000006, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="17bf371a-4867-40c9-bb26-5be1616c9a74" absoluteBounds="0.5, 0.75, 2, 6.0015283203125">
+      <DataClassMoniker Name="/ChargebackDataDataContext/AS_GAIAM_Chargeback_Header" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5b56dbb0-06c9-430b-a9ae-63ff716eb8d0" absoluteBounds="0.51500000000000012, 1.21, 1.9700000000000002, 5.4415283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="40faceef-0202-4928-acc9-cd93161b875a" absoluteBounds="2.625, 4, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/ChargebackDataDataContext/AS_GAIAM_Chargeback_Detail_Temp" />
+      <nestedChildShapes>
+        <elementListCompartment Id="12d80e31-3092-445d-93fb-8d2e1d199518" absoluteBounds="2.6399999999999997, 4.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e9c0be41-0824-447d-ad02-0638c404cd37" absoluteBounds="2.625, 0.75, 2, 3.1170068359375">
+      <DataClassMoniker Name="/ChargebackDataDataContext/AS_GAIAM_Chargeback_Detail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="decbd931-9850-4fee-a77f-75a0ef9e7c2a" absoluteBounds="2.64, 1.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="eb8edd46-35fb-4d6c-9089-3c0b8786b3ec" absoluteBounds="5, 2.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/ChargebackDataDataContext/AS_GAIAM_Chargeback_ExpenseType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e2248468-6bc2-41b4-8461-aae4bb005f2a" absoluteBounds="5.015, 2.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
