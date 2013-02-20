@@ -1,29 +1,29 @@
 ﻿
-$(function () {
-    var activeIndex = parseInt($('#<%=hidAccordionIndex.ClientID %>').val());
+//$(function () {
+//    var activeIndex = parseInt($('#<%=hidAccordionIndex.ClientID %>').val());
 
-    $("#accordion").accordion({
-        event: "click",
-        autoHeight: false,
-        active: activeIndex
-    });
-    if ($('#MainContent_lblZipCode').text() != '') {
-        getBillingAddress();
-    }
-    if ($('#MainContent_txtZipCode').val() != '') {
-        getShippingAddress();
-    }
-    if ($('#MainContent_lblGrandTotal').text() != '') {
-        GetOfferLines();
-    }
-    CalculateTotals();
-});
+//    $("#accordion").accordion({
+//        event: "click",
+//        autoHeight: false,
+//        active: activeIndex
+//    });
+//    if ($('#MainContent_lblZipCode').text() != '') {
+//        getBillingAddress();
+//    }
+//    if ($('#MainContent_txtZipCode').val() != '') {
+//        getShippingAddress();
+//    }
+//    if ($('#MainContent_lblGrandTotal').text() != '') {
+//        GetOfferLines();
+//    }
+//    CalculateTotals();
+//});
 
-function AccordianHid(val1) {
-    //debugger;
-    var i = parseInt(val1.id);
-    $("#<%=hidAccordionIndex.ClientID %>").val(i);
-}
+//function AccordianHid(val1) {
+//    //debugger;
+//    var i = parseInt(val1.id);
+//    $("#<%=hidAccordionIndex.ClientID %>").val(i);
+//}
 function popModel() {
     $("#popUpShow").css('display', 'block');
     $("#dialog-confirm").dialog({
@@ -232,4 +232,14 @@ function calculatGranTotal() {
     var grandtotal = subtotal + shipping + donation;
     $("#MainContent_lblGrandTotal").text(grandtotal);
 }
-        
+
+$(function () {
+    $('#accordion .divAccordian').hide();
+    $('#accordion h3:first').addClass('active').next().slideDown('slow');
+    $('#accordion h3').click(function () {
+        if ($(this).next().is(':hidden')) {
+            $('#accordion h3').removeClass('active').next().slideUp('slow');
+            $(this).toggleClass('active').next().slideDown('slow');
+        }
+    });
+});

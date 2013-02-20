@@ -15,41 +15,42 @@
     <div id="divMain">
         <asp:Label ID="lblError" Style="color: Red; margin-left: 170px; visibility: hidden;"
             runat="server" Text=""></asp:Label></div>
-    <div style="float: left; width: 170px">
-        <div style="float: left; width: 170px">
-            <p>
-                Order Summary<br />
-                Order No.
+    <div class="main">
+    <div class="container">
+    <div class="leftcolumn">
+            
+                <h2>Order Summary</h2>
+                <p>Order No.
                 <asp:Label ID="lblOrderNo" runat="server" Text=""></asp:Label></p>
-        </div>
-        <div style="float: left; width: 170px">
-            <p style="font-style: italic">
+       
+        
+            <h3>
                 Billing Address
-            </p>
+            </h3>
             <div id="divBilling">
             </div>
-        </div>
-        <div style="float: left; width: 170px">
-            <p style="font-style: italic">
+        
+        
+            <h3>
                 Shipping Address
-            </p>
+            </h3>
             <div id="divShipping">
             </div>
-        </div>
-        <div style="float: left; width: 170px">
-            <p style="font-style: italic">
+        
+        
+            <h3>
                 Offer Lines
-            </p>
+            </h3>
             <div id="divOfferLines">
             </div>
-        </div>
-        <div style="float: left; width: 170px">
-            <p style="font-style: italic">
+        
+        
+            <h3>
                 CC Payment Information
-            </p>
+            </h3>
             <div id="divPaymentInfo">
             </div>
-        </div>
+        
     </div>
     <div id="accordion" style="float: left; width: 750px;">
         <a id="0" href="" onclick="AccordianHid(this)">
@@ -57,19 +58,20 @@
                 Billing Address</h3>
         </a>
         <div class="divAccordian">
-            <table style="width: 700px;">
+            <table style="width: 700px;" class="secondpara" align="center">
                 <tr>
                     <td valign="top">
                         <table style="width: 350px;">
                             <tr>
-                                <td style="width: 70px; color: Red;">
+                                <td class="label" valign="top">
                                     Name
                                 </td>
-                                <td colspan="3" style="width: 280px;">
-                                    <asp:TextBox ID="txtCustName" Width="180px" runat="server"></asp:TextBox>
-                                    <asp:ImageButton ID="imgSearch" runat="server" OnClientClick="return IsValidateFor()"
-                                        OnClick="imgSearch_Click" /><asp:Button ID="btnSearchBy" Style="visibility: hidden"
-                                            Width="0px" runat="server" Text="" />
+                                <td valign="top" style="width:180px">
+                                    <asp:TextBox ID="txtCustName" Width="180px" runat="server" CssClass="txtarea"></asp:TextBox></td>
+                                    <td><asp:ImageButton ID="imgSearch" runat="server" OnClientClick="return IsValidateFor()"
+                                        OnClick="imgSearch_Click" CssClass="search" /></td>
+                                        <td><asp:Button ID="btnSearchBy" Style="visibility: hidden"
+                                            Width="0px" runat="server" Text="" /></td>
                                     <%-- </td>
                                 <td style="width: 150px;">--%>
                                 </td>
@@ -133,7 +135,7 @@
                                     Telephone
                                 </td>
                                 <td style="width: 240px;">
-                                    <asp:TextBox ID="txtPhone" Width="240px" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtPhone" Width="240px" runat="server"  CssClass="txtarea"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
@@ -178,9 +180,9 @@
                     <td>
                     </td>
                     <td>
-                        <asp:Button ID="btnBillingBack" runat="server" Text="<< Back" />
+                        <asp:Button ID="btnBillingBack" runat="server" Text="<< Back" CssClass="btn" />
                         <asp:Button ID="btnBillContinue" runat="server" Text="Continue" OnClientClick="return getBillingAddress()"
-                            OnClick="btnBillContinue_Click" />
+                            OnClick="btnBillContinue_Click"  CssClass="btn"/>
                     </td>
                 </tr>
             </table>
@@ -189,13 +191,13 @@
             <h3>
                 Shipping Address</h3>
         </a>
-        <div class="divAccordian">
-            <table style="width: 700px;">
+        <div class="divAccordian secondpara">
+            <table style="width: 700px;" align="center">
                 <tr>
                     <td valign="top">
                         <table style="width: 350px;">
                             <tr>
-                                <td style="color: Red;">
+                                <td class="label">
                                     Name
                                 </td>
                                 <td colspan="3">
@@ -291,9 +293,9 @@
                     <td>
                     </td>
                     <td>
-                        <asp:Button ID="btnshippingBack" OnClientClick="GetBack(this)" runat="server" Text="<< Back" /><asp:Button
+                        <asp:Button ID="btnshippingBack" OnClientClick="GetBack(this)" runat="server" Text="<< Back" CssClass="btn"/><asp:Button
                             ID="btnShipContinue" runat="server" OnClientClick="return getShippingAddress()"
-                            Text="Continue" OnClick="btnShipContinue_Click" />
+                            Text="Continue" OnClick="btnShipContinue_Click"  CssClass="btn"/>
                     </td>
                 </tr>
             </table>
@@ -374,10 +376,10 @@
                         </td>
                     </tr>
                 </table>--%>
-            <table style="width: 700px;">
+            <table style="Width:100%">
                 <tr>
                     <td>
-                        <asp:GridView ID="gdvOfferLine" Width="700px" AutoGenerateColumns="false" CssClass="gridId"
+                        <asp:GridView ID="gdvOfferLine" AutoGenerateColumns="false" CssClass="gridId"
                             runat="server" PageSize="10" HeaderStyle-BackColor="" AlternatingRowStyle-BackColor="#ecebe7">
                             <PagerSettings Mode="NumericFirstLast" Position="Bottom" />
                             <PagerStyle BackColor="#F0FFFF" />
@@ -456,11 +458,13 @@
                             border-collapse: collapse; background-color: #edf8f8;"></asp:TextBox>
                     </td>
                 </tr>
+                </table>
+                <table class="buttunback">
                 <tr>
                     <td align="right" colspan="2">
-                        <asp:Button ID="btnBack3" OnClientClick="GetBack(this)" runat="server" Text="<< Back" />&nbsp;&nbsp;<asp:Button
+                        <asp:Button ID="btnBack3" OnClientClick="GetBack(this)" runat="server" Text="<< Back"  CssClass="btn"/>&nbsp;&nbsp;<asp:Button
                             ID="btnConfirmOffer" OnClientClick="return GetOfferLines()" runat="server" Text="Continue"
-                            OnClick="btnConfirmOffer_Click" />
+                            OnClick="btnConfirmOffer_Click"  CssClass="btn"/>
                     </td>
                 </tr>
             </table>
@@ -470,44 +474,48 @@
                 Credit Card Payment Information</h3>
         </a>
         <div class="divAccordian">
-            <table style="width: 700px;">
+            <table style="width: 700px;" align="center" class="forthpara" cellpadding=0 cellspacing=4>
                 <tr>
-                    <td style="width: 150px; color: Red;">
-                        CreditCardType
+                    <td class="label">
+                        Credit Card Type
                     </td>
-                    <td style="width: 200px;">
-                        <asp:DropDownList ID="ddlCreditCardType" runat="server" Style="width: 160px;">
+                    <td style="width: 200px;" class="txtarea">
+                        <asp:DropDownList ID="ddlCreditCardType" runat="server" Style="width: 200px;">
                             <asp:ListItem>Visa</asp:ListItem>
                             <asp:ListItem>MasterCard</asp:ListItem>
                             <asp:ListItem>Discover</asp:ListItem>
                             <asp:ListItem>AmEx</asp:ListItem>
                         </asp:DropDownList>
                     </td>
-                    <td style="width: 150px; color: Red;">
-                        ExpirationDate
+                    <td style="width:60px"></td>
+                    <td class="label">
+                        Expiration Date
                     </td>
-                    <td style="width: 200px;">
+                    <td style="width: 200px;" class="txtarea">
                         <asp:TextBox ID="txtExpirationDate" runat="server" />
                     </td>
                 </tr>
-                <tr style="height: 45px; color: Red;">
-                    <td>
-                        CreditCardNo.
+                <tr>
+                    <td class="label">
+                        Credit Card No.
                     </td>
-                    <td>
+                    <td class="txtarea">
                         <asp:TextBox ID="txtCreditCardNo" runat="server" Width="152px" />
                     </td>
-                    <td style="color: Red;">
+                    <td style="width:60px"></td>
+                    <td class="label">
                         CVN
                     </td>
-                    <td>
+                    <td class="txtarea">
                         <asp:TextBox ID="txtCVN" runat="server" />
                     </td>
                 </tr>
+                </table>
+                <table class="buttunback">
                 <tr>
                     <td colspan="4" style="text-align: right">
-                        <asp:Button ID="btnBack4" runat="server" OnClientClick="GetBack(this)" Text="<< Back" /><asp:Button
-                            ID="btncontinue4" runat="server" Text="Continue" OnClick="btncontinue4_Click" />
+                        <asp:Button ID="btnBack4" runat="server" OnClientClick="GetBack(this)" Text="<< Back"  CssClass="btn"/><asp:Button
+                            ID="btncontinue4" runat="server" Text="Continue" OnClick="btncontinue4_Click"  CssClass="btn"/>
                     </td>
                 </tr>
             </table>
@@ -517,41 +525,38 @@
                 Total, Confirmation and Order Submission
             </h3>
         </a>
-        <div class="divAccordian">
-            <table style="width: 700px;">
+        <div class="divAccordian fifthpara">
+            <table cellpadding=0 cellspacing=0>
                 <tr>
-                    <td style="width: 150px;">
+                    <td class="label">
                         Order No.
                     </td>
-                    <td style="width: 200px;">
+                    <td class="inputxt">
                         <asp:Label ID="lblOrderNum" Width="200px" runat="server" Text=""></asp:Label>
                     </td>
-                    <td style="width: 150px;">
+                    <td style="width:50px"></td>
+                    <td class="label">
                         Order Total
                     </td>
-                    <td style="width: 200px;">
+                    <td class="inputxt">
                         <asp:Label ID="lblOrderTotal" Width="200px" runat="server" Text=""></asp:Label>
                     </td>
                 </tr>
-                <tr style="height: 45px">
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
+                
+                </table>
+                <table style="width:100%; padding-top:10px; border-top:1px solid #c4bd97">
                 <tr>
                     <td colspan="4" style="text-align: right">
-                        <asp:Button ID="btnBack5" runat="server" OnClientClick="GetBack(this)" Text="<< Back" />&nbsp;&nbsp;<asp:Button
-                            ID="btnSaveOrder" runat="server" Text="Save" Width="63px" OnClick="btnSaveOrder_Click" />&nbsp;&nbsp;<asp:Button
-                                ID="btnProcessOrder" runat="server" Text="Process" Width="74px" />
+                        <asp:Button ID="btnBack5" runat="server" OnClientClick="GetBack(this)" Text="<< Back"  CssClass="btn"/>&nbsp;&nbsp;<asp:Button
+                            ID="btnSaveOrder" runat="server" Text="Save" Width="63px" OnClick="btnSaveOrder_Click"  CssClass="btn"/>&nbsp;&nbsp;<asp:Button
+                                ID="btnProcessOrder" runat="server" Text="Process" Width="74px"  CssClass="btn"/>
                     </td>
+                    <td style="width:30px"></td>
                 </tr>
             </table>
         </div>
+    </div>
+    </div>
     </div>
     <%-- <div id="popUpShow" style="display: none">
         <div id="dialog-confirm" title="Empty the recycle bin?" style="width: 900px; height: 600px">--%>
@@ -603,7 +608,7 @@
                                     OnPageIndexChanging="gvCustomers_PageIndexChanging">
                                     <PagerSettings Mode="NumericFirstLast" Position="Bottom" />
                                     <PagerStyle BackColor="#F0FFFF" />
-                                    <HeaderStyle BackColor="#A9A9A9" />
+                                    <HeaderStyle CssClass="tablehd"/>
                                     <Columns>
                                         <asp:TemplateField HeaderText="Name">
                                             <ItemTemplate>

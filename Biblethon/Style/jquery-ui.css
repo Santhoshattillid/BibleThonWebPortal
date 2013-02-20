@@ -90,11 +90,10 @@
 	cursor: pointer;
 	position: relative;
 	margin-top: 2px;
-	padding: .5em .5em .5em .7em;
 	min-height: 0; /* support: IE7 */
 }
 .ui-accordion .ui-accordion-icons {
-	padding-left: 2.2em;
+	padding-left: 1.2em;
 }
 .ui-accordion .ui-accordion-noicons {
 	padding-left: .7em;
@@ -809,7 +808,7 @@ body .ui-tooltip {
 	font-size: 1em;
 }
 .ui-widget-content {
-	border: 1px solid #aaaaaa/*{borderColorContent}*/;
+	border: 1px solid #c4bd97/*{borderColorContent}*/;
 	background: #ffffff/*{bgColorContent}*/ url(images/ui-bg_flat_75_ffffff_40x100.png)/*{bgImgUrlContent}*/ 50%/*{bgContentXPos}*/ 50%/*{bgContentYPos}*/ repeat-x/*{bgContentRepeat}*/;
 	color: #222222/*{fcContent}*/;
 }
@@ -817,7 +816,7 @@ body .ui-tooltip {
 	color: #222222/*{fcContent}*/;
 }
 .ui-widget-header {
-	border: 1px solid #aaaaaa/*{borderColorHeader}*/;
+	border: 1px solid #c4bd97/*{borderColorHeader}*/;
 	background: #cccccc/*{bgColorHeader}*/ url(images/ui-bg_highlight-soft_75_cccccc_1x100.png)/*{bgImgUrlHeader}*/ 50%/*{bgHeaderXPos}*/ 50%/*{bgHeaderYPos}*/ repeat-x/*{bgHeaderRepeat}*/;
 	color: #222222/*{fcHeader}*/;
 	font-weight: bold;
@@ -831,8 +830,8 @@ body .ui-tooltip {
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
-	border: 1px solid #d3d3d3/*{borderColorDefault}*/;
-	background: #e6e6e6/*{bgColorDefault}*/ url(images/ui-bg_glass_75_e6e6e6_1x400.png)/*{bgImgUrlDefault}*/ 50%/*{bgDefaultXPos}*/ 50%/*{bgDefaultYPos}*/ repeat-x/*{bgDefaultRepeat}*/;
+	border: 1px solid #c4bd97/*{borderColorDefault}*/;
+	background: #215968/*{bgColorDefault}*/ url(http://localhost:38424/BibleThonWebPortal/Images/acc-bg.png)/*{bgImgUrlDefault}*/ 50%/*{bgDefaultXPos}*/ 50%/*{bgDefaultYPos}*/ repeat-x/*{bgDefaultRepeat}*/;
 	font-weight: normal/*{fwDefault}*/;
 	color: #555555/*{fcDefault}*/;
 }
@@ -848,8 +847,8 @@ body .ui-tooltip {
 .ui-state-focus,
 .ui-widget-content .ui-state-focus,
 .ui-widget-header .ui-state-focus {
-	border: 1px solid #999999/*{borderColorHover}*/;
-	background: #dadada/*{bgColorHover}*/ url(images/ui-bg_glass_75_dadada_1x400.png)/*{bgImgUrlHover}*/ 50%/*{bgHoverXPos}*/ 50%/*{bgHoverYPos}*/ repeat-x/*{bgHoverRepeat}*/;
+	border: 1px solid #c4bd97/*{borderColorHover}*/;
+	background: #215968/*{bgColorHover}*/ url(http://localhost:38424/BibleThonWebPortal/Images/acc-bg.png)/*{bgImgUrlHover}*/ 50%/*{bgHoverXPos}*/ 50%/*{bgHoverYPos}*/ repeat-x/*{bgHoverRepeat}*/;
 	font-weight: normal/*{fwDefault}*/;
 	color: #212121/*{fcHover}*/;
 }
@@ -863,10 +862,10 @@ body .ui-tooltip {
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
-	border: 1px solid #aaaaaa/*{borderColorActive}*/;
-	background: #ffffff/*{bgColorActive}*/ url(images/ui-bg_glass_65_ffffff_1x400.png)/*{bgImgUrlActive}*/ 50%/*{bgActiveXPos}*/ 50%/*{bgActiveYPos}*/ repeat-x/*{bgActiveRepeat}*/;
+	border: 1px solid #c4bd97/*{borderColorActive}*/;
+	background: #bfbfbf/*{bgColorActive}*/ url(http://localhost:38424/BibleThonWebPortal/Images/acc-bg1.png)/*{bgImgUrlActive}*/ 50%/*{bgActiveXPos}*/ 50%/*{bgActiveYPos}*/ repeat-x/*{bgActiveRepeat}*/;
 	font-weight: normal/*{fwDefault}*/;
-	color: #212121/*{fcActive}*/;
+	color: #fff/*{fcActive}*/;
 }
 .ui-state-active a,
 .ui-state-active a:link,
@@ -1149,25 +1148,25 @@ body .ui-tooltip {
 .ui-corner-top,
 .ui-corner-left,
 .ui-corner-tl {
-	border-top-left-radius: 4px/*{cornerRadius}*/;
+	/*border-top-left-radius: 4px{cornerRadius}*/;
 }
 .ui-corner-all,
 .ui-corner-top,
 .ui-corner-right,
 .ui-corner-tr {
-	border-top-right-radius: 4px/*{cornerRadius}*/;
+	/*border-top-right-radius: 4px{cornerRadius}*/;
 }
 .ui-corner-all,
 .ui-corner-bottom,
 .ui-corner-left,
 .ui-corner-bl {
-	border-bottom-left-radius: 4px/*{cornerRadius}*/;
+	/*border-bottom-left-radius: 4px{cornerRadius}*/;
 }
 .ui-corner-all,
 .ui-corner-bottom,
 .ui-corner-right,
 .ui-corner-br {
-	border-bottom-right-radius: 4px/*{cornerRadius}*/;
+	/*border-bottom-right-radius: 4px{cornerRadius}*/;
 }
 
 /* Overlays */
@@ -1182,5 +1181,4 @@ body .ui-tooltip {
 	background: #aaaaaa/*{bgColorShadow}*/ url(images/ui-bg_flat_0_aaaaaa_40x100.png)/*{bgImgUrlShadow}*/ 50%/*{bgShadowXPos}*/ 50%/*{bgShadowYPos}*/ repeat-x/*{bgShadowRepeat}*/;
 	opacity: .3/*{opacityShadow}*/;
 	filter: Alpha(Opacity=30)/*{opacityFilterShadow}*/;
-	border-radius: 8px/*{cornerRadiusShadow}*/;
-}
+	}

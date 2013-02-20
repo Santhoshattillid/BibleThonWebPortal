@@ -1,12 +1,37 @@
-﻿
+﻿        body
+        {
+            font-family:Arial;
+            background:#efefef;
+        }
+        td, th
+        {
+            border-color:#ccc;
+        }
+        td a
+        {
+            color:#2180BC
+        }
+        .main
+        {
+            width:1200px;
+            margin:0 auto;
+
+        }
+        .container
+        {
+            background:#fff;
+            float:left;
+            border:1px solid #ccc;
+            padding:20px;
+        }
         #txtName
         {
             width: 380px;
         }
         .gridId
         {
-            width: 650px;
-            margin-top: 10px;
+            width: 100%;
+            font-size:12px;
         }
         .modalBackground
         {
@@ -23,11 +48,12 @@
             padding-top: 10px;
             padding-left: 10px;
             width: 700px;
-            height: 450px;
+            height: auto;
         }
         .divAccordian
         {
-            background-color: #edf8f8;
+            background-color: #f2f2f2;
+            height:auto !important;
         }
         .lnkButton
         {
@@ -47,4 +73,163 @@
         {
             background-color: Yellow;
         }
-    
+                .leftcolumn
+        {
+            width:250px;
+            float:left;
+            margin-right:20px;
+        }
+        .leftcolumn h2, .leftcolumn h3
+        {
+            color:#215968;
+            font-size:18px;
+            font-weight:400;
+            border-bottom:1px solid #215968
+        }
+        .leftcolumn h3
+        {
+            font-style:italic;
+            font-weight:400;
+            font-size:14px;
+            width:100%;
+            border-bottom:1px dotted #215968
+        }
+        .leftcolumn p
+        {
+            color:#4a404f;
+            font-size:12px;
+            padding-left:20px;
+        }
+        #accordion {
+         width:540px;
+         margin:0px auto;
+        }
+
+        #accordion h3 {
+         cursor:pointer;
+         margin:0px 0px;
+         padding:7px 0px 7px 20px;
+         /*background:url(http://localhost:38424/BibleThonWebPortal/Images/down-arrow.png) no-repeat left;*/
+         font-size:14px;
+         font-weight:400;
+         color:#fff;
+        }
+
+        #accordion .divAccordian {
+         background-color:#f0f0f1;
+         padding:0px;
+         font-size:11px;
+         font-weight:400;
+         color:#000;
+         height:auto;    
+        }
+
+        #accordion h3.active {
+         /*background:url(http://localhost:38424/BibleThonWebPortal/Images/up-arrow.png) no-repeat left*/
+        }
+        .redfnt
+        {
+            color:Red;
+        }
+        .fifthpara .label
+        {
+             width: 100px; 
+             color:Red;
+             color:#000;
+        }
+        .fifthpara .inputxt
+        {
+         width: 200px; 
+         border:1px solid #bfbfbf; 
+         height:25px;
+         background:#fff;
+        }
+        .fifthpara table
+        {
+            padding:20px;
+        }
+        .forthpara
+        {
+            padding:20px 0;
+        }
+        .forthpara td, .forthpara tr
+        {
+            padding:0;
+            margin:0;
+        }
+        .forthpara input, .forthpara select
+        {
+            background:none;
+            border:0;
+        }
+        .forthpara .label, .secondpara .label
+        {
+             width: 60px; 
+             color:Red;
+             color:Red;
+             padding:0
+        }
+        .txtarea, .txtareabtm
+        {
+            background:#fff;
+            border:1px solid #ccc;
+            padding:5px;
+            width:200px;
+            height:25px;
+        }
+        .secondpara .txtarea
+        {
+            padding:0;
+            margin:0;
+            height:25px;
+        }
+        .secondpara td
+        {
+            border:0;
+        }
+        .secondpara img
+        {
+            border:0;
+        }
+        .txtareabtm
+        {
+            border-top:0px solid #ccc;
+            }
+         .buttunback
+         {
+             width:100%; 
+             padding:6px; 
+             border-top:1px solid #c4bd97;
+         }
+         .tablehd th
+         {
+             background:url(http://localhost:38424/BibleThonWebPortal/Images/table-bg.png);
+             height:20px;
+             font-size:12px;
+         }
+         .search
+         {
+             background:url(http://localhost:38424/BibleThonWebPortal/Images/search_button.png) no-repeat;
+             color:#f2f2f2;
+             height:18px !important;
+             width:15px;
+             text-indent:-9999;
+             border:0 !important;
+             float:left;
+         }
+         .close, .btn
+         {
+             background:url(http://localhost:38424/BibleThonWebPortal/Images/btn-bg.png);
+             padding:5px;
+             color:#fff;
+             font-weight:bold;
+             border:1px solid #888;
+         }
+         .close:hover, .btn:hover
+         {
+             background:url(http://localhost:38424/BibleThonWebPortal/Images/btn-bg1.png);
+         }
+         #imgSearch
+         {
+             border:0 none;
+         }
