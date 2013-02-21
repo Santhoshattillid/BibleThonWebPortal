@@ -11,18 +11,26 @@ public partial class Biblethon_OrderDetails : System.Web.UI.Page
     public List<BillingAddress> Billing;
     public List<ShippingAddress> ShippingAddress;
     DataTable _dtCustomer;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
-        {
-            //var customerDetails = new EConnectModel().GetCustomerDetails(_connString);
-            Billing = new BillingAddress().GetCustomerDetails(_connString);
-            ShippingAddress = new ShippingAddress().GetCustometShipAddress(_connString);
-            _dtCustomer = ToDataTable(Billing);
+            DataBind();
+    }
 
-            GridView1.DataSource = _dtCustomer;
-            GridView1.DataBind();
-        }
+
+    public void RadGrid1_DataBinding(object sender, EventArgs e)
+    {
+        DataBind();
+    }
+
+    private void DataBind()
+    {
+        Billing = new BillingAddress().GetCustomerDetails(_connString);
+        ShippingAddress = new ShippingAddress().GetCustometShipAddress(_connString);
+        _dtCustomer = ToDataTable(Billing);
+        RadGrid1.DataSource = _dtCustomer;
+        RadGrid1.Rebind();
     }
 
     public DataTable ToDataTable<T>(IList<T> listData)

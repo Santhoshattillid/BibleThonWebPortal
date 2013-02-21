@@ -14,57 +14,205 @@ public partial class Biblethon_OrderEntry : Page
     public List<BillingAddress> CustomerAddress;
     public List<ShippingAddress> ShippingAddress;
     public List<OfferLines> OfferLines;
-    DataTable _dtCustomer, _dtShip;
     DataRow[] _dtFilterRows;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
+            LblDate.Text = DateTime.Now.ToString("MM / dd / yyyy");
             Session["orderNumber"] = new EConnectModel().GetNextSalseDocNumber(_connString);
             lblOrderNo.Text = Session["orderNumber"].ToString();
-            BindCustomerDetails();
-            BindOfferLines();
-            BindCustomerShipDetails();
-            GetDataVisibleFalse();
+            lblOrderNum.Text = Session["orderNumber"].ToString();
         }
+
+        // making all shipping address fields as read only
+        txtCustomerName.ReadOnly = true;
+        txtTelephone.ReadOnly = true;
+        txtAddress1.ReadOnly = true;
+        txtAddress2.ReadOnly = true;
+        txtAddress3.ReadOnly = true;
+        txtCity.ReadOnly = true;
+        txtState.ReadOnly = true;
+        txtZipCode.ReadOnly = true;
+        txtCountry.ReadOnly = true;
+        txtEmail.ReadOnly = true;
     }
 
-    private void BindCustomerDetails()
+    protected void btnBillContinue_Click(object sender, EventArgs e)
     {
-        CustomerAddress = new BillingAddress().GetCustomerDetails(_connString);
-        _dtCustomer = ToDataTable(CustomerAddress);
-        Session["customerAddress"] = _dtCustomer;
-        gvCustomers.DataSource = _dtCustomer;
-        gvCustomers.DataSource = CustomerAddress;
-        gvCustomers.DataBind();
+        var customerAddress = new BillingAddress().GetCustomerDetails(_connString);
+        var address = (from c in customerAddress
+                       where
+                           (c.CustomerName.StartsWith(txtCustName.Text) || c.CustomerName.StartsWith(txtCustName.Text) ||
+                            c.CustomerName.StartsWith(txtCustName.Text)) &&
+                           (c.Telephone1.Equals(txtTelephone.Text) || c.Telephone2.Equals(txtTelephone.Text) ||
+                            c.Telephone3.Equals(txtTelephone.Text))
+                       select c).ToList();
+        if (address.Count > 0)
+        {
+            // assigning billing address values to labels
+
+            lblAddress1.Text = address[0].Address1;
+            lblAddress2.Text = address[0].Address2;
+            lblAddress3.Text = address[0].Address3;
+            lblCity.Text = address[0].City;
+            lblCountry.Text = address[0].Country;
+            lblState.Text = address[0].State;
+            lblZipCode.Text = address[0].Zipcode;
+
+            hidAccordionIndex.Value = "1";
+            if (cbShipping.Checked)
+            {
+                // assigning the address to shipping fields
+                txtCustomerName.Text = txtCustName.Text;
+                txtAddress1.Text = lblAddress1.Text;
+                txtAddress2.Text = lblAddress2.Text;
+                txtAddress3.Text = lblAddress3.Text;
+                txtTelephone.Text = txtPhone.Text;
+                txtCity.Text = lblCity.Text;
+                txtState.Text = lblState.Text;
+                txtZipCode.Text = lblZipCode.Text;
+                txtCountry.Text = lblCountry.Text;
+                txtEmail.Text = txtBEmail.Text;
+
+
+                // assigning left panel Shipping  address
+                LblSAName.Text = txtCustName.Text;
+                LblSAAddress1.Text = lblAddress1.Text;
+                LblSAAddress2.Text = lblAddress2.Text;
+                LblSACityStateZip.Text = lblCity.Text + ", " + lblState.Text + ", " + lblZipCode.Text;
+                LblSACountry.Text = lblCountry.Text;
+                LblSATelephone1.Text = txtTelephone.Text;
+                LblSAEmail.Text = txtEmail.Text;
+            }
+            else
+            {
+                txtCustomerName.Text = txtCustName.Text;
+                txtTelephone.Text = txtPhone.Text;
+                /*
+                 // clearing shipping address fields
+                txtAddress1.Text = string.Empty;
+                txtAddress2.Text = string.Empty;
+                txtAddress3.Text = string.Empty;
+                txtCity.Text = string.Empty;
+                txtState.Text = string.Empty;
+                txtZipCode.Text = string.Empty;
+                txtCountry.Text = string.Empty;
+                txtEmail.Text = string.Empty; */
+
+                // assigning shipping address from econnect
+                var custometShipAddress = new ShippingAddress().GetCustometShipAddress(_connString);
+                foreach (ShippingAddress shippingAddress in custometShipAddress)
+                {
+                    txtAddress1.Text = shippingAddress.Address1;
+                    txtAddress2.Text = shippingAddress.Address2;
+                    txtAddress3.Text = shippingAddress.Address3;
+                    txtCity.Text = shippingAddress.City;
+                    txtState.Text = shippingAddress.State;
+                    txtZipCode.Text = shippingAddress.Zipcode;
+                    txtCountry.Text = shippingAddress.Country;
+                    txtEmail.Text = shippingAddress.Email;
+                    break;
+                }
+            }
+
+            // assigning left panel billing  address
+            LblBName.Text = txtCustName.Text;
+            LblBAddress1.Text = lblAddress1.Text;
+            LblBAddress2.Text = lblAddress2.Text;
+            LblBCityStateZip.Text = lblCity.Text + ", " + lblState.Text + ", " + lblZipCode.Text;
+            LblBCountry.Text = lblCountry.Text;
+            LblBTelephone1.Text = txtTelephone.Text;
+            LblBEmail.Text = txtEmail.Text;
+        }
+        else
+            lblError.Text = "The given customer details are not found. Please select the customer for billing address.";
     }
 
-    private void BindCustomerShipDetails()
+    protected void btnShipContinue_Click(object sender, EventArgs e)
     {
-        ShippingAddress = new ShippingAddress().GetCustometShipAddress(_connString);
-        _dtShip = ToDataTable(ShippingAddress);
-        Session["ShippingAddress"] = _dtShip;
-    }
-
-    private void BindOfferLines()
-    {
-        OfferLines = new OfferLines().GetOfferLines(_connString);
-        Session["OfferLines"] = OfferLines;
-        gdvOfferLine.DataSource = OfferLines;
+        var offerLines = new OfferLines().GetOfferLines(_connString);
+        gdvOfferLine.DataSource = offerLines;
         gdvOfferLine.DataBind();
+        hidAccordionIndex.Value = "2";
+
+        // assigning left panel shipping address
+        LblSAName.Text = txtCustName.Text;
+        LblSAAddress1.Text = txtAddress1.Text;
+        LblSAAddress2.Text = txtAddress2.Text;
+        LblSACityStateZip.Text = txtCity.Text + ", " + txtState.Text + ", " + txtZipCode.Text;
+        LblSACountry.Text = txtCountry.Text;
+        LblSATelephone1.Text = txtTelephone.Text;
+        LblSAEmail.Text = txtEmail.Text;
+
+        #region unUsedCode
+        /*try
+        {
+            var custometShipAddress = new ShippingAddress().GetCustometShipAddress(_connString);
+            if (custometShipAddress != null)
+            {
+                _dtShip = ToDataTable(custometShipAddress);
+                if (cbShipping.Checked == false)
+                {
+                    string filterExprssion = "CustomerNo='" + hidCustId.Value + "' And Zipcode='" + txtZipCode.Text + "' and Telephone1='" + txtTelephone.Text + "'";
+                    _dtFilterRows = _dtShip.Select(filterExprssion);
+                    if (_dtFilterRows.Length == 0)
+                    {
+                        lblError.Visible = true;
+                        lblError.Text = "Shipping address doesn't match, Please try again";
+                    }
+                    else
+                    {
+                        lblError.Visible = false;
+                        DataTable dtNewFilterData = _dtShip.Clone();
+                        foreach (DataRow drNew in _dtFilterRows)
+                        {
+                            dtNewFilterData.ImportRow(drNew);
+                            hidAddressCode.Value = dtNewFilterData.Rows[0]["AddressCode"].ToString();
+                        }
+                        hidAccordionIndex.Value = "2";
+                    }
+                }
+                else
+                {
+                    hidAccordionIndex.Value = "2";
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }*/
+        #endregion
     }
 
-    private void BindGridview()
+    protected void btnConfirmOffer_Click(object sender, EventArgs e)
     {
-        gvCustomers.DataSource = Session["customerAddress"];
-        gvCustomers.DataBind();
+        hidAccordionIndex.Value = "3";
+        lblOrderNum.Text = Session["orderNumber"].ToString();
+        lblOrderNum.Text = "0";
+        lblOrderTotal.Text = lblGrandTotal.Text;
     }
 
-    protected void gvCustomers_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    protected void BtnCreditCardProcess_Click(object sender, EventArgs e)
     {
-        gvCustomers.PageIndex = e.NewPageIndex;
-        BindGridview();
-        MPEGridview.Show();
+        hidAccordionIndex.Value = "4";
+    }
+
+    protected void btnSaveOrder_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            OrderProcess orderProcess = GetCustomerHeader();
+            List<OrderItems> listOrders = GetOrderedItems();
+            string fileName = Server.MapPath("~/SalesOrder.xml");
+            bool savedStatus = new EConnectModel().SerializeSalesOrderObject(fileName, _connString, orderProcess, listOrders);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
     }
 
     public DataTable ToDataTable<T>(IList<T> listData)
@@ -88,29 +236,6 @@ public partial class Biblethon_OrderEntry : Page
         return table;
     }
 
-    protected void btnSearch_Click(object sender, EventArgs e)
-    {
-        try
-        {
-            string customerName = Request.Form["txtName"];
-            string address;
-            if (Request.Form["ddlOption"] == "1")
-            {
-                address = "Address1='" + Request.Form["txtAddAndPh"] + "'";
-            }
-            else
-            {
-                address = "Telephone1='" + Request.Form["txtAddAndPh"] + "'";
-            }
-            gvCustomers.DataSource = GetFilterData(customerName, address);
-            gvCustomers.DataBind();
-            MPEGridview.Show();
-        }
-        catch (Exception)
-        {
-        }
-    }
-
     public DataTable GetFilterData(string customerName, string address)
     {
         var dtSession = Session["customerAddress"] as DataTable;
@@ -118,14 +243,10 @@ public partial class Biblethon_OrderEntry : Page
         {
             DataView dvSession = dtSession.DefaultView;
             string filterExprssion = "CustomerName like'" + customerName + "%' And " + address;
-            //string filterExprssion = "CustomerName like'" + customerName + "%'";
             _dtFilterRows = dvSession.Table.Select(filterExprssion);
             DataTable dtNewFilterData = dtSession.Clone();
             foreach (DataRow drNew in _dtFilterRows)
-            {
-                //if (dtNewFilterData.Rows[0]["CustomerName"].ToString() != "Service")
                 dtNewFilterData.ImportRow(drNew);
-            }
             return dtNewFilterData;
         }
         return null;
@@ -137,7 +258,6 @@ public partial class Biblethon_OrderEntry : Page
         if (dtSession != null)
         {
             DataView dvSession = dtSession.DefaultView;
-            //string filterExprssion = "CustomerName like'" + customerName + "%' and " + address;
             string filterExprssion = "CustomerNo='" + customerID + "'";
             _dtFilterRows = dvSession.Table.Select(filterExprssion);
             DataTable dtNewFilterData = dtSession.Clone();
@@ -150,178 +270,24 @@ public partial class Biblethon_OrderEntry : Page
         return null;
     }
 
-    protected void imgSearch_Click(object sender, ImageClickEventArgs e)
-    {
-        try
-        {
-            string customerName = txtCustName.Text;
-            string address = "Telephone1='" + txtPhone.Text + "'";
-            DataTable dtSearch = GetFilterData(customerName, address);
-            GetCustomerData(dtSearch);
-        }
-        catch (Exception)
-        {
-        }
-    }
-
     public void GetCustomerData(DataTable dtSearch)
     {
         if (dtSearch.Rows.Count == 1)
         {
-            //foreach (DataRow row in dtSearch.Rows)
-            //{
-            txtCustName.Text = dtSearch.Rows[0]["CustomerName"].ToString();
-            lblAddress1.Text = dtSearch.Rows[0]["Address1"].ToString();
-            lblAddress2.Text = dtSearch.Rows[0]["Address2"].ToString();
-            lblAddress3.Text = dtSearch.Rows[0]["Address3"].ToString();
-            txtPhone.Text = dtSearch.Rows[0]["Telephone1"].ToString();
-            lblCity.Text = dtSearch.Rows[0]["City"].ToString();
-            lblState.Text = dtSearch.Rows[0]["State"].ToString();
-            lblZipCode.Text = dtSearch.Rows[0]["Zipcode"].ToString();
-            lblCountry.Text = dtSearch.Rows[0]["Country"].ToString();
-            txtBEmail.Text = dtSearch.Rows[0]["Email"].ToString();
-            hidAddressCode.Value = dtSearch.Rows[0]["AddressCode"].ToString();
-            //}
-            GetDataVisibleTrue();
-        }
-        else
-        {
-            MPEGridview.Show();
-        }
-    }
-
-    private void GetDataVisibleFalse()
-    {
-        tr1.Visible = false;
-        tr2.Visible = false;
-        tr3.Visible = false;
-        tr4.Visible = false;
-        tr5.Visible = false;
-        tr6.Visible = false;
-        tr7.Visible = false;
-    }
-
-    private void GetDataVisibleTrue()
-    {
-        tr1.Visible = true;
-        tr2.Visible = true;
-        tr3.Visible = true;
-        tr4.Visible = true;
-        tr5.Visible = true;
-        tr6.Visible = true;
-        tr7.Visible = true;
-    }
-
-    protected void btnBillContinue_Click(object sender, EventArgs e)
-    {
-        hidAccordionIndex.Value = "1";
-        if (cbShipping.Checked)
-        {
-            txtCustomerName.Text = txtCustName.Text;
-            txtAddress1.Text = lblAddress1.Text;
-            txtAddress2.Text = lblAddress2.Text;
-            txtAddress3.Text = lblAddress3.Text;
-            txtTelephone.Text = txtPhone.Text;
-            txtCity.Text = lblCity.Text;
-            txtState.Text = lblState.Text;
-            txtZipCode.Text = lblZipCode.Text;
-            txtCountry.Text = lblCountry.Text;
-            txtEmail.Text = txtBEmail.Text;
-        }
-        else
-        {
-            txtCustomerName.Text = txtCustName.Text;
-            txtAddress1.Text = "";
-            txtAddress2.Text = "";
-            txtAddress3.Text = "";
-            txtTelephone.Text = txtPhone.Text;
-            txtCity.Text = "";
-            txtState.Text = "";
-            txtZipCode.Text = "";
-            txtCountry.Text = "";
-            txtEmail.Text = "";
-        }
-    }
-
-    protected void btnSelect_Click(object sender, EventArgs e)
-    {
-        try
-        {
-            string customerNo = hidCustId.Value;
-            DataTable dtSearch = GetFilterDataBYId(customerNo);
-            GetCustomerData(dtSearch);
-        }
-        catch (Exception)
-        { }
-    }
-
-    protected void btnShipContinue_Click(object sender, EventArgs e)
-    {
-        try
-        {
-            var dtShipping = Session["ShippingAddress"] as DataTable;
-            if (dtShipping != null)
+            foreach (DataRow row in dtSearch.Rows)
             {
-                DataView dvSession = dtShipping.DefaultView;
-                if (cbShipping.Checked == false)
-                {
-                    string filterExprssion = "CustomerNo='" + hidCustId.Value + "' And Zipcode='" + txtZipCode.Text + "' and Telephone1='" + txtTelephone.Text + "'";
-                    //string filterExprssion = "CustomerName like'" + customerName + "%'";
-                    _dtFilterRows = dvSession.Table.Select(filterExprssion);
-                    if (_dtFilterRows.Length == 0)
-                    {
-                        lblError.Visible = true;
-                        lblError.Text = "Shipping address doesn't match, Please try again";
-                    }
-                    else
-                    {
-                        lblError.Visible = false;
-                        DataTable dtNewFilterData = dtShipping.Clone();
-                        foreach (DataRow drNew in _dtFilterRows)
-                        {
-                            dtNewFilterData.ImportRow(drNew);
-                            hidAddressCode.Value = dtNewFilterData.Rows[0]["AddressCode"].ToString();
-                        }
-                        hidAccordionIndex.Value = "2";
-                    }
-                }
-                else
-                {
-                    hidAccordionIndex.Value = "2";
-                }
+                txtCustName.Text = dtSearch.Rows[0]["CustomerName"].ToString();
+                lblAddress1.Text = dtSearch.Rows[0]["Address1"].ToString();
+                lblAddress2.Text = dtSearch.Rows[0]["Address2"].ToString();
+                txtPhone.Text = dtSearch.Rows[0]["Telephone1"].ToString();
+                lblCity.Text = dtSearch.Rows[0]["City"].ToString();
+                lblState.Text = dtSearch.Rows[0]["State"].ToString();
+                lblZipCode.Text = dtSearch.Rows[0]["Zipcode"].ToString();
+                lblCountry.Text = dtSearch.Rows[0]["Country"].ToString();
+                txtBEmail.Text = dtSearch.Rows[0]["Email"].ToString();
+                hidAddressCode.Value = dtSearch.Rows[0]["AddressCode"].ToString();
+                break;
             }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.Message);
-        }
-    }
-
-    protected void btnConfirmOffer_Click(object sender, EventArgs e)
-    {
-        hidAccordionIndex.Value = "3";
-        lblOrderNum.Text = Session["orderNumber"].ToString();
-        lblOrderNum.Text = "0";
-        lblOrderTotal.Text = lblGrandTotal.Text;
-    }
-
-    protected void btncontinue4_Click(object sender, EventArgs e)
-    {
-        hidAccordionIndex.Value = "4";
-    }
-
-    protected void btnSaveOrder_Click(object sender, EventArgs e)
-    {
-        try
-        {
-            OrderProcess orderProcess = GetCustomerHeader();
-            List<OrderItems> listOrders = GetOrderedItems();
-            string fileName = Server.MapPath("~/SalesOrder.xml");
-            bool savedStatus = new EConnectModel().SerializeSalesOrderObject(fileName, _connString, orderProcess, listOrders);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.Message);
         }
     }
 
@@ -341,7 +307,6 @@ public partial class Biblethon_OrderEntry : Page
             ShipToName = hidAddressCode.Value,
             ADDRESS1 = txtAddress1.Text,
             ADDRESS2 = txtAddress2.Text,
-            ADDRESS3 = txtAddress3.Text,
             CITY = txtCity.Text,
             STATE = txtState.Text,
             ZIPCODE = txtZipCode.Text,
@@ -385,7 +350,6 @@ public partial class Biblethon_OrderEntry : Page
                     ShipToName = hidAddressCode.Value,
                     ADDRESS1 = txtAddress1.Text,
                     ADDRESS2 = txtAddress2.Text,
-                    ADDRESS3 = txtAddress3.Text,
                     CITY = txtCity.Text,
                     STATE = txtState.Text,
                     ZIPCODE = txtZipCode.Text,
