@@ -43,8 +43,8 @@ public partial class Biblethon_BillingAddress : System.Web.UI.Page
         if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(telephone))
         {
             RadGrid1.DataSource = (from c in customerAddress
-                                   where (c.CustomerName.StartsWith(name) || c.CustomerName.StartsWith(name) || c.CustomerName.StartsWith(name) ) &&
-                                        (c.Telephone1.Equals(telephone) || c.Telephone2.Equals(telephone) || c.Telephone3.Equals(telephone))
+                                   where c.CustomerName.ToLower().Contains(name.ToLower())  &&
+                                        c.Telephone1.ToLower().Contains(telephone.ToLower())
                                    select new
                                               {
                                                   CustomerNo = "<a href='#' class='CustomerNoLink'>" + c.CustomerNo + "</a>",
@@ -65,7 +65,7 @@ public partial class Biblethon_BillingAddress : System.Web.UI.Page
         else if(!string.IsNullOrEmpty(telephone))
         {
             RadGrid1.DataSource = (from c in customerAddress
-                                   where c.Telephone1.Equals(telephone) || c.Telephone2.Equals(telephone) || c.Telephone3.Equals(telephone)
+                                   where c.Telephone1.ToLower().Contains(telephone.ToLower())
                                    select new
                                    {
                                        CustomerNo = "<a href='#' class='CustomerNoLink'>" + c.CustomerNo + "</a>",
@@ -86,7 +86,7 @@ public partial class Biblethon_BillingAddress : System.Web.UI.Page
         else if(!string.IsNullOrEmpty(name))
         {
             RadGrid1.DataSource = (from c in customerAddress
-                                   where c.CustomerName.StartsWith(name) || c.CustomerName.StartsWith(name) || c.CustomerName.StartsWith(name)
+                                   where c.CustomerName.ToLower().Contains(name.ToLower())
                                    select new
                                    {
                                        CustomerNo = "<a href='#' class='CustomerNoLink'>" + c.CustomerNo + "</a>",

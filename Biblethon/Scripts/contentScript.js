@@ -27,7 +27,7 @@ $(function () {
         var name = $('input[id$=txtCustName]').val();
         var telephone = $('input[id$=txtPhone]').val();
         var wnd = window.radopen("BillingAddress.aspx?name=" + name + "&telephone=" + telephone);
-        wnd.setSize(950, 500);
+        wnd.setSize(1200, 550);
         wnd.add_close(onClientClose);
         wnd.center();
         return false;
@@ -35,26 +35,55 @@ $(function () {
     });
 
 
-    // getting customer information from rad window
+    // getting customer information from rad window for billing address
 
     function onClientClose(oWnd, args) {
         var arg = args.get_argument();
-        $('input[id$=txtCustName]').val(arg.name);
-        $('[id$=lblAddress1]').html(arg.address1);
-        $('[id$=lblAddress2]').html(arg.address2);
-        $('[id$=lblAddress3]').html(arg.address3);
-        $('[id$=lblCity]').html(arg.city);
-        $('[id$=lblState]').html(arg.state);
-        $('[id$=lblZipCode]').html(arg.zipCode);
-        $('[id$=lblCountry]').html(arg.country);
-        $('[id$=txtBEmail]').val(arg.email);
-        $('[id$=txtPhone]').val(arg.telephone1);
+        if (arg != null) {
+            $('[id$=HdnCustomerNo]').val(arg.no);
+            $('input[id$=txtCustName]').val(arg.name);
+            $('[id$=lblAddress1]').html(arg.address1);
+            $('[id$=lblAddress2]').html(arg.address2);
+            $('[id$=lblAddress3]').html(arg.address3);
+            $('[id$=lblCity]').html(arg.city);
+            $('[id$=lblState]').html(arg.state);
+            $('[id$=lblZipCode]').html(arg.zipCode);
+            $('[id$=lblCountry]').html(arg.country);
+            $('[id$=txtBEmail]').val(arg.email);
+            $('[id$=txtPhone]').val(arg.telephone1);
+        }
     }
 
 
+    // custom search for shipping address
+    $('#ImgShippingAddressModify').click(function () {
+        var wnd = window.radopen("ShippingAddress.aspx?CustomerNo=" + $('[id$=HdnCustomerNo]').val());
+        wnd.setSize(1200, 550);
+        wnd.add_close(onClientCloseForShippingAddress);
+        wnd.center();
+        return false;
+        //}
+    });
+
+
+    function onClientCloseForShippingAddress(oWnd, args) {
+        var arg = args.get_argument();
+        if (arg != null) {
+            $('input[id$=txtCustomerName]').val($('input[id$=txtCustName]').val());
+            $('[id$=txtAddress1]').val(arg.address1);
+            $('[id$=txtAddress2]').val(arg.address2);
+            $('[id$=txtAddress3]').val(arg.address3);
+            $('[id$=txtCity]').val(arg.city);
+            $('[id$=txtState]').val(arg.state);
+            $('[id$=txtZipCode]').val(arg.zipCode);
+            $('[id$=txtCountry]').val(arg.country);
+            $('[id$=txtTelephone]').val(arg.telephone1);
+            $('[id$=txtEmail]').val(arg.email);
+        }
+    }
+
     // shipping address validation here
     $('.BtnshippingContinue').click(function () {
-
         /*
         var result = $('form').validate().element($('input[id$=txtCustomerName]'));
         if (!result)
@@ -93,6 +122,78 @@ $(function () {
         return false; */
 
         return true;
+    });
+
+
+    // credit card confirm validation here
+    $('[id$=BtnCreditCardProcess]').click(function () {
+        /*
+        var result = $('form').validate().element($('[id$=ddlCreditCardType]'));
+        if (!result)
+            return false;
+
+        result = $('form').validate().element($('[id$=txtExpirationDate]'));
+
+        if (!result)
+            return false;
+        
+        result = $('form').validate().element($('[id$=txtCreditCardNo]'));
+        if (!result)
+            return false;
+
+        result = $('form').validate().element($('[id$=txtCVN]'));
+        if (!result)
+            return false;
+
+        return true;*/
+    });
+
+
+    // validation process order
+    $('[id$=btnProcessOrder]').click(function () {
+        var result = $('form').validate().element($('[id$=ddlCreditCardType]'));
+        if (!result) {
+            $(".creditCardAccordion").trigger('click');
+            return false;
+        }
+        result = $('form').validate().element($('[id$=txtExpirationDate]'));
+        if (!result) {
+            $(".creditCardAccordion").trigger('click');
+            return false;
+        }
+        result = $('form').validate().element($('[id$=txtCreditCardNo]'));
+        if (!result) {
+            $(".creditCardAccordion").trigger('click');
+            return false;
+        }
+        result = $('form').validate().element($('[id$=txtCVN]'));
+        if (!result) {
+            $(".creditCardAccordion").trigger('click');
+            return false;
+        }
+        return true;
+    });
+
+
+    // back button handling here
+    $('[id$=BtnOrderConfirmationBack]').click(function () {
+        $('.creditCardAccordion').trigger('click');
+        return false;
+    });
+
+    $('[id$=BtnCreditCardBack]').click(function () {
+        $('.OffLinesAccordion').trigger('click');
+        return false;
+    });
+
+    $('[id$=BtnOfferLineBack]').click(function () {
+        $('.ShippingAddressAccordion').trigger('click');
+        return false;
+    });
+
+    $('[id$=BtnShippingBack]').click(function () {
+        $('.BillingAddressAccordion').trigger('click');
+        return false;
     });
 
 

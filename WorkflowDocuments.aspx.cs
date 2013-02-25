@@ -230,9 +230,8 @@ namespace Alba.Workflow.WebPortal
                     }
 
 
-                    var btnNew = new RadToolBarButton { Text = "Purchase Order Entry" };
+                    var btnNew = new RadToolBarButton { Text = "Biblethon" };
                     rtDropDownNew.Buttons.Add(btnNew);
-                    //btnNew.NavigateUrl = "Biblethon/OrderEntry.aspx";
                     var btnSeparatorNew = new RadToolBarButton { IsSeparator = true };
                     rtDropDownNew.Buttons.Add(btnSeparatorNew);
 

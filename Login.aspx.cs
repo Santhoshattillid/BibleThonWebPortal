@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 using Telerik.Web.UI;
@@ -23,10 +18,10 @@ public partial class Login : System.Web.UI.Page
         string decryptedPassword = clsCrypto.EncryptString(txtPassword.Text);
         bool shouldUserChangePassword = false;
 
-        SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["AWFConnectionString"].ConnectionString);
+        var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["AWFConnectionString"].ConnectionString);
         try
         {
-            SqlCommand cmd = new SqlCommand("SELECT UserID, FirstName, CompanyPosition, ERPUserID, UserRole, IsDisabled, ShouldChangePassword FROM AS_WF_Users WHERE UserID = @UserID AND UserPassword = @UserPassword", connection);
+            var cmd = new SqlCommand("SELECT UserID, FirstName, CompanyPosition, ERPUserID, UserRole, IsDisabled, ShouldChangePassword FROM AS_WF_Users WHERE UserID = @UserID AND UserPassword = @UserPassword", connection);
             cmd.Parameters.AddWithValue("@UserID", txtUserName.Text);
             cmd.Parameters.AddWithValue("@UserPassword", decryptedPassword);
             

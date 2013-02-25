@@ -84,7 +84,7 @@
                 else
                 {
                     var wfDocType = args.get_item().get_text();
-                    if(wfDocType == "Purchase Order Entry") {
+                    if(wfDocType == "Biblethon") {
                         openWin("Biblethon/OrderEntry.aspx");
                     }
                     else {

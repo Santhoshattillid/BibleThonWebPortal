@@ -26,9 +26,9 @@
                     <asp:Label ID="lblOrderNo" runat="server" Text=""></asp:Label></p>
                 <p>
                     <asp:Label runat="server" ID="LblDate"></asp:Label></p>
-                <%--<p>
+                <p>
                     Operator:
-                    <asp:Label ID="LblOperator" runat="server" Text=""></asp:Label></p>--%>
+                    <asp:Label ID="LblOperator" runat="server" Text=""></asp:Label></p>
                 <h3>
                     Billing Address
                 </h3>
@@ -86,14 +86,14 @@
             </div>
             <div id="accordion" style="float: left; width: 750px;">
                 <!-- Billing Address Accordation -->
-                <a id="0" href="" onclick="AccordianHid(this)">
+                <a id="0" href="" class="BillingAddressAccordion">
                     <h3>
                         Billing Address</h3>
                 </a>
-                <div class="divAccordian">
+                <div class="divAccordian BillingAddressAccordion">
                     <table style="width: 700px;" class="secondpara" align="center">
                         <tr>
-                            <td >
+                            <td>
                                 <table style="width: 350px;">
                                     <tr>
                                         <td class="label">
@@ -216,20 +216,19 @@
                             <td>
                             </td>
                             <td>
-                                <asp:Button ID="btnBillingBack" runat="server" Text="<< Back" CssClass="btn" />
+                                <%--<asp:Button ID="btnBillingBack" runat="server" Text="<< Back" CssClass="btn" />--%>
                                 <asp:Button ID="btnBillContinue" runat="server" Text="Continue" OnClick="btnBillContinue_Click"
                                     CssClass="btn" />
                             </td>
                         </tr>
                     </table>
                 </div>
-
                 <!-- Shipping Address Accordation -->
-                <a id="1" href="" onclick="AccordianHid(this)">
+                <a id="1" href="#" class="ShippingAddressAccordion">
                     <h3>
                         Shipping Address</h3>
                 </a>
-                <div class="divAccordian secondpara">
+                <div class="divAccordian secondpara ShippingAddressAccordion">
                     <table style="width: 700px;" align="center">
                         <tr>
                             <td valign="top">
@@ -238,8 +237,11 @@
                                         <td class="label">
                                             Name
                                         </td>
-                                        <td colspan="3">
+                                        <td colspan="2">
                                             <asp:TextBox ID="txtCustomerName" runat="server" Width="250px" CssClass="required"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <img class="search" id="ImgShippingAddressModify" alt="BillingAddressModify" />
                                         </td>
                                     </tr>
                                     <tr>
@@ -333,20 +335,19 @@
                             <td>
                             </td>
                             <td>
-                                <asp:Button ID="btnshippingBack" OnClientClick="GetBack(this)" runat="server" Text="<< Back"
-                                    CssClass="btn" />
-                                <asp:Button ID="btnShipContinue" runat="server" Text="Continue" OnClick="btnShipContinue_Click" CssClass="btn BtnshippingContinue" />
+                                <asp:Button ID="BtnShippingBack" runat="server" Text="<< Back" CssClass="btn" />
+                                <asp:Button ID="btnShipContinue" runat="server" Text="Continue" OnClick="btnShipContinue_Click"
+                                    CssClass="btn BtnshippingContinue" />
                             </td>
                         </tr>
                     </table>
                 </div>
-
                 <!-- Offer Lines Accordation -->
-                <a id="2" href="" onclick="AccordianHid(this)">
+                <a id="2" href="" class="OffLinesAccordion">
                     <h3>
                         Offer Lines</h3>
                 </a>
-                <div class="divAccordian">
+                <div class="divAccordian OffLinesAccordion">
                     <table style="width: 100%">
                         <tr>
                             <td>
@@ -395,9 +396,9 @@
                                 SubTotal
                             </td>
                             <td align="right" style="width: 150px">
-                                <%--<asp:TextBox ID="LBLTotal1" runat="server" ForeColor="Green" Font-Bold="true" style="margin-left: 0px;text-align:right;" ></asp:TextBox>--%>
-                                <asp:TextBox ID="lblTotal" runat="server" Text="" Style="text-align: right; border-width: 0px;
-                                    border-collapse: collapse; background-color: #edf8f8;" ReadOnly="True"></asp:TextBox>
+                                <asp:TextBox ID="lblTotal" runat="server" EnableViewState="True" Style="text-align: right;
+                                    border-width: 0px; border-collapse: collapse; background-color: #edf8f8;" ReadOnly="True">
+                                </asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -413,7 +414,7 @@
                                 AdditionalDonation
                             </td>
                             <td align="right" style="width: 150px">
-                                $<asp:TextBox ID="txtADonation" runat="server"  Style="text-align: right;"></asp:TextBox>
+                                $<asp:TextBox ID="txtADonation" runat="server" Style="text-align: right;"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -429,25 +430,26 @@
                     <table class="buttunback">
                         <tr>
                             <td align="right" colspan="2">
-                                <asp:Button ID="btnBack3" OnClientClick="GetBack(this)" runat="server" Text="<< Back"
-                                    CssClass="btn" />&nbsp;&nbsp;<asp:Button ID="btnConfirmOffer" runat="server" Text="Continue" OnClick="btnConfirmOffer_Click" CssClass="btn" />
+                                <asp:Button ID="BtnOfferLineBack" runat="server" Text="<< Back" CssClass="btn" />&nbsp;&nbsp;
+                                <asp:Button ID="btnConfirmOffer" runat="server" Text="Continue" OnClick="btnConfirmOffer_Click"
+                                    CssClass="btn" />
                             </td>
                         </tr>
                     </table>
                 </div>
                 <!-- Credit Card Information -->
-                <a id="3" href="" onclick="AccordianHid(this)">
+                <a id="3" href="" class="creditCardAccordion">
                     <h3>
                         Credit Card Payment Information</h3>
                 </a>
-                <div class="divAccordian">
+                <div class="divAccordian creditCardAccordion">
                     <table style="width: 700px;" align="center" class="forthpara" cellpadding="0" cellspacing="4">
                         <tr>
                             <td class="label">
                                 Credit Card Type
                             </td>
                             <td style="width: 200px;" class="txtarea">
-                                <asp:DropDownList ID="ddlCreditCardType" runat="server" Style="width: 200px;">
+                                <asp:DropDownList ID="ddlCreditCardType" runat="server" Style="width: 200px;" CssClass="required">
                                     <asp:ListItem>Visa</asp:ListItem>
                                     <asp:ListItem>MasterCard</asp:ListItem>
                                     <asp:ListItem>Discover</asp:ListItem>
@@ -457,10 +459,10 @@
                             <td style="width: 60px">
                             </td>
                             <td class="label">
-                                Expiration Date
+                                Expiration Date (MMYY)
                             </td>
                             <td style="width: 200px;" class="txtarea">
-                                <asp:TextBox ID="txtExpirationDate" runat="server" />
+                                <asp:TextBox ID="txtExpirationDate" runat="server" CssClass="required" />
                             </td>
                         </tr>
                         <tr>
@@ -468,7 +470,7 @@
                                 Credit Card No.
                             </td>
                             <td class="txtarea">
-                                <asp:TextBox ID="txtCreditCardNo" runat="server" Width="152px" />
+                                <asp:TextBox ID="txtCreditCardNo" runat="server" Width="152px" CssClass="required" />
                             </td>
                             <td style="width: 60px">
                             </td>
@@ -476,23 +478,23 @@
                                 CVN
                             </td>
                             <td class="txtarea">
-                                <asp:TextBox ID="txtCVN" runat="server" />
+                                <asp:TextBox ID="txtCVN" runat="server" CssClass="required" />
                             </td>
                         </tr>
                     </table>
                     <table class="buttunback">
                         <tr>
                             <td colspan="4" style="text-align: right">
-                                <asp:Button ID="btnBack4" runat="server" OnClientClick="GetBack(this)" Text="<< Back"
-                                    CssClass="btn" /><asp:Button ID="BtnCreditCardProcess" runat="server" Text="Continue" OnClick="BtnCreditCardProcess_Click"
-                                        CssClass="btn" />
+                                <asp:Button ID="BtnCreditCardBack" runat="server" Text="<< Back"
+                                    CssClass="btn" />
+                                <asp:Button ID="BtnCreditCardProcess" runat="server" Text="Continue" OnClick="BtnCreditCardProcess_Click"
+                                    CssClass="btn" />
                             </td>
                         </tr>
                     </table>
                 </div>
-
                 <!-- Order Confirmation Accordation -->
-                <a id="4" href="" onclick="AccordianHid(this)">
+                <a id="4" href="">
                     <h3>
                         Total, Confirmation and Order Submission
                     </h3>
@@ -519,10 +521,12 @@
                     <table style="width: 100%; padding-top: 10px; border-top: 1px solid #c4bd97">
                         <tr>
                             <td colspan="4" style="text-align: right">
-                                <asp:Button ID="btnBack5" runat="server" OnClientClick="GetBack(this)" Text="<< Back"
-                                    CssClass="btn" />&nbsp;&nbsp;<asp:Button ID="btnSaveOrder" runat="server" Text="Save"
-                                        Width="63px" OnClick="btnSaveOrder_Click" CssClass="btn" />&nbsp;&nbsp;<asp:Button
-                                            ID="btnProcessOrder" runat="server" Text="Process" Width="74px" CssClass="btn" />
+                                <asp:Button ID="BtnOrderConfirmationBack" runat="server"  Text="<< Back"
+                                    CssClass="btn" />&nbsp;&nbsp;
+                                <asp:Button ID="btnSaveOrder" runat="server" Text="Save" Width="63px" OnClick="btnSaveOrder_Click"
+                                    CssClass="btn" />&nbsp;&nbsp;
+                                <asp:Button ID="btnProcessOrder" runat="server" Text="Process" Width="74px" CssClass="btn"
+                                    OnClick="btnProcessOrder_Click" />
                             </td>
                             <td style="width: 30px">
                             </td>
@@ -532,10 +536,8 @@
             </div>
         </div>
     </div>
-    <div class="heights">
-    </div>
+    <asp:HiddenField runat="server" ID="HdnCustomerNo" />
     <input id="hidAccordionIndex" runat="server" type="hidden" value="0" />
-    <input id="hidCustId" runat="server" type="hidden" value="0" />
     <input id="hidAddressCode" runat="server" type="hidden" value="" />
     <script src="Scripts/jquery-1.8.3.js" type="text/javascript"></script>
     <script src="Scripts/jquery-ui.js" type="text/javascript"></script>

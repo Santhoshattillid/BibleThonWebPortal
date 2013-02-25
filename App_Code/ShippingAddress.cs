@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Xml;
-using Biblethon.Controller;
 
 /// <summary>
 /// Summary description for ShippingAddress
@@ -61,8 +60,6 @@ public class ShippingAddress
                             Address1 = xn["ADDRESS1"].InnerText,
                             Address2 = xn["ADDRESS2"].InnerText,
                             Address3 = xn["ADDRESS3"].InnerText,
-                            Telephone1 = xn["PHONE1"].InnerText,
-                            Telephone2 = xn["PHONE2"].InnerText,
                             Telephone3 = xn["PHONE3"].InnerText,
                             City = xn["CITY"].InnerText,
                             State = xn["STATE"].InnerText,
@@ -70,6 +67,34 @@ public class ShippingAddress
                             Country = xn["COUNTRY"].InnerText,
                             Email = ""
                         };
+                        if (!string.IsNullOrEmpty(xn["PHONE1"].InnerText) && xn["PHONE1"].InnerText.Trim() != "00000000000000")
+                        {
+                            if (xn["PHONE1"].InnerText.Length > 3)
+                                shippingAddr.Telephone1 = "(" + xn["PHONE1"].InnerText.Substring(0, 3) + ") ";
+                            if (xn["PHONE1"].InnerText.Length > 6)
+                                shippingAddr.Telephone1 += xn["PHONE1"].InnerText.Substring(3, 3) + "-";
+                            if (xn["PHONE1"].InnerText.Length > 10)
+                                shippingAddr.Telephone1 += xn["PHONE1"].InnerText.Substring(6, 4) + " Ext. ";
+                            if (xn["PHONE1"].InnerText.Length > 13)
+                                shippingAddr.Telephone1 += xn["PHONE1"].InnerText.Substring(10);
+                        }
+                        else
+                            shippingAddr.Telephone1 = string.Empty;
+                            
+                        
+                        if (!string.IsNullOrEmpty(xn["PHONE2"].InnerText) && xn["PHONE2"].InnerText.Trim() != "00000000000000")
+                        {
+                            if (xn["PHONE2"].InnerText.Length > 3)
+                                shippingAddr.Telephone2 = "(" + xn["PHONE2"].InnerText.Substring(0, 3) + ") ";
+                            if (xn["PHONE2"].InnerText.Length > 6)
+                                shippingAddr.Telephone2 += xn["PHONE2"].InnerText.Substring(3, 3) + "-";
+                            if (xn["PHONE2"].InnerText.Length > 10)
+                                shippingAddr.Telephone2 += xn["PHONE2"].InnerText.Substring(6, 4) + " Ext. ";
+                            if (xn["PHONE2"].InnerText.Length > 13)
+                                shippingAddr.Telephone2 += xn["PHONE2"].InnerText.Substring(10);
+                        }
+                        else
+                            shippingAddr.Telephone2 = string.Empty;
                         customeAddress.Add(shippingAddr);
                     }
                 }
