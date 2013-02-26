@@ -2,6 +2,8 @@
 {
     font-family: Arial;
     background: #efefef;
+    margin: 0;
+    padding: 0;
 }
 td, th
 {
@@ -11,10 +13,15 @@ td a
 {
     color: #2180BC;
 }
+
 .main
 {
-    width: 1200px;
+    width: 992px;
     margin: 0 auto;
+}
+.main img
+{
+    border: 0;
 }
 .container
 {
@@ -22,6 +29,7 @@ td a
     float: left;
     border: 1px solid #ccc;
     padding: 20px;
+    margin: 0 auto;
 }
 #txtName
 {
@@ -51,7 +59,7 @@ td a
 }
 .divAccordian
 {
-    background-color: #f2f2f2;
+    background-color: #effbff;
     height: auto !important;
 }
 .lnkButton
@@ -74,7 +82,7 @@ td a
 }
 .leftcolumn
 {
-    width: 250px;
+    width: 180px;
     float: left;
     margin-right: 20px;
 }
@@ -99,9 +107,9 @@ td a
     font-size: 12px;
     padding-left: 20px;
 }
-#accordion
+/*#accordion
 {
-    width: 540px;
+    width: 700px;
     margin: 0px auto;
 }
 
@@ -128,16 +136,79 @@ td a
 #accordion h3.active
 {
     
+}*/
+.accordionarea
+{
+    float: left; 
+    width: 750px;
+}
+.accordion
+{
+    margin: 1em 0;
+    float: left; 
+    width: 750px;
+}
+.accordion h3
+{
+    background: url('http://localhost:38424/BibleThonWebPortal/Images/acc-bg1.png');
+    color: #fff;
+    cursor: pointer;
+    margin: 0;
+    padding: 4px 10px;
+    height: 18px;
+    color: #666;
+    border: 1px solid #848284;
+    margin-top: 2px;
+}
+.accordion h3.current
+{
+    background: url('http://localhost:38424/BibleThonWebPortal/Images/acc-bg.png');
+    cursor: default;
+    height: 18px;
+    color: #000;
+    border-bottom: 0;
+}
+.accordion div.divAccordian
+{
+    padding: 5px 10px;
+    border: 1px solid #848284;
+    border-top: 0;
+}
+.accordion div.divAccordian .txtarea
+{
+    color:#000;
+}
+.accordion h3 a, .accordion h3.current a
+{
+    font-size: 12px;
+    color: #bdbabd;
+    font-weight: normal;
+    text-decoration: none;
+}
+.accordion div.divAccordian table
+{
+    font-size: 12px;
+}
+.accordion div.divAccordian td img
+{
+    border-color: #848284 !important;
+}
+.accordion h3.current a
+{
+    color: #000;
 }
 .redfnt
 {
     color: Red;
 }
+.label
+{
+    color:#df3637;
+}
 .fifthpara .label
 {
     width: 100px;
-    color: Red;
-    color: #000;
+    color: #df3637;
 }
 .fifthpara .inputxt
 {
@@ -149,6 +220,11 @@ td a
 .fifthpara table
 {
     padding: 20px;
+}
+.fifthpara .buttunback
+{
+    padding-top: 20px;
+    padding: 0;
 }
 .forthpara
 {
@@ -167,32 +243,46 @@ td a
 .forthpara .label, .secondpara .label
 {
     width: 60px;
-    color: Red;
-    color: Red;
+    color: #df3637;
     padding: 0;
+}
+.forthpara .label
+{
+    width: 160px;
+    color:#df3637;
+}
+.forthpara .txtarea, .fifthpara .txtarea
+{
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 3px;
 }
 .txtarea, .txtareabtm
 {
     background: #fff;
     border: 1px solid #ccc;
-    padding: 5px;
-    width: 200px;
-    height: 25px;
+    padding: 3px;
+}
+.order
+{
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 3px;
+    height: 18px;
 }
 .secondpara .txtarea
 {
-    padding: 0;
     margin: 0;
-    height: 25px;
 }
 .secondpara td
 {
     border: 0;
 }
-.secondpara img
+.secondpara .buttunback, .forthpara .buttunback
 {
-    border: 0;
-}
+    text-align:right
+    }
+
 .txtareabtm
 {
     border-top: 0px solid #ccc;
@@ -201,7 +291,8 @@ td a
 {
     width: 100%;
     padding: 6px;
-    border-top: 1px solid #c4bd97;
+    border-top: 1px solid #ccc;
+    text-align:right;
 }
 .tablehd th
 {
@@ -211,21 +302,24 @@ td a
 }
 .search
 {
-    background: url(../../Images/search_button.png) no-repeat;
+    background: url(../../Images/search_button.png) no-repeat #effbff;
     color: #f2f2f2;
-    height: 18px !important;
-    width: 15px;
+    height: 22px !important;
+    width: 29px;
+    position: relative;
     text-indent: -9999;
     border: 0 !important;
     float: left;
+    font-size: 1px;
 }
 .close, .btn
 {
     background: url(../../Images/btn-bg.png);
-    padding: 5px;
+    padding: 4px;
     color: #fff;
     font-weight: bold;
-    border: 1px solid #888;
+    border: 1px solid #efefef;
+    font-size: 11px;
 }
 .close:hover, .btn:hover
 {
@@ -235,11 +329,55 @@ td a
 {
     border: 0 none;
 }
-.error {
-    color: red;
+.errorinfo
+{
+    color: #df3637;
+    clear: both;
+    font-size:12px;
+    background:#efefef;
+    padding:6px 10px;
 }
-span.error {
+span.error
+{
     margin-left: 350px;
     font-size: 0.8em;
     width: 600px;
+}
+.smalltxt
+{
+    min-width: 60px;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+.total
+{
+    width:100%;
+}
+.totalright
+{
+    width:160px;
+    text-align:right;
+}
+.totalright .txtarea
+{
+    float:right;
+    margin-left:5px;
+}
+.total .label
+{
+    text-align:right;
+}
+.hafdiv
+{
+    width:350px;
+}
+.hafdiv td
+{
+    padding:3px;
+}
+.dollar
+{
+    float:left;
+    padding-top:5px;
 }
