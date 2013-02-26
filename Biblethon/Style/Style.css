@@ -243,3 +243,8 @@ span.error {
     font-size: 0.8em;
     width: 600px;
 }
+
+.header h3 {
+    color: #777;
+    font-size: 12px;
+}

@@ -15,7 +15,7 @@ $(function () {
     // billind address validation here
     $('input[id$=btnBillContinue]').click(function () {
         //validation starts here
-        if ($('form').validate().element($('input[id$=txtCustName]')) && $('form').validate().element($('input[id$=txtPhone]')))
+        if ($('form').validate().element($('input[id$=txtCustName]'))) // && $('form').validate().element($('input[id$=txtPhone]')))
             return true;
         else
             return false;

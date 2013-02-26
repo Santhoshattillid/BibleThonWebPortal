@@ -335,6 +335,7 @@ public partial class Biblethon_OrderEntry : Page
         };
         orderProcess.DOCAMNT = Convert.ToDecimal(orderProcess.SUBTOTAL + orderProcess.FREIGHT + orderProcess.MISCAMNT + orderProcess.MSCTXAMT + orderProcess.TAXAMNT + orderProcess.FRTTXAMT) - Convert.ToDecimal(orderProcess.TRDISAMT);
         return orderProcess;
+
     }
 
     public List<OrderItems> GetOrderedItems()
@@ -384,7 +385,7 @@ public partial class Biblethon_OrderEntry : Page
     {
         var customerAddress = new BillingAddress().GetCustomerDetails(_connString);
         var address = (from c in customerAddress
-                       where c.CustomerName.Contains(txtCustName.Text) && c.Telephone1.Contains(txtTelephone.Text)
+                       where c.CustomerName.Contains(txtCustName.Text) && c.Telephone1.Contains(txtTelephone.Text.Replace("(","").Replace(")","").Replace("Ext.","").Replace(" ",""))
                        select c).ToList();
         if (address.Count > 0)
         {
