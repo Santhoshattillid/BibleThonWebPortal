@@ -1,0 +1,17 @@
+Error has been encountered at 8/14/2012 3:17:48 PM: Cannot insert the value NULL into column 'WFID', table 'AWF.dbo.AS_WF_WorkflowInstance'; column does not allow nulls. INSERT fails.
+Cannot insert the value NULL into column 'WFID', table 'AWF.dbo.AS_WF_WorkflowInstanceHistory'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+The statement has been terminated.
+Error has been encountered at 8/22/2012 7:46:41 PM: Exception has been thrown by the target of an invocation.
+Error has been encountered at 8/22/2012 7:48:45 PM: Exception has been thrown by the target of an invocation.
+Error has been encountered at 8/22/2012 7:51:14 PM: Exception has been thrown by the target of an invocation.
+Error has been encountered at 9/22/2012 12:08:43 AM: String or binary data would be truncated.
+The statement has been terminated.
+Error has been encountered at 9/22/2012 12:08:44 AM: Sequence contains no elements
+Error has been encountered at 10/3/2012 3:58:55 AM: Value of member 'PatientID' of an object of type 'AS_Alere_Order' changed.
+A member defining the identity of the object cannot be changed.
+Consider adding a new object with new identity and deleting the existing one instead.
+Error has been encountered at 10/3/2012 4:11:06 AM: Value of member 'PatientID' of an object of type 'AS_Alere_Order' changed.
+A member defining the identity of the object cannot be changed.
+Consider adding a new object with new identity and deleting the existing one instead.
+Error has been encountered at 10/10/2012 11:41:51 PM: Sequence contains no elements

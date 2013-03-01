@@ -1,0 +1,12 @@
+﻿* {
+    padding: 0px;
+    margin: 0px;
+}
+.header {
+    padding: 8px;
+}
+.header H3
+{
+	color: #777;
+	font-size: 1.0em;
+}

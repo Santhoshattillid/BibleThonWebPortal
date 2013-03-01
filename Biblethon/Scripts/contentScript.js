@@ -1,89 +1,40 @@
 ﻿
 $(function () {
 
-    // accordation script section 
-    $('#accordion .divAccordian').hide();
-    $('#accordion h3:first').addClass('active').next().slideDown('slow');
-    $('#accordion h3').click(function () {
+    // accordation code here
+    $('.accordion div').hide();
+    $('.accordion h3:first').addClass('current').next().slideDown('fast');
+
+    $('.accordion h3').click(function () {
         if ($(this).next().is(':hidden')) {
-            $('#accordion h3').removeClass('active').next().slideUp('slow');
-            $(this).toggleClass('active').next().slideDown('slow');
+            $('.accordion h3').removeClass('current').next().slideUp();
+            $(this).toggleClass('current').next().slideDown();
+
+
         }
     });
 
-
-    // billind address validation here
+    // billing address validation here
     $('input[id$=btnBillContinue]').click(function () {
         //validation starts here
-        if ($('form').validate().element($('input[id$=txtCustName]'))) // && $('form').validate().element($('input[id$=txtPhone]')))
-            return true;
-        else
+        //if ($('form').validate().element($('input[id$=txtCustName]'))) // && $('form').validate().element($('input[id$=txtPhone]')))
+        var value = $('[id$=txtCustName]').val();
+        if (value != null && $.trim(value) == "") {
+            showErrorInfo("Please select customer and then continue.");
             return false;
+        } else
+            return true;
     });
 
-    // custom search for billing address
-    $('#imgSearch').click(function () {
-        //if ($('form').validate().element($('input[id$=txtCustName]')) && $('form').validate().element($('input[id$=txtPhone]'))) {
-        var name = $('input[id$=txtCustName]').val();
-        var telephone = $('input[id$=txtPhone]').val();
-        var wnd = window.radopen("BillingAddress.aspx?name=" + name + "&telephone=" + telephone);
-        wnd.setSize(1200, 550);
-        wnd.add_close(onClientClose);
-        wnd.center();
-        return false;
-        //}
-    });
-
-
-    // getting customer information from rad window for billing address
-
-    function onClientClose(oWnd, args) {
-        var arg = args.get_argument();
-        if (arg != null) {
-            $('[id$=HdnCustomerNo]').val(arg.no);
-            $('input[id$=txtCustName]').val(arg.name);
-            $('[id$=lblAddress1]').html(arg.address1);
-            $('[id$=lblAddress2]').html(arg.address2);
-            $('[id$=lblAddress3]').html(arg.address3);
-            $('[id$=lblCity]').html(arg.city);
-            $('[id$=lblState]').html(arg.state);
-            $('[id$=lblZipCode]').html(arg.zipCode);
-            $('[id$=lblCountry]').html(arg.country);
-            $('[id$=txtBEmail]').val(arg.email);
-            $('[id$=txtPhone]').val(arg.telephone1);
-        }
-    }
-
-
-    // custom search for shipping address
-    $('#ImgShippingAddressModify').click(function () {
-        var wnd = window.radopen("ShippingAddress.aspx?CustomerNo=" + $('[id$=HdnCustomerNo]').val());
-        wnd.setSize(1200, 550);
-        wnd.add_close(onClientCloseForShippingAddress);
-        wnd.center();
-        return false;
-        //}
-    });
-
-
-    function onClientCloseForShippingAddress(oWnd, args) {
-        var arg = args.get_argument();
-        if (arg != null) {
-            $('input[id$=txtCustomerName]').val($('input[id$=txtCustName]').val());
-            $('[id$=txtAddress1]').val(arg.address1);
-            $('[id$=txtAddress2]').val(arg.address2);
-            $('[id$=txtAddress3]').val(arg.address3);
-            $('[id$=txtCity]').val(arg.city);
-            $('[id$=txtState]').val(arg.state);
-            $('[id$=txtZipCode]').val(arg.zipCode);
-            $('[id$=txtCountry]').val(arg.country);
-            $('[id$=txtTelephone]').val(arg.telephone1);
-            $('[id$=txtEmail]').val(arg.email);
-        }
+    function showErrorInfo(message) {
+        $('.errorinfo').html(message);
+        $('.errorinfo').show();
+        $('.errorinfo').parent().show();
     }
 
     // shipping address validation here
-    $('.BtnshippingContinue').click(function () {
+    $('[id$=btnShipContinue]').click(function () {
+
         /*
         var result = $('form').validate().element($('input[id$=txtCustomerName]'));
         if (!result)
@@ -121,8 +72,181 @@ $(function () {
         if (!result)
         return false; */
 
-        return true;
+        $('.OffLinesAccordion').trigger('click');
+        //resizeGrid();
+        return false; // put always false since everything handling client side itself
     });
+
+
+    // confirm order validation here address validation here
+    $('[id$=btnConfirmOffer]').click(function () {
+        $('.creditCardAccordion').trigger('click');
+        return false; // put always false since everything handling client side itself
+    });
+
+    // payment continue button handling here
+    $('[id$=BtnCreditCardProcess]').click(function () {
+        $('.orderConfirmationAccordion').trigger('click');
+        return false; // put always false since everything handling client side itself
+    });
+
+    $('[id$=btnBillContinue]').click(function () {
+        $('.ShippingAddressAccordion').trigger('click');
+        return false; // put always false since everything handling client side itself
+    });
+
+    function resizeGrid() {
+        var oWindow = null;
+        if (window.radWindow) oWindow = window.radWindow;
+        else if (window.frameElement.radWindow) oWindow = window.frameElement.radWindow;
+        oWindow.autoSize(true);
+        oWindow.set_autoSize(true);
+    }
+
+    // custom search for billing address
+    $('#imgSearch').click(function () {
+        //if ($('form').validate().element($('input[id$=txtCustName]')) && $('form').validate().element($('input[id$=txtPhone]'))) {
+        var name = $('input[id$=txtCustName]').val();
+        var telephone = $('input[id$=txtPhone]').val();
+        var wnd = window.radopen("BillingAddress.aspx?name=" + name + "&telephone=" + telephone);
+        wnd.setSize(950, 400);
+        //wnd.autoSize(true);
+        //wnd.set_autoSize(true);
+        wnd.add_close(onClientClose);
+        wnd.center();
+        return false;
+        //}
+    });
+
+
+    // getting customer information from rad window for billing address
+    function onClientClose(oWnd, args) {
+        var arg = args.get_argument();
+        if (arg != null) {
+            $('[id$=HdnCustomerNo]').val(arg.no);
+            $('input[id$=txtCustName]').val(arg.name);
+            $('[id$=lblAddress1]').html(arg.address1);
+            $('[id$=lblAddress2]').html(arg.address2);
+            $('[id$=lblAddress3]').html(arg.address3);
+            $('[id$=lblCity]').html(arg.city);
+            $('[id$=lblState]').html(arg.state);
+            $('[id$=lblZipCode]').html(arg.zipCode);
+            $('[id$=lblCountry]').html(arg.country);
+            $('[id$=txtBEmail]').val(arg.email);
+            $('[id$=txtPhone]').val(arg.telephone1);
+
+            // updating Credit Card Information tab 
+            $('[id$=txtCreditCardNo]').val(arg.cardno);
+            $('[id$=txtExpirationDate]').val(arg.expireDate);
+
+
+            // updating left hand side panel credit card info
+            if ($.trim(arg.cardno) != "")
+                $('[id$=LblCreditCardNo]').html("xxxxxxxxxxxx" + arg.cardno.substr(arg.cardno.length - 4));
+            else
+                $('[id$=LblCreditCardNo]').html("-");
+            $('[id$=LblCreditExpired]').html(arg.expireDate);
+
+            // updating confirmation tab labels
+            $('[id$=TxtOCCustomerNO]').val(arg.no);
+            $('[id$=TxtOCCustomerName]').val(arg.name);
+
+            // updating left hand side panel
+            $('[id$=txtCustName],[id$=txtPhone],[id$=txtBEmail]').each(function () {
+                var ids = $(this).attr('for').split(",");
+                for (var index = 0; index < ids.length; index++) {
+                    $('[id$=' + $.trim(ids[index]) + ']').html($(this).val());
+                }
+            });
+
+            $('[id$=lblAddress1],[id$=lblAddress2],[id$=lblAddress3]').each(function () {
+                var id = $(this).attr('for');
+                $('[id$=' + id + ']').html($(this).text());
+            });
+
+            $('[id$=LblBCityStateZip]').html($('[id$=lblCity]').text() + ", " + $('[id$=lblState]').text() + ", " + $('[id$=lblZipCode]').text());
+
+            //update shipping address if it is already checked
+            copyBillingToShippingAddres($('[id$=cbShipping]'));
+        }
+    }
+
+
+    // custom search for shipping address
+    $('#ImgShippingAddressModify').click(function () {
+        var wnd = window.radopen("ShippingAddress.aspx?CustomerNo=" + $('[id$=HdnCustomerNo]').val());
+        //wnd.setSize(1050, 550);
+        wnd.autoSize(true);
+        wnd.set_autoSize(true);
+        wnd.add_close(onClientCloseForShippingAddress);
+        wnd.center();
+        return false;
+        //}
+    });
+
+
+    function onClientCloseForShippingAddress(oWnd, args) {
+        var arg = args.get_argument();
+        if (arg != null) {
+            $('input[id$=txtCustomerName]').val($('input[id$=txtCustName]').val());
+            $('[id$=txtAddress1]').val(arg.address1);
+            $('[id$=txtAddress2]').val(arg.address2);
+            $('[id$=txtAddress3]').val(arg.address3);
+            $('[id$=txtCity]').val(arg.city);
+            $('[id$=txtState]').val(arg.state);
+            $('[id$=txtZipCode]').val(arg.zipCode);
+            $('[id$=txtCountry]').val(arg.country);
+            $('[id$=txtTelephone]').val(arg.telephone1);
+            $('[id$=txtEmail]').val(arg.email);
+
+            // updating left hand side panel for shipping address labels
+            updateLeftPanelShippingAddress();
+        }
+    }
+
+
+    // updating shipping address values from billing address if it is same 
+    $('[id$=cbShipping]').click(function () {
+        copyBillingToShippingAddres($(this));
+    });
+
+    function copyBillingToShippingAddres(element) {
+        if (element.is(':checked')) {
+            $('[id$=txtCustomerName]').val($('[id$=txtCustName]').val());
+            $('[id$=txtAddress1]').val($('[id$=lblAddress1]').text());
+            $('[id$=txtAddress2]').val($('[id$=lblAddress2]').text());
+            $('[id$=txtAddress3]').val($('[id$=lblAddress3]').text());
+            $('[id$=txtTelephone]').val($('[id$=txtPhone]').val());
+            $('[id$=txtCity]').val($('[id$=lblCity]').text());
+            $('[id$=txtState]').val($('[id$=lblState]').text());
+            $('[id$=txtZipCode]').val($('[id$=lblZipCode]').text());
+            $('[id$=txtCountry]').val($('[id$=lblCountry]').text());
+            $('[id$=txtEmail]').val($('[id$=txtBEmail]').val());
+        } else {
+            $('[id$=txtCustomerName]').empty();
+            $('[id$=txtAddress1]').empty();
+            $('[id$=txtAddress2]').empty();
+            $('[id$=txtAddress3]').empty();
+            $('[id$=txtTelephone]').empty();
+            $('[id$=txtCity]').empty();
+            $('[id$=txtState]').empty();
+            $('[id$=txtZipCode]').empty();
+            $('[id$=txtCountry]').empty();
+            $('[id$=txtEmail]').empty();
+        }
+        // updating left hand side panel for shipping address labels
+        updateLeftPanelShippingAddress();
+    }
+
+    function updateLeftPanelShippingAddress() {
+        // updating left hand side panel for shipping address labels
+        $('[id$=txtCustomerName],[id$=txtAddress1],[id$=txtAddress2],[id$=txtAddress3],[id$=txtCountry],[id$=txtTelephone],[id$=txtEmail]').each(function () {
+            var id = $(this).attr('for');
+            $('[id$=' + id + ']').html($(this).val());
+        });
+
+        $('[id$=LblSACityStateZip]').html($('[id$=txtCity]').val() + ", " + $('[id$=txtState]').val() + ", " + $('[id$=txtZipCode]').val());
+    }
 
 
     // credit card confirm validation here
@@ -130,20 +254,20 @@ $(function () {
         /*
         var result = $('form').validate().element($('[id$=ddlCreditCardType]'));
         if (!result)
-            return false;
+        return false;
 
         result = $('form').validate().element($('[id$=txtExpirationDate]'));
 
         if (!result)
-            return false;
+        return false;
         
         result = $('form').validate().element($('[id$=txtCreditCardNo]'));
         if (!result)
-            return false;
+        return false;
 
         result = $('form').validate().element($('[id$=txtCVN]'));
         if (!result)
-            return false;
+        return false;
 
         return true;*/
     });
@@ -197,18 +321,17 @@ $(function () {
     });
 
 
+    $('#RadGridOfferLines').show();
+
+    $('.NextPrevAndNumeric *').show();
+
     // accordation code here
     var activeIndex = parseInt($('input[id$=hidAccordionIndex]').val());
-
-    $("#accordion").accordion({
-        event: "click",
-        autoHeight: false,
-        active: activeIndex
-    });
-
+    $('.accordion h3').eq(activeIndex).trigger('click');
+    //$('.accordion h3').eq(4).trigger('click'); // temporarly on last tab
 
     // calculating prise on selected quantity on grid
-    $('input[id$=TXTQty]').keyup(function () {
+    $('[id$=RadGridOfferLines] .currencyfield').keyup(function () {
         var row = $(this).parents('tr').eq(0);
         calculateTotals(row);
     });
@@ -233,22 +356,22 @@ $(function () {
     }
 
     // calculating on initial loading of the page
-    $('[id$=gdvOfferLine]').find('tr').each(function () {
+    $('[id$=RadGridOfferLines]').find('tr').each(function () {
         calculateTotals($(this));
     });
 
 
     function calculateTotals(row) {
-        if (row.find('input[id$=TXTQty]').size() > 0) {
-            var val = row.find('input[id$=TXTQty]').val();
-            var totalElement = row.find('td:last').find('input[type=text]');
+        if (row.find('.currencyfield').size() > 0) {
+            var val = row.find('.currencyfield').val();
+            var totalElement = row.find('td:last');
             val = validateNumber(val);
             var price = row.find('td').eq(3).text().replace("$", "");
             var sub = (parseFloat(price) * parseFloat(val));
             if (isNaN(sub)) {
-                totalElement.val("0.00");
+                totalElement.html("0.00");
             } else {
-                totalElement.val(formatToMoney(sub, "$", "."));
+                totalElement.html(formatToMoney(sub, "$", "."));
             }
             calculatSubTotal();
         }
@@ -256,10 +379,16 @@ $(function () {
 
     function calculatSubTotal() {
         var total = 0;
-        $('input[id$=LBLSubTotal]').each(function () {
-            total += parseFloat($(this).val().replace("$", ""));
+        $('[id$=RadGridOfferLines] tbody tr').each(function () {
+            var lastTd = $(this).find('td:last');
+            if (lastTd.size() > 0) {
+                var value = parseFloat(lastTd.text().replace("$", ""));
+                if (value != undefined && value != NaN && !isNaN(value))
+                    total += value;
+            }
         });
         $('input[id$=lblTotal]').val(formatToMoney(total, "$", "."));
+        $('[id$=LblOrderSubtotal]').html(formatToMoney(total, "$", "."));
         calculatGrandTotal();
     }
 
@@ -269,11 +398,198 @@ $(function () {
 
     function calculatGrandTotal() {
         var total = parseFloat($('input[id$=lblTotal]').val().replace("$", ""));
-        if ($('input[id$=txtShipping]').val() != "")
-            total += parseFloat($('input[id$=txtShipping]').val().replace("$", ""));
-        if ($('input[id$=txtADonation]').val() != "")
-            total += parseFloat($('input[id$=txtADonation]').val().replace("$", ""));
+        if ($('input[id$=txtShipping]').val() != "") {
+            var shippingAmount = parseFloat($('input[id$=txtShipping]').val().replace("$", ""));
+            $('[id$=LblShippingTotal]').html(formatToMoney(shippingAmount, "$", "."));
+            total += shippingAmount;
+        }
+        if ($('input[id$=txtADonation]').val() != "") {
+            var donationTotal = parseFloat($('input[id$=txtADonation]').val().replace("$", ""));
+            $('[id$=LblAdditionalDonation]').html(formatToMoney(donationTotal, "$", "."));
+            total += donationTotal;
+        }
         $('input[id$=lblGrandTotal]').val(formatToMoney(total, "$", "."));
+        $('input[id$=TxtTotalOrder]').val(formatToMoney(total, "$", "."));
+        $('[id$=LblTotalAmount]').html(formatToMoney(total, "$", "."));
+    }
+
+
+
+    // allow only numbers for specified fields
+    $("[id$=TxtQuantity],[id$=txtCreditCardNo],[id$=txtExpirationDate],[id$=txtCVN]").keydown(function (event) {
+        // Allow: backspace, delete, tab, escape, and enter
+        if (event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || event.keyCode == 13 ||
+        // Allow: Ctrl+A
+            (event.keyCode == 65 && event.ctrlKey === true) ||
+        // Allow: home, end, left, right
+            (event.keyCode >= 35 && event.keyCode <= 39)) {
+            // let it happen, don't do anything
+            return;
+        }
+        else {
+            // Ensure that it is a number and stop the keypress
+            if (event.shiftKey || (event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105)) {
+                event.preventDefault();
+            }
+        }
+    });
+
+
+    // updating billing address at left hand side panel
+    $('[id$=txtCustName],[id$=txtPhone],[id$=txtBEmail]').keyup(function () {
+        var ids = $(this).attr('for').split(",");
+        for (var index = 0; index < ids.length; index++) {
+            $('[id$=' + $.trim(ids[index]) + ']').html($(this).val());
+        }
+    });
+
+    $('[id$=txtCustName],[id$=txtPhone],[id$=txtBEmail]').change(function () {
+        var ids = $(this).attr('for').split(",");
+        for (var index = 0; index < ids.length; index++) {
+            $('[id$=' + $.trim(ids[index]) + ']').html($(this).val());
+        }
+    });
+
+    $('[id$=lblAddress1],[id$=lblAddress2],[id$=lblAddress3]').change(function () {
+        var id = $(this).attr('for');
+        $('[id$=' + id + ']').html($(this).text());
+    });
+
+    $('[id$=lblCity],[id$=lblState],[id$=lblZipCode]').change(function () {
+        $('[id$=LblBCityStateZip]').html($('[id$=lblCity]').text() + ", " + $('[id$=lblState]').text() + ", " + $('[id$=lblZipCode]').text());
+    });
+
+
+    // updating shipping address at left hand side panel
+    $('[id$=txtCustomerName],[id$=txtAddress1],[id$=txtAddress2],[id$=txtAddress3],[id$=txtCountry],[id$=txtTelephone],[id$=txtEmail]').keyup(function () {
+        var id = $(this).attr('for');
+        $('[id$=' + id + ']').html($(this).val());
+    });
+
+    $('[id$=txtCustomerName],[id$=txtAddress1],[id$=txtAddress2],[id$=txtAddress3],[id$=txtCountry],[id$=txtTelephone],[id$=txtEmail]').change(function () {
+        var id = $(this).attr('for');
+        $('[id$=' + id + ']').html($(this).val());
+    });
+
+    $('[id$=txtCity],[id$=txtState],[id$=txtZipCode]').keyup(function () {
+        $('[id$=LblSACityStateZip]').html($('[id$=txtCity]').val() + ", " + $('[id$=txtState]').val() + ", " + $('[id$=txtZipCode]').val());
+    });
+
+    $('[id$=txtCity],[id$=txtState],[id$=txtZipCode]').change(function () {
+        $('[id$=LblSACityStateZip]').html($('[id$=txtCity]').val() + ", " + $('[id$=txtState]').val() + ", " + $('[id$=txtZipCode]').val());
+    });
+
+
+    // updating credit card information at left hand side panel
+    $('[id$=txtExpirationDate]').keyup(function () {
+        var id = $(this).attr('for');
+        $('[id$=' + id + ']').html($(this).val());
+    });
+
+    $('[id$=txtExpirationDate]').change(function () {
+        var id = $(this).attr('for');
+        $('[id$=' + id + ']').html($(this).val());
+    });
+
+    $('[id$=txtCreditCardNo]').blur(function () {
+        var id = $(this).attr('for');
+        $('[id$=' + id + ']').html("xxxxxxxxxxxx" + $(this).val().toString().substr($(this).val().toString().length - 4));
+    });
+
+
+    // validation code starts here 
+    $('[id$=btnSaveOrder]').click(function () {
+        // validation on billing address tab
+        var element = $('[id$=txtCustName]');
+        if ($.trim(element.val()) == "") {
+            showErrorInfo("Customer name could not be empty.");
+            $('.BillingAddressAccordion').trigger('click');
+            element.focus();
+            return false;
+        }
+        // validation on shipping address tab
+        element = $('[id$=txtCustomerName]');
+        if ($.trim(element.val()) == "") {
+            validateShipping("Customer name", element);
+            return false;
+        }
+        element = $('[id$=txtAddress1]');
+        if ($.trim(element.val()) == "") {
+            validateShipping("Address1", element);
+            return false;
+        }
+        element = $('[id$=txtAddress2]');
+        if ($.trim(element.val()) == "") {
+            validateShipping("Address2", element);
+            return false;
+        }
+        element = $('[id$=txtCity]');
+        if ($.trim(element.val()) == "") {
+            validateShipping("City", element);
+            return false;
+        }
+        element = $('[id$=txtState]');
+        if ($.trim(element.val()) == "") {
+            validateShipping("State", element);
+            return false;
+        }
+        element = $('[id$=txtCountry]');
+        if ($.trim(element.val()) == "") {
+            validateShipping("Country", element);
+            return false;
+        }
+        element = $('[id$=txtEmail]');
+        if ($.trim(element.val()) == "") {
+            validateShipping("Email", element);
+            return false;
+        }
+        element = $('[id$=txtZipCode]');
+        if ($.trim(element.val()) == "") {
+            validateShipping("ZipCode", element);
+            return false;
+        }
+
+        // validation on OfferLines  tab
+        if (parseFloat($('input[id$=lblTotal]').val().replace("$", "")) <= 0) {
+            showErrorInfo("Atleast a product needs to be purchased.");
+            $('.OffLinesAccordion').trigger('click');
+            element.focus();
+            return false;
+        }
+
+
+        // validation on credit card information tab
+        element = $('[id$=txtCreditCardNo]');
+        if ($.trim(element.val()) == "") {
+            validateCreditCard("Credit Card", element);
+            return false;
+        }
+
+        element = $('[id$=txtExpirationDate]');
+        if ($.trim(element.val()) == "") {
+            validateCreditCard("Expire Date", element);
+            return false;
+        }
+
+        element = $('[id$=txtCVN]');
+        if ($.trim(element.val()) == "") {
+            validateCreditCard("CVN", element);
+            return false;
+        }
+
+        return true;
+    });
+
+    function validateShipping(field, element) {
+        showErrorInfo(field + "  could not be empty.");
+        $('.ShippingAddressAccordion').trigger('click');
+        element.focus();
+    }
+
+    function validateCreditCard(field, element) {
+        showErrorInfo(field + "  could not be empty.");
+        $('.creditCardAccordion').trigger('click');
+        element.focus();
     }
 });
 

@@ -23,31 +23,39 @@ public partial class Biblethon_BillingAddress : System.Web.UI.Page
             {
                 DataBind();
                 RadPanelAddress.Visible = false;
-
             }
             else
             {
                 // loading list of billing addresses 
                 RadPanelCustomerIds.Visible = false;
                 var customerAddress = new BillingAddress().GetCustomerBillingAddresses(_connString);
-                RadGridAddress.DataSource = (from c in customerAddress
-                                                 where c.CustomerNo.ToLower().Contains(id.ToLower())
-                                                 select new
-                                                 {
-                                                     CustomerNo = "<a href='#' class='CustomerNoLink'>" + c.CustomerNo + "</a>",
-                                                     Name = c.CustomerName,
-                                                     Address1 = c.Address1,
-                                                     Address2 = c.Address2,
-                                                     Address3 = c.Address3,
-                                                     City = c.City,
-                                                     AddressCode = c.AddressCode,
-                                                     State = c.State,
-                                                     Country = c.City,
-                                                     Zipcode = c.Zipcode,
-                                                     Telephone1 = c.Telephone1,
-                                                     Telephone2 = c.Telephone2,
-                                                     Email = c.Email
-                                                 });
+
+                foreach (var record in (from c in customerAddress
+                                              where c.CustomerNo.ToLower().Equals(id.ToLower())
+                                              select c))
+                {
+                    HdnCreditCardNumber.Value = record.CreditCardNumber;
+                    HdnExpireDate.Value = record.CreditCardExpireDate;
+                    break;
+                }
+
+                var result = (from c in customerAddress
+                              where c.CustomerNo.ToLower().Equals(id.ToLower())
+                              select new
+                              {
+                                  CustomerNo = "<a href='#' class='CustomerNoLink'>" + c.CustomerNo + "</a>",
+                                  Name = c.CustomerName,
+                                  Address1 = c.Address1,
+                                  Address2 = c.Address2,
+                                  City = c.City,
+                                  State = c.State,
+                                  Country = c.Country,
+                                  Zipcode = c.Zipcode,
+                                  Telephone1 = c.Telephone1,
+                                  Email = c.Email,
+                              });
+
+                RadGridAddress.DataSource = result;
                 RadGridAddress.DataBind();
             }
         }
@@ -64,7 +72,7 @@ public partial class Biblethon_BillingAddress : System.Web.UI.Page
         string telephone;
         try
         {
-            name =    Request.QueryString["name"];
+            name =    Request.QueryString["name"].Trim();
         }catch (Exception )
         {
             name = string.Empty;
@@ -72,98 +80,30 @@ public partial class Biblethon_BillingAddress : System.Web.UI.Page
 
         try
         {
-            telephone = Request.QueryString["telephone"];
+            telephone = Request.QueryString["telephone"].Trim().ToLower().Replace("�","").Replace("(","").Replace(")","").Replace("ext.","").Replace(" ","").Replace("-","");
         }
         catch (Exception)
         {
             telephone = string.Empty;
         }
 
-        var customerAddress = new BillingAddress().GetCustomerDetails(_connString);
-        if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(telephone))
-        {
-            RadGridCustomerIds.DataSource = (from c in customerAddress
-                                   where c.CustomerName.ToLower().Contains(name.ToLower())  &&
-                                        c.Telephone1.ToLower().Contains(telephone.ToLower())
-                                   select new
-                                              {
-                                                  CustomerNo = "<a href='BillingAddress.aspx?Id=" + c.CustomerNo + "' class=''>" + c.CustomerNo + "</a>",
-                                                  Name = c.CustomerName,
-                                                  Address1 = c.Address1,
-                                                  Address2 = c.Address2,
-                                                  Address3 = c.Address3,
-                                                  City = c.City,
-                                                  AddressCode = c.AddressCode,
-                                                  State = c.State,
-                                                  Country = c.City,
-                                                  Zipcode = c.Zipcode,
-                                                  Telephone1 = c.Telephone1,
-                                                  Telephone2 = c.Telephone2,
-                                                  Email = c.Email
-                                              });
-        }
-        else if(!string.IsNullOrEmpty(telephone))
-        {
-            RadGridCustomerIds.DataSource = (from c in customerAddress
-                                   where c.Telephone1.ToLower().Contains(telephone.ToLower())
-                                   select new
-                                   {
-                                       CustomerNo = "<a href='BillingAddress.aspx?Id=" + c.CustomerNo + "' class=''>" + c.CustomerNo + "</a>",
-                                       Name = c.CustomerName,
-                                       Address1 = c.Address1,
-                                       Address2 = c.Address2,
-                                       Address3 = c.Address3,
-                                       City = c.City,
-                                       AddressCode = c.AddressCode,
-                                       State = c.State,
-                                       Country = c.City,
-                                       Zipcode = c.Zipcode,
-                                       Telephone1 = c.Telephone1,
-                                       Telephone2 = c.Telephone2,
-                                       Email = c.Email
-                                   });
-        }
-        else if(!string.IsNullOrEmpty(name))
-        {
-            RadGridCustomerIds.DataSource = (from c in customerAddress
-                                   where c.CustomerName.ToLower().Contains(name.ToLower())
-                                   select new
-                                   {
-                                       CustomerNo = "<a href='BillingAddress.aspx?Id=" + c.CustomerNo + "' class=''>" + c.CustomerNo + "</a>",
-                                       Name = c.CustomerName,
-                                       Address1 = c.Address1,
-                                       Address2 = c.Address2,
-                                       Address3 = c.Address3,
-                                       City = c.City,
-                                       AddressCode = c.AddressCode,
-                                       State = c.State,
-                                       Country = c.City,
-                                       Zipcode = c.Zipcode,
-                                       Telephone1 = c.Telephone1,
-                                       Telephone2 = c.Telephone2,
-                                       Email = c.Email
-                                   });
-        }
-        else
-        {
-            RadGridCustomerIds.DataSource = (from c in customerAddress
-                                   select new
-                                   {
-                                       CustomerNo = "<a href='BillingAddress.aspx?Id=" + c.CustomerNo + "' class=''>" + c.CustomerNo + "</a>",
-                                       Name = c.CustomerName,
-                                       Address1 = c.Address1,
-                                       Address2 = c.Address2,
-                                       Address3 = c.Address3,
-                                       City = c.City,
-                                       AddressCode = c.AddressCode,
-                                       State = c.State,
-                                       Country = c.City,
-                                       Zipcode = c.Zipcode,
-                                       Telephone1 = c.Telephone1,
-                                       Telephone2 = c.Telephone2,
-                                       Email = c.Email
-                                   });
-        }
+        var customerAddress = new BillingAddress().GetCustomerDetails(_connString,name,telephone);
+
+        RadGridCustomerIds.DataSource = (from c in customerAddress
+                                         select new
+                                                    {
+                                                        CustomerNo = "<a href='BillingAddress.aspx?Id=" + c.CustomerNo + "' class=''>" + c.CustomerNo + "</a>",
+                                                        Name = c.CustomerName,
+                                                        Address1 = c.Address1,
+                                                        Address2 = c.Address2,
+                                                        City = c.City,
+                                                        State = c.State,
+                                                        Country = c.Country,
+                                                        //Zipcode = c.Zipcode,
+                                                        Telephone1 = c.Telephone1,
+                                                        //Email = c.Email
+                                                    });
+
         RadGridCustomerIds.Rebind();
     }
 }

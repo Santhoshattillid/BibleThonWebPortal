@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- This file represents ***** -->
+<AS-CONFIG>
+	<SMTP_UserName>rparas@albaspectrum.com</SMTP_UserName>
+	<SMTP_Password></SMTP_Password>
+	<SMTP_ServerHostName>10.134.21.159</SMTP_ServerHostName>
+	<SMTP_NotificationBodyFilePath>G:\Projects\ALBA\Products\Alba 360 Workflow\HostingApplication\EmailTest.Html</SMTP_NotificationBodyFilePath>
+	<SMTP_HostPort>25</SMTP_HostPort>
+  <SMTP_IsSSLEnabled>false</SMTP_IsSSLEnabled>
+</AS-CONFIG>

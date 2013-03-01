@@ -1,0 +1,37 @@
+﻿.redText
+{
+	color: Red;
+	font-size: 12px;
+	font-family: Arial;
+}
+.table
+{
+	border: dashed 1px gray;
+	font-size: 14px;
+	font-family: Tahoma;
+}
+.div 
+{
+	background-color: Green;
+	color: Yellow;
+	font-weight: bold;
+}
+.image
+{
+	margin: 1px 1px 1px 1px;
+	border: solid 1px blue;
+}
+.listSquare
+{
+	list-style-type: square;
+	color: blue;
+}
+.titleText
+{
+	font-family: segoe ui;
+	background-color: #689a05;
+	color: #ffffff;
+	text-align: center;
+
+
+}

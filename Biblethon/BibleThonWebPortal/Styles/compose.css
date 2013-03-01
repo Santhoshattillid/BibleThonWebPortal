@@ -1,0 +1,42 @@
+﻿html, body, form
+{
+	margin: 0;
+	padding: 0;
+}
+
+form
+{
+	overflow: hidden;
+}
+
+body
+{
+	font: 12px/1.5 "Segoe UI", Arial;
+	padding: 10px;
+}
+
+.composeWindow
+{
+	padding: 0;
+}
+
+#composeActions
+{
+	float: right;
+	margin-right: 6px;
+	padding-top: 4px;
+}
+#composeActions a
+{
+	margin: 0 10px;
+}
+#composeActions .radfdSkinnedFormButton
+{
+	width: 75px;
+	margin-left: 12px;
+}
+
+.composeWindow .radeditor .rade_contentCell
+{
+	padding: 0 5px;
+}

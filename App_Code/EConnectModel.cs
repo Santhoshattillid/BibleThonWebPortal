@@ -30,7 +30,11 @@ public class EConnectModel
         var xmlCustomerdoc = new XmlDocument();
         xmlCustomerdoc.Load(memStream);
 
+        // version 11
         var customerDoc = econ.GetEntity(connString, xmlCustomerdoc.OuterXml);
+
+        // version 10
+        //var customerDoc = econ.eConnect_Requester(connString,EnumTypes.ConnectionStringType.SqlClient ,xmlCustomerdoc.OuterXml);
         return customerDoc;
     }
 
@@ -47,7 +51,9 @@ public class EConnectModel
         memStream.Position = 0;
         var xmlCustomerdoc = new XmlDocument();
         xmlCustomerdoc.Load(memStream);
+        // version 11
         var customerDoc = econ.GetEntity(connString, xmlCustomerdoc.OuterXml);
+        //var customerDoc = econ.eConnect_Requester(connString, EnumTypes.ConnectionStringType.SqlClient, xmlCustomerdoc.OuterXml);
         return customerDoc;
     }
 
@@ -166,6 +172,10 @@ public class EConnectModel
         string sopTransactionDoc = xmldoc.OuterXml;
         try
         {
+            //version 10
+            //status = eConCall.eConnect_EntryPoint(sConnectionString, EnumTypes.ConnectionStringType.SqlClient,sopTransactionDoc, EnumTypes.SchemaValidationType.None);
+
+            //version 11
             status = eConCall.CreateEntity(sConnectionString, sopTransactionDoc);
         }
         catch (eConnectException exp)

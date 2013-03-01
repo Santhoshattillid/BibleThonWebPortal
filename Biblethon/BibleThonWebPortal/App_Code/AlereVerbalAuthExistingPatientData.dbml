@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TWO" Class="AlereVerbalAuthExistingPatientDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=RIC-ASUS\ALBA;Initial Catalog=TWO;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TWOConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AS_Alere_VAEP_Records" Member="AS_Alere_VAEP_Records">
+    <Type Name="AS_Alere_VAEP_Record">
+      <Column Name="RecordID" Type="System.String" DbType="NVarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PatientID" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="WorkflowState" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="NoteColumn" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="DetailApproverNoteColumn" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_Alere_VAEP_CBs" Member="AS_Alere_VAEP_CBs">
+    <Type Name="AS_Alere_VAEP_CB">
+      <Column Name="RecordID" Type="System.String" DbType="NVarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Gender" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PrimaryPhone" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SecondaryPhone" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Email" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Caregiver" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CaregiverRelationship" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CaregiverPrimaryPhone" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CaregiverSecondaryPhone" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CaregiverPOA" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Physician" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PhysicianFax" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PhysicianPhone" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ReportResultsTo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ReportResultsToPhone" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ReportResultsToFax" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AfterHoursInstruction" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Clinic" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ClinicAddress" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ClinicCityStateZip" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ClinicPhone" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MeterType" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TestFrequency" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="APLSDiscussion" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TestReportingInstruction" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FaxAllResults" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MBE" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MBEDate" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SelectOptions" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="RetestIn" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OtherOptions" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AuthorizedBy" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AuthorizedByTitle" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TakenBy" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TakenByTitle" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Date" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Time" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_Alere_VAEP_PickLists" Member="AS_Alere_VAEP_PickLists">
+    <Type Name="AS_Alere_VAEP_PickList">
+      <Column Name="PicklistKey" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PicklistItem" Type="System.String" DbType="NVarChar(250) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.uvw_AHM_Patient_Detail" Member="uvw_AHM_Patient_Details">
+    <Type Name="uvw_AHM_Patient_Detail">
+      <Column Name="Patient_Number" Type="System.String" DbType="Char(9) NOT NULL" CanBeNull="false" />
+      <Column Name="Patient_Last_Name" Type="System.String" DbType="Char(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Patient_First_Name" Type="System.String" DbType="Char(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Birth_Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Patient_Address" Type="System.String" DbType="Char(31) NOT NULL" CanBeNull="false" />
+      <Column Name="Patient_City" Type="System.String" DbType="Char(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Patient_State_Code" Type="System.String" DbType="Char(3) NOT NULL" CanBeNull="false" />
+      <Column Name="Patient_ZipCode" Type="System.String" DbType="Char(11) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone_Number" Type="System.String" DbType="VarChar(14)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="Char(61) NOT NULL" CanBeNull="false" />
+      <Column Name="Meter_Type" Type="System.String" DbType="Char(7)" CanBeNull="true" />
+      <Column Name="SA_Account_Number" Type="System.String" DbType="Char(21)" CanBeNull="true" />
+      <Column Name="Referring_Source_Code" Type="System.String" DbType="Char(7) NOT NULL" CanBeNull="false" />
+      <Column Name="Referring_Source_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Primary_Physician_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Primary_Physician_Phone_Number" Type="System.String" DbType="Char(11)" CanBeNull="true" />
+      <Column Name="Primary_Physician_Address" Type="System.String" DbType="Char(31)" CanBeNull="true" />
+      <Column Name="Primary_Physician_City" Type="System.String" DbType="Char(25)" CanBeNull="true" />
+      <Column Name="Primary_Physician_State_Code" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="Primary_Physician_ZipCode" Type="System.String" DbType="Char(11)" CanBeNull="true" />
+      <Column Name="Primary_Plan_Name" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Primary_Policy_Number" Type="System.String" DbType="VarChar(19)" CanBeNull="true" />
+      <Column Name="Primary_Group_Number" Type="System.String" DbType="VarChar(19)" CanBeNull="true" />
+      <Column Name="Primary_Plan_Code" Type="System.String" DbType="Char(7)" CanBeNull="true" />
+      <Column Name="Primary_Plan_Address" Type="System.String" DbType="Char(31)" CanBeNull="true" />
+      <Column Name="Primary_Plan_State_Code" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="Primary_Plan_ZipCode" Type="System.String" DbType="Char(11)" CanBeNull="true" />
+      <Column Name="Primary_Plan_Phone" Type="System.String" DbType="Char(11)" CanBeNull="true" />
+      <Column Name="Primary_Plan_Effective_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Primary_Plan_Expiration_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Secondary_Plan_Name" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Secondary_Policy_Number" Type="System.String" DbType="VarChar(19)" CanBeNull="true" />
+      <Column Name="Secondary_Group_Number" Type="System.String" DbType="VarChar(19)" CanBeNull="true" />
+      <Column Name="Secondary_Plan_Code" Type="System.String" DbType="Char(7)" CanBeNull="true" />
+      <Column Name="Secondary_Plan_Address" Type="System.String" DbType="Char(31)" CanBeNull="true" />
+      <Column Name="Secondary_Plan_State_Code" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="Secondary_Plan_ZipCode" Type="System.String" DbType="Char(11)" CanBeNull="true" />
+      <Column Name="Secondary_Plan_Phone" Type="System.String" DbType="Char(11)" CanBeNull="true" />
+      <Column Name="Secondary_Plan_Effective_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Secondary_Plan_Expiration_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Primary_Plan_City" Type="System.String" DbType="Char(31)" CanBeNull="true" />
+      <Column Name="Secondary_Plan_City" Type="System.String" DbType="Char(31)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_Alere_VAEP_Records_AuditTrail" Member="AS_Alere_VAEP_Records_AuditTrails">
+    <Type Name="AS_Alere_VAEP_Records_AuditTrail">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RecordID" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="PatientID" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="WorkflowState" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="NoteColumn" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="DetailApproverNoteColumn" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_Alere_VAEP_Details" Member="AS_Alere_VAEP_Details">
+    <Type Name="AS_Alere_VAEP_Detail">
+      <Column Name="RecordID" Type="System.String" DbType="NVarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Gender" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PrimaryPhone" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SecondaryPhone" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Caregiver" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CaregiverRelationship" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CaregiverPrimaryPhone" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CaregiverSecondaryPhone" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CaregiverPOA" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Physician" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PhysicianFax" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PhysicianPhone" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ReportResultsTo" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ReportResultsToPhone" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ReportResultsToFax" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AfterHoursInstruction" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Clinic" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ClinicAddress" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ClinicCityStateZip" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ClinicPhone" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MeterType" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="TestFrequency" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="APLSDiscussion" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="TestReportingInstruction" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="FaxAllResults" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MBE" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MBEDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SelectOptions" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="RetestIn" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OtherOptions" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="AuthorizedBy" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="AuthorizedByTitle" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TakenBy" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="TakenByTitle" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Time" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="Attempt" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="AttemptDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="AttemptTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.375, 11.375" name="Workflow">
+  <DataContextMoniker Name="/WorkflowDataContext" />
+  <nestedChildShapes>
+    <classShape Id="0cb89169-8a26-4d0b-9ae0-ba2e0a50e1aa" absoluteBounds="1.625, 5.5, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/WorkflowDataContext/AS_WF_User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="084e8520-bad6-4b3f-8548-32a614ecb694" absoluteBounds="1.6400000000000001, 5.96, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cbd81f88-5c88-4f03-a056-3320535dc22d" absoluteBounds="1.625, 0.5, 2, 4.8477197265625">
+      <DataClassMoniker Name="/WorkflowDataContext/AS_WF_WorkflowSetup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e095513e-b4e4-4c59-bb14-b40b794b49b9" absoluteBounds="1.6400000000000001, 0.96, 1.9700000000000002, 4.2877197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2e57df99-35d1-43f8-85a2-caa5743eda86" absoluteBounds="8, 6.625, 2, 4.4631168619791666">
+      <DataClassMoniker Name="/WorkflowDataContext/AS_WF_WorkflowDocumentType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="56c77704-c4ce-4f4d-8ef0-8346646afe1a" absoluteBounds="8.015, 7.0850000000000009, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e4f0d561-04c7-43b5-b1ec-d864a8d8fce4" absoluteBounds="5.875, 0.5, 2, 8.1168440755208326">
+      <DataClassMoniker Name="/WorkflowDataContext/AS_WF_WorkflowInstance" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d33cbcac-da52-48b1-a2c5-2558f1339380" absoluteBounds="5.89, 0.96, 1.9700000000000002, 7.556844075520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="42dccb45-cd55-4784-ae52-bc5656142d08" absoluteBounds="10.125, 0.5, 2, 8.3091455078125">
+      <DataClassMoniker Name="/WorkflowDataContext/AS_WF_WorkflowInstanceHistory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ddfedf6b-d878-4bab-a4f1-5fde78dbb679" absoluteBounds="10.14, 0.96, 1.9700000000000002, 7.7491455078125009" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3e009f5e-b250-499b-ae53-802d2259e0d5" absoluteBounds="8, 0.5, 2, 6.0015283203125">
+      <DataClassMoniker Name="/WorkflowDataContext/AS_WF_VW_WorkflowHistory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="767b1208-a75e-49f1-8cae-3f5570be25a0" absoluteBounds="8.015, 0.96, 1.9700000000000002, 5.4415283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b73b6cdd-040a-45e5-9e22-a0cd03acd6ee" absoluteBounds="3.75, 0.5, 2, 6.0015283203125">
+      <DataClassMoniker Name="/WorkflowDataContext/AS_WF_VW_WorkflowTask" />
+      <nestedChildShapes>
+        <elementListCompartment Id="eec3a243-20c7-4155-beaf-1020327e97aa" absoluteBounds="3.7649999999999997, 0.96, 1.9700000000000002, 5.4415283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5bbc97ed-2d30-4adb-8d4c-6b406f719576" absoluteBounds="3.75, 6.625, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/WorkflowDataContext/AS_WF_GroupsWorkflowDocumentType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d616fce3-833f-4986-96b9-76fbf1387471" absoluteBounds="3.7649999999999997, 7.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

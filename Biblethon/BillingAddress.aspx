@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link href="Style/Style.css" rel="stylesheet" type="text/css" />
+    <link href="Style/AddressPopup.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -13,24 +13,32 @@
     <asp:Panel runat="server" ID="RadPanelCustomerIds">
         <div class="header">
             <h3>
-                Select customer</h3>
+                Select Customer</h3>
         </div>
         <div class="grid">
             <telerik:RadGrid ID="RadGridCustomerIds" runat="server" OnPageIndexChanged="RadGrid1_DataBinding"
                 PageSize="10" AllowPaging="True" OnPageSizeChanged="RadGrid1_DataBinding" AllowSorting="True"
-                OnSortCommand="RadGrid1_DataBinding">
+                OnSortCommand="RadGrid1_DataBinding" CssClass="radGrid">
             </telerik:RadGrid>
         </div>
     </asp:Panel>
     <asp:Panel runat="server" ID="RadPanelAddress">
         <div class="header">
-            <h3>
-                Select address</h3>
+            <div>
+                <h3>
+                    Select Billing Address</h3>
+            </div>
+            <div class="right">
+                <a href="#" onclick="goBack()">Back</a></div>
+        </div>
+        <div class="clear">
         </div>
         <div class="grid">
             <telerik:RadGrid ID="RadGridAddress" runat="server">
             </telerik:RadGrid>
         </div>
+        <asp:HiddenField runat="server" ID="HdnCreditCardNumber" />
+        <asp:HiddenField runat="server" ID="HdnExpireDate" />
     </asp:Panel>
     </form>
     <script src="Scripts/jquery-1.8.3.js" type="text/javascript"></script>
@@ -43,14 +51,16 @@
                     'name': row.find('td').eq(1).text(),
                     'address1': row.find('td').eq(2).text(),
                     'address2': row.find('td').eq(3).text(),
-                    'address3': row.find('td').eq(4).text(),
-                    'city': row.find('td').eq(5).text(),
-                    'state': row.find('td').eq(7).text(),
-                    'country': row.find('td').eq(8).text(),
-                    'zipCode': row.find('td').eq(9).text(),
-                    'telephone1': row.find('td').eq(10).text(),
-                    'telephone2': row.find('td').eq(11).text(),
-                    'email': $.trim(row.find('td').eq(12).text())
+                    //'address3': row.find('td').eq(4).text(),
+                    'city': row.find('td').eq(4).text(),
+                    'state': row.find('td').eq(5).text(),
+                    'country': row.find('td').eq(6).text(),
+                    'zipCode': row.find('td').eq(7).text(),
+                    'telephone1': row.find('td').eq(8).text(),
+                    //'telephone2': row.find('td').eq(11).text(),
+                    'email': $.trim(row.find('td').eq(9).text()),
+                    'cardno': $.trim($('[id$=HdnCreditCardNumber]').val()),
+                    'expireDate': $.trim($('[id$=HdnExpireDate]').val()),
                 };
                 getRadWindow().close(customerDetails);
             });
@@ -61,6 +71,9 @@
                 return oWindow;
             }
         });
+        function goBack() {
+                window.history.back();
+            }
     </script>
 </body>
 </html>
