@@ -1,5 +1,5 @@
-2013/03/01-14:54:48.447 af8 Recovering log #29
-2013/03/01-14:54:48.448 af8 Level-0 table #32: started
-2013/03/01-14:54:48.483 af8 Level-0 table #32: 166950 bytes OK
-2013/03/01-14:54:48.508 af8 Delete type=0 #29
-2013/03/01-14:54:48.509 af8 Delete type=3 #27
+2013/03/05-10:35:36.629 1bbc Recovering log #33
+2013/03/05-10:35:36.681 1bbc Level-0 table #35: started
+2013/03/05-10:35:36.911 1bbc Level-0 table #35: 177528 bytes OK
+2013/03/05-10:35:36.961 1bbc Delete type=0 #33
+2013/03/05-10:35:36.961 1bbc Delete type=3 #31
