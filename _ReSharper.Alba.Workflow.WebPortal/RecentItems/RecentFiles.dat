@@ -9,13 +9,6 @@
     <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Biblethon/f:ShippingAddress.aspx.cs" caret="580" fromTop="21" />
     <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Biblethon/d:Style/f:Style.css" caret="5672" fromTop="23" />
     <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Biblethon/d:Style/f:AddressPopup.css" caret="350" fromTop="33" />
-    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Documents/f:frmGaiamChargebackDocument.aspx" caret="0" fromTop="0" />
-    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Documents/f:frmPresidioApprovalDocument.aspx" caret="0" fromTop="0" />
-    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/f:Default.aspx" caret="0" fromTop="0" />
-    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Documents/f:frmAlereHomeMonitoringDocument.aspx" caret="0" fromTop="0" />
-    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Documents/f:frmGaiamChargebackDocument.aspx.cs" caret="0" fromTop="0" />
-    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Documents/f:frmPresidioApprovalDocument.aspx.cs" caret="0" fromTop="0" />
-    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/f:Default.aspx.cs" caret="0" fromTop="0" />
     <File id="443C1652-CC2C-4470-9FD0-C824B6906427/f:web.config" caret="689" fromTop="9" />
     <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Biblethon/f:PaymentProcessing.aspx" caret="0" fromTop="0" />
     <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Biblethon/f:PaymentProcessing.aspx.cs" caret="0" fromTop="0" />
@@ -25,10 +18,17 @@
     <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Biblethon/f:OrderDetails.aspx" caret="0" fromTop="0" />
     <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Biblethon/f:BillingAddress.aspx" caret="1240" fromTop="27" />
     <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Biblethon/f:OrderEntry.aspx" caret="26539" fromTop="50" />
-    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Documents/f:frmAlereHomeMonitoringDocument.aspx.cs" caret="609" fromTop="24" />
     <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Biblethon/d:Scripts/f:contentScript.js" caret="21515" fromTop="80" />
     <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:App_Code/f:EConnectModel.cs" caret="1396" fromTop="7" />
     <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Biblethon/f:OrderEntry.aspx.cs" caret="174" fromTop="4" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Documents/f:frmGaiamChargebackDocument.aspx" caret="0" fromTop="0" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Documents/f:frmPresidioApprovalDocument.aspx" caret="0" fromTop="0" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/f:Default.aspx" caret="0" fromTop="0" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Documents/f:frmAlereHomeMonitoringDocument.aspx" caret="0" fromTop="0" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/f:Default.aspx.cs" caret="0" fromTop="0" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Documents/f:frmGaiamChargebackDocument.aspx.cs" caret="0" fromTop="0" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Documents/f:frmPresidioApprovalDocument.aspx.cs" caret="0" fromTop="0" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Documents/f:frmAlereHomeMonitoringDocument.aspx.cs" caret="609" fromTop="24" />
   </RecentFiles>
   <RecentEdits>
     <File id="443C1652-CC2C-4470-9FD0-C824B6906427/f:Login.aspx.cs" caret="1188" fromTop="16" />

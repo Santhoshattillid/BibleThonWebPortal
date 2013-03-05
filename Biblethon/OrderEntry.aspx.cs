@@ -143,12 +143,12 @@ public partial class Biblethon_OrderEntry : Page
                 return;
             }
 
-            if (string.IsNullOrEmpty(txtEmail.Text.Trim()))
-            {
-                lblError.Text = "Email could not be empty";
-                hidAccordionIndex.Value = "1";
-                return;
-            }
+            //if (string.IsNullOrEmpty(txtEmail.Text.Trim()))
+            //{
+            //    lblError.Text = "Email could not be empty";
+            //    hidAccordionIndex.Value = "1";
+            //    return;
+            //}
 
             if (string.IsNullOrEmpty(txtZipCode.Text.Trim()))
             {
@@ -159,7 +159,7 @@ public partial class Biblethon_OrderEntry : Page
 
 
             // validation for offerlines
-            if(Convert.ToDecimal(lblGrandTotal.Text.Trim().Replace("$","")) > 0)
+            if(Convert.ToDecimal(lblGrandTotal.Text.Trim().Replace("$","")) <= 0)
             {
                 lblError.Text = "Atleast select a product to process.";
                 hidAccordionIndex.Value = "2";

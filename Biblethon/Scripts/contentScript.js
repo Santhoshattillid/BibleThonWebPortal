@@ -175,9 +175,9 @@ $(function () {
     // custom search for shipping address
     $('#ImgShippingAddressModify').click(function () {
         var wnd = window.radopen("ShippingAddress.aspx?CustomerNo=" + $('[id$=HdnCustomerNo]').val());
-        //wnd.setSize(1050, 550);
-        wnd.autoSize(true);
-        wnd.set_autoSize(true);
+        wnd.setSize(950, 400);
+        //wnd.autoSize(true);
+        //wnd.set_autoSize(true);
         wnd.add_close(onClientCloseForShippingAddress);
         wnd.center();
         return false;
@@ -224,15 +224,25 @@ $(function () {
             $('[id$=txtEmail]').val($('[id$=txtBEmail]').val());
         } else {
             $('[id$=txtCustomerName]').empty();
+            $('[id$=txtCustomerName]').val('');
             $('[id$=txtAddress1]').empty();
+            $('[id$=txtAddress1]').val('');
             $('[id$=txtAddress2]').empty();
+            $('[id$=txtAddress2]').val('');
             $('[id$=txtAddress3]').empty();
+            $('[id$=txtAddress3]').val('');
             $('[id$=txtTelephone]').empty();
+            $('[id$=txtTelephone]').val('');
             $('[id$=txtCity]').empty();
+            $('[id$=txtCity]').val('');
             $('[id$=txtState]').empty();
+            $('[id$=txtState]').val('');
             $('[id$=txtZipCode]').empty();
+            $('[id$=txtZipCode]').val('');
             $('[id$=txtCountry]').empty();
+            $('[id$=txtCountry]').val('');
             $('[id$=txtEmail]').empty();
+            $('[id$=txtEmail]').val('');
         }
         // updating left hand side panel for shipping address labels
         updateLeftPanelShippingAddress();
@@ -245,7 +255,10 @@ $(function () {
             $('[id$=' + id + ']').html($(this).val());
         });
 
-        $('[id$=LblSACityStateZip]').html($('[id$=txtCity]').val() + ", " + $('[id$=txtState]').val() + ", " + $('[id$=txtZipCode]').val());
+        if ($.trim($('[id$=txtCity]').val()) != "" && $.trim($('[id$=txtState]').val()) != "" && $.trim($('[id$=txtZipCode]').val()) != "")
+            $('[id$=LblSACityStateZip]').html($('[id$=txtCity]').val() + ", " + $('[id$=txtState]').val() + ", " + $('[id$=txtZipCode]').val());
+        else
+            $('[id$=LblSACityStateZip]').empty();
     }
 
 
@@ -538,11 +551,11 @@ $(function () {
             validateShipping("Country", element);
             return false;
         }
-        element = $('[id$=txtEmail]');
-        if ($.trim(element.val()) == "") {
-            validateShipping("Email", element);
-            return false;
-        }
+//        element = $('[id$=txtEmail]');
+//        if ($.trim(element.val()) == "") {
+//            validateShipping("Email", element);
+//            return false;
+//        }
         element = $('[id$=txtZipCode]');
         if ($.trim(element.val()) == "") {
             validateShipping("ZipCode", element);

@@ -43,6 +43,7 @@
                     <asp:Label runat="server" ID="LblBTelephone1"></asp:Label>
                     <br />
                     <asp:Label runat="server" ID="LblBEmail"></asp:Label>
+                    <br />
                 </p>
                 <h3>
                     Shipping Address
