@@ -248,78 +248,82 @@ public class BillingAddress
                 }
                 if (isRecordFound)
                 {
-                    var billingAddr = new BillingAddress
-                                          {
-                                              CustomerNo = xn["CUSTNMBR"].InnerText,
-                                              CustomerName = xn["CUSTNAME"].InnerText,
-                                              Address1 = xn["ADDRESS1"].InnerText,
-                                              Address2 = xn["ADDRESS2"].InnerText,
-                                              Address3 = xn["ADDRESS3"].InnerText
-                                          };
-
-                    if (!string.IsNullOrEmpty(xn["PHONE1"].InnerText) &&
-                        xn["PHONE1"].InnerText.Trim() != "00000000000000")
+                    if (xn["CUSTNMBR"] != null && !string.IsNullOrEmpty(xn["CUSTNMBR"].InnerText))
                     {
-                        if (xn["PHONE1"].InnerText.Length > 3)
-                            billingAddr.Telephone1 = "(" + xn["PHONE1"].InnerText.Substring(0, 3) + ") ";
-                        if (xn["PHONE1"].InnerText.Length > 6)
-                            billingAddr.Telephone1 += xn["PHONE1"].InnerText.Substring(3, 3) + "-";
-                        if (xn["PHONE1"].InnerText.Length > 10)
-                            billingAddr.Telephone1 += xn["PHONE1"].InnerText.Substring(6, 4) + " Ext. ";
-                        if (xn["PHONE1"].InnerText.Length > 13)
-                            billingAddr.Telephone1 += xn["PHONE1"].InnerText.Substring(10);
-                    }
-                    else
-                        billingAddr.Telephone1 = string.Empty;
+                        var billingAddr = new BillingAddress
+                                              {
+                                                  CustomerNo = xn["CUSTNMBR"].InnerText,
+                                                  CustomerName = xn["CUSTNAME"].InnerText,
+                                                  Address1 = xn["ADDRESS1"].InnerText,
+                                                  Address2 = xn["ADDRESS2"].InnerText,
+                                                  Address3 = xn["ADDRESS3"].InnerText
+                                              };
 
-                    if (!string.IsNullOrEmpty(xn["PHONE2"].InnerText) &&
-                        xn["PHONE2"].InnerText.Trim() != "00000000000000")
-                    {
-                        if (xn["PHONE2"].InnerText.Length > 3)
-                            billingAddr.Telephone2 = "(" + xn["PHONE2"].InnerText.Substring(0, 3) + ") ";
-                        if (xn["PHONE2"].InnerText.Length > 6)
-                            billingAddr.Telephone2 += xn["PHONE2"].InnerText.Substring(3, 3) + "-";
-                        if (xn["PHONE2"].InnerText.Length > 10)
-                            billingAddr.Telephone2 += xn["PHONE2"].InnerText.Substring(6, 4) + " Ext. ";
-                        if (xn["PHONE2"].InnerText.Length > 13)
-                            billingAddr.Telephone2 += xn["PHONE2"].InnerText.Substring(10);
-                    }
-                    else
-                        billingAddr.Telephone2 = string.Empty;
-
-                    billingAddr.Telephone3 = xn["PHONE3"].InnerText;
-                    billingAddr.City = xn["CITY"].InnerText;
-                    billingAddr.State = xn["STATE"].InnerText;
-                    billingAddr.Zipcode = xn["ZIP"].InnerText;
-                    billingAddr.Country = xn["COUNTRY"].InnerText;
-                    billingAddr.Email = "";
-                    billingAddr.AddressCode = xn["ADRSCODE"].InnerText;
-                    billingAddr.CreditCardNumber = xn["CRCRDNUM"].InnerText;
-                    try
-                    {
-                        billingAddr.CreditCardExpireDate = Convert.ToDateTime(xn["CCRDXPDT"].InnerText).ToString("MMyy");
-                    }
-                    catch (Exception)
-                    {
-                    }
-
-                    XmlNodeList emailAddressNodes = xn.SelectNodes("Address/Internet_Address");
-
-                    if (emailAddressNodes != null)
-                        foreach (XmlNode emailAddressNode in emailAddressNodes)
+                        if (!string.IsNullOrEmpty(xn["PHONE1"].InnerText) &&
+                            xn["PHONE1"].InnerText.Trim() != "00000000000000")
                         {
-                            XmlElement xmlElement = emailAddressNode["ADRSCODE"];
-                            if (xmlElement != null &&
-                                String.CompareOrdinal(billingAddr.AddressCode, xmlElement.InnerText) == 0)
-                            {
-                                XmlElement element = emailAddressNode["INET1"];
-                                if (element != null)
-                                    billingAddr.Email = element.InnerText;
-                                break;
-                            }
+                            if (xn["PHONE1"].InnerText.Length > 3)
+                                billingAddr.Telephone1 = "(" + xn["PHONE1"].InnerText.Substring(0, 3) + ") ";
+                            if (xn["PHONE1"].InnerText.Length > 6)
+                                billingAddr.Telephone1 += xn["PHONE1"].InnerText.Substring(3, 3) + "-";
+                            if (xn["PHONE1"].InnerText.Length > 10)
+                                billingAddr.Telephone1 += xn["PHONE1"].InnerText.Substring(6, 4) + " Ext. ";
+                            if (xn["PHONE1"].InnerText.Length > 13)
+                                billingAddr.Telephone1 += xn["PHONE1"].InnerText.Substring(10);
+                        }
+                        else
+                            billingAddr.Telephone1 = string.Empty;
+
+                        if (!string.IsNullOrEmpty(xn["PHONE2"].InnerText) &&
+                            xn["PHONE2"].InnerText.Trim() != "00000000000000")
+                        {
+                            if (xn["PHONE2"].InnerText.Length > 3)
+                                billingAddr.Telephone2 = "(" + xn["PHONE2"].InnerText.Substring(0, 3) + ") ";
+                            if (xn["PHONE2"].InnerText.Length > 6)
+                                billingAddr.Telephone2 += xn["PHONE2"].InnerText.Substring(3, 3) + "-";
+                            if (xn["PHONE2"].InnerText.Length > 10)
+                                billingAddr.Telephone2 += xn["PHONE2"].InnerText.Substring(6, 4) + " Ext. ";
+                            if (xn["PHONE2"].InnerText.Length > 13)
+                                billingAddr.Telephone2 += xn["PHONE2"].InnerText.Substring(10);
+                        }
+                        else
+                            billingAddr.Telephone2 = string.Empty;
+
+                        billingAddr.Telephone3 = xn["PHONE3"].InnerText;
+                        billingAddr.City = xn["CITY"].InnerText;
+                        billingAddr.State = xn["STATE"].InnerText;
+                        billingAddr.Zipcode = xn["ZIP"].InnerText;
+                        billingAddr.Country = xn["COUNTRY"].InnerText;
+                        billingAddr.Email = "";
+                        billingAddr.AddressCode = xn["ADRSCODE"].InnerText;
+                        billingAddr.CreditCardNumber = xn["CRCRDNUM"].InnerText;
+                        try
+                        {
+                            billingAddr.CreditCardExpireDate =
+                                Convert.ToDateTime(xn["CCRDXPDT"].InnerText).ToString("MMyy");
+                        }
+                        catch (Exception)
+                        {
                         }
 
-                    customeDetails.Add(billingAddr);
+                        XmlNodeList emailAddressNodes = xn.SelectNodes("Address/Internet_Address");
+
+                        if (emailAddressNodes != null)
+                            foreach (XmlNode emailAddressNode in emailAddressNodes)
+                            {
+                                XmlElement xmlElement = emailAddressNode["ADRSCODE"];
+                                if (xmlElement != null &&
+                                    String.CompareOrdinal(billingAddr.AddressCode, xmlElement.InnerText) == 0)
+                                {
+                                    XmlElement element = emailAddressNode["INET1"];
+                                    if (element != null)
+                                        billingAddr.Email = element.InnerText;
+                                    break;
+                                }
+                            }
+
+                        customeDetails.Add(billingAddr);
+                    }
                 }
 
             }

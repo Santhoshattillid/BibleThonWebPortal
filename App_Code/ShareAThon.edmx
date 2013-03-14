@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TWOModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="TWOModelStoreContainer">
+          <EntitySet Name="OrderDetails" EntityType="TWOModel.Store.OrderDetails" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ShareAThonDonation" EntityType="TWOModel.Store.ShareAThonDonation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ShareAThonDonationFrequency" EntityType="TWOModel.Store.ShareAThonDonationFrequency" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ShareAThonOfferLines" EntityType="TWOModel.Store.ShareAThonOfferLines" store:Type="Tables" store:Schema="dbo" store:Name="ShareAThonOfferLines">
+            <DefiningQuery>SELECT 
+      [ShareAThonOfferLines].[Id] AS [Id], 
+      [ShareAThonOfferLines].[OrderId] AS [OrderId], 
+      [ShareAThonOfferLines].[OfferNo] AS [OfferNo], 
+      [ShareAThonOfferLines].[Description] AS [Description], 
+      [ShareAThonOfferLines].[Qty] AS [Qty], 
+      [ShareAThonOfferLines].[ShareAThonDonationId] AS [ShareAThonDonationId]
+      FROM [dbo].[ShareAThonOfferLines] AS [ShareAThonOfferLines]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_ShareAThonDonationFrequency_ShareAThonDonation" Association="TWOModel.Store.FK_ShareAThonDonationFrequency_ShareAThonDonation">
+            <End Role="ShareAThonDonation" EntitySet="ShareAThonDonation" />
+            <End Role="ShareAThonDonationFrequency" EntitySet="ShareAThonDonationFrequency" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShareAThonOfferLines_ShareAThonDonation" Association="TWOModel.Store.FK_ShareAThonOfferLines_ShareAThonDonation">
+            <End Role="ShareAThonDonation" EntitySet="ShareAThonDonation" />
+            <End Role="ShareAThonOfferLines" EntitySet="ShareAThonOfferLines" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="OrderDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="OrdDate" Type="datetime" />
+          <Property Name="Status" Type="nchar" MaxLength="12" />
+          <Property Name="FormData" Type="nvarchar(max)" />
+          <Property Name="OrdNo" Type="nchar" MaxLength="25" />
+          <Property Name="Operator" Type="nchar" MaxLength="255" />
+          <Property Name="CustomerName" Type="nchar" MaxLength="255" />
+          <Property Name="OrdTotal" Type="decimal" Scale="2" />
+        </EntityType>
+        <EntityType Name="ShareAThonDonation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CurrentlyDonorOf" Type="money" />
+          <Property Name="InitialChargeOn" Type="date" />
+          <Property Name="DonationAmount" Type="money" />
+          <Property Name="IncreasingTo" Type="money" />
+          <Property Name="DayToChargeMonthly" Type="int" />
+          <Property Name="OrderId" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ShareAThonDonationFrequency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="DueDate" Type="date" Nullable="false" />
+          <Property Name="Amount" Type="money" Nullable="false" />
+          <Property Name="Status" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ShareAThonDonationId" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'TWO.dbo.ShareAThonOfferLines' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="ShareAThonOfferLines">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="OrderId" />
+            <PropertyRef Name="OfferNo" />
+            <PropertyRef Name="Qty" />
+            <PropertyRef Name="ShareAThonDonationId" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="OfferNo" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="Qty" Type="int" Nullable="false" />
+          <Property Name="ShareAThonDonationId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ShareAThonDonationFrequency_ShareAThonDonation">
+          <End Role="ShareAThonDonation" Type="TWOModel.Store.ShareAThonDonation" Multiplicity="1" />
+          <End Role="ShareAThonDonationFrequency" Type="TWOModel.Store.ShareAThonDonationFrequency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShareAThonDonation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ShareAThonDonationFrequency">
+              <PropertyRef Name="ShareAThonDonationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShareAThonOfferLines_ShareAThonDonation">
+          <End Role="ShareAThonDonation" Type="TWOModel.Store.ShareAThonDonation" Multiplicity="1" />
+          <End Role="ShareAThonOfferLines" Type="TWOModel.Store.ShareAThonOfferLines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShareAThonDonation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ShareAThonOfferLines">
+              <PropertyRef Name="ShareAThonDonationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TWOModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="TWOEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ShareAThonDonations" EntityType="TWOModel.ShareAThonDonation" />
+          <EntitySet Name="ShareAThonDonationFrequencies" EntityType="TWOModel.ShareAThonDonationFrequency" />
+          <EntitySet Name="ShareAThonOfferLines" EntityType="TWOModel.ShareAThonOfferLine" />
+          <AssociationSet Name="FK_ShareAThonDonationFrequency_ShareAThonDonation" Association="TWOModel.FK_ShareAThonDonationFrequency_ShareAThonDonation">
+            <End Role="ShareAThonDonation" EntitySet="ShareAThonDonations" />
+            <End Role="ShareAThonDonationFrequency" EntitySet="ShareAThonDonationFrequencies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShareAThonOfferLines_ShareAThonDonation" Association="TWOModel.FK_ShareAThonOfferLines_ShareAThonDonation">
+            <End Role="ShareAThonDonation" EntitySet="ShareAThonDonations" />
+            <End Role="ShareAThonOfferLine" EntitySet="ShareAThonOfferLines" />
+          </AssociationSet>
+          <EntitySet Name="OrderDetails" EntityType="TWOModel.OrderDetail" />
+        </EntityContainer>
+        <EntityType Name="ShareAThonDonation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CustomerId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="CurrentlyDonorOf" Precision="19" Scale="4" />
+          <Property Type="DateTime" Name="InitialChargeOn" />
+          <Property Type="Decimal" Name="DonationAmount" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="IncreasingTo" Precision="19" Scale="4" />
+          <Property Type="Int32" Name="DayToChargeMonthly" />
+          <Property Type="String" Name="OrderId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ShareAThonDonationFrequencies" Relationship="TWOModel.FK_ShareAThonDonationFrequency_ShareAThonDonation" FromRole="ShareAThonDonation" ToRole="ShareAThonDonationFrequency" />
+          <NavigationProperty Name="ShareAThonOfferLines" Relationship="TWOModel.FK_ShareAThonOfferLines_ShareAThonDonation" FromRole="ShareAThonDonation" ToRole="ShareAThonOfferLine" />
+        </EntityType>
+        <EntityType Name="ShareAThonDonationFrequency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="OrderId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="DueDate" Nullable="false" />
+          <Property Type="Decimal" Name="Amount" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ShareAThonDonationId" Nullable="false" />
+          <NavigationProperty Name="ShareAThonDonation" Relationship="TWOModel.FK_ShareAThonDonationFrequency_ShareAThonDonation" FromRole="ShareAThonDonationFrequency" ToRole="ShareAThonDonation" />
+        </EntityType>
+        <EntityType Name="ShareAThonOfferLine">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="OrderId" />
+            <PropertyRef Name="OfferNo" />
+            <PropertyRef Name="Qty" />
+            <PropertyRef Name="ShareAThonDonationId" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="OrderId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="OfferNo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Description" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Qty" Nullable="false" />
+          <Property Type="Int32" Name="ShareAThonDonationId" Nullable="false" />
+          <NavigationProperty Name="ShareAThonDonation" Relationship="TWOModel.FK_ShareAThonOfferLines_ShareAThonDonation" FromRole="ShareAThonOfferLine" ToRole="ShareAThonDonation" />
+        </EntityType>
+        <Association Name="FK_ShareAThonDonationFrequency_ShareAThonDonation">
+          <End Type="TWOModel.ShareAThonDonation" Role="ShareAThonDonation" Multiplicity="1" />
+          <End Type="TWOModel.ShareAThonDonationFrequency" Role="ShareAThonDonationFrequency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShareAThonDonation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ShareAThonDonationFrequency">
+              <PropertyRef Name="ShareAThonDonationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShareAThonOfferLines_ShareAThonDonation">
+          <End Type="TWOModel.ShareAThonDonation" Role="ShareAThonDonation" Multiplicity="1" />
+          <End Type="TWOModel.ShareAThonOfferLine" Role="ShareAThonOfferLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShareAThonDonation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ShareAThonOfferLine">
+              <PropertyRef Name="ShareAThonDonationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="DateTime" Name="OrdDate" />
+          <Property Type="String" Name="Status" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="FormData" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OrdNo" MaxLength="25" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Operator" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="CustomerName" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Type="Decimal" Name="OrdTotal" Precision="18" Scale="2" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TWOModelStoreContainer" CdmEntityContainer="TWOEntities">
+          <EntitySetMapping Name="ShareAThonDonations">
+            <EntityTypeMapping TypeName="TWOModel.ShareAThonDonation">
+              <MappingFragment StoreEntitySet="ShareAThonDonation">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="DayToChargeMonthly" ColumnName="DayToChargeMonthly" />
+                <ScalarProperty Name="IncreasingTo" ColumnName="IncreasingTo" />
+                <ScalarProperty Name="DonationAmount" ColumnName="DonationAmount" />
+                <ScalarProperty Name="InitialChargeOn" ColumnName="InitialChargeOn" />
+                <ScalarProperty Name="CurrentlyDonorOf" ColumnName="CurrentlyDonorOf" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShareAThonDonationFrequencies">
+            <EntityTypeMapping TypeName="TWOModel.ShareAThonDonationFrequency">
+              <MappingFragment StoreEntitySet="ShareAThonDonationFrequency">
+                <ScalarProperty Name="ShareAThonDonationId" ColumnName="ShareAThonDonationId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShareAThonOfferLines">
+            <EntityTypeMapping TypeName="TWOModel.ShareAThonOfferLine">
+              <MappingFragment StoreEntitySet="ShareAThonOfferLines">
+                <ScalarProperty Name="ShareAThonDonationId" ColumnName="ShareAThonDonationId" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="OfferNo" ColumnName="OfferNo" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails">
+            <EntityTypeMapping TypeName="TWOModel.OrderDetail">
+              <MappingFragment StoreEntitySet="OrderDetails">
+                <ScalarProperty Name="OrdTotal" ColumnName="OrdTotal" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="Operator" ColumnName="Operator" />
+                <ScalarProperty Name="OrdNo" ColumnName="OrdNo" />
+                <ScalarProperty Name="FormData" ColumnName="FormData" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="OrdDate" ColumnName="OrdDate" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ShareAThon">
+        <EntityTypeShape EntityType="TWOModel.ShareAThonDonation" Width="1.75" PointX="2.875" PointY="0.75" Height="2.9417936197916656" />
+        <EntityTypeShape EntityType="TWOModel.ShareAThonDonationFrequency" Width="1.75" PointX="6.375" PointY="0.875" Height="2.3648893229166656" />
+        <EntityTypeShape EntityType="TWOModel.ShareAThonOfferLine" Width="1.75" PointX="6.625" PointY="4.625" Height="2.3648893229166674" />
+        <AssociationConnector Association="TWOModel.FK_ShareAThonDonationFrequency_ShareAThonDonation" >
+          <ConnectorPoint PointX="4.625" PointY="2.0574446614583328" />
+          <ConnectorPoint PointX="6.375" PointY="2.0574446614583328" />
+        </AssociationConnector>
+        <AssociationConnector Association="TWOModel.FK_ShareAThonOfferLines_ShareAThonDonation" >
+          <ConnectorPoint PointX="3.75" PointY="3.6917936197916656" />
+          <ConnectorPoint PointX="3.75" PointY="5.8074446614583337" />
+          <ConnectorPoint PointX="6.625" PointY="5.8074446614583337" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="TWOModel.OrderDetail" Width="1.5" PointX="0.75" PointY="0.75" Height="2.5571907552083335" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Microsoft.Dynamics.GP.eConnect.Serialization;
 
 namespace Biblethon.Controller
 {
@@ -22,7 +19,7 @@ namespace Biblethon.Controller
 
         public List<Orders> GetOrderList()
         {
-            List<Orders> orderList = new List<Orders>();
+            var orderList = new List<Orders>();
 
             return orderList;
         }

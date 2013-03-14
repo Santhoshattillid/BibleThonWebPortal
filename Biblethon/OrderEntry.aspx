@@ -20,7 +20,7 @@
                     Order Summary</h2>
                 <p>
                     Order No:
-                    <asp:Label ID="lblOrderNo" runat="server" ></asp:Label></p>
+                    <asp:Label ID="lblOrderNo" runat="server"  ></asp:Label></p>
                 <p>
                     <asp:Label runat="server" ID="LblDate"></asp:Label></p>
                 <p>
@@ -121,6 +121,7 @@
                                             </td>
                                             <td colspan="2">
                                                 <asp:Label ID="lblAddress1" for="LblBAddress1" runat="server" Text=""></asp:Label>
+                                                <input type="text" for="LblBAddress1,lblAddress1"  name="TxtBillingAddress1" class="hidden txtarea" id="TxtBillingAddress1"/>
                                             </td>
                                         </tr>
                                         <tr id="tr2" runat="server">
@@ -128,6 +129,7 @@
                                             </td>
                                             <td colspan="2">
                                                 <asp:Label ID="lblAddress2" for="LblBAddress2" runat="server" Text=""></asp:Label>
+                                                <input type="text" for="LblBAddress2,lblAddress2" name="TxtBillingAddress2" class="hidden txtarea" id="TxtBillingAddress2"/>
                                             </td>
                                         </tr>
                                         <tr id="tr3" runat="server">
@@ -135,6 +137,7 @@
                                             </td>
                                             <td colspan="2">
                                                 <asp:Label ID="lblAddress3" runat="server" Text=""></asp:Label>
+                                                <input type="text" for="LblBAddress3,lblAddress3" name="TxtBillingAddress3" class="hidden txtarea" id="TxtBillingAddress3"/>
                                             </td>
                                         </tr>
                                         <tr id="tr4" runat="server">
@@ -143,6 +146,7 @@
                                             </td>
                                             <td colspan="2">
                                                 <asp:Label ID="lblCity"  runat="server" Text=""></asp:Label>
+                                                <input type="text" for="LblBAddress3,lblAddress3" name="TxtBillingCity" class="hidden" id="TxtBillingCity"/>
                                             </td>
                                         </tr>
                                         <tr id="tr5" runat="server">
@@ -151,6 +155,7 @@
                                             </td>
                                             <td colspan="2">
                                                 <asp:Label ID="lblState" runat="server" Text=""></asp:Label>
+                                                <input type="text" for="lblState" name="TxtBillingState" class="hidden" id="TxtBillingState"/>
                                             </td>
                                         </tr>
                                         <tr id="tr6" runat="server">
@@ -159,6 +164,7 @@
                                             </td>
                                             <td colspan="2">
                                                 <asp:Label ID="lblCountry" for="LblBCountry" runat="server" Text=""></asp:Label>
+                                                <input type="text" for="lblCountry" name="TxtBillingCountry" class="hidden" id="TxtBillingCountry"/>
                                             </td>
                                         </tr>
                                     </table>
@@ -187,6 +193,7 @@
                                             </td>
                                             <td>
                                                 <asp:Label ID="lblZipCode" runat="server" Text=""></asp:Label>
+                                                <input type="text" for="lblZipCode" name="TxtBillingZipcode" class="hidden" id="TxtBillingZipcode"/>
                                             </td>
                                         </tr>
                                         <tr>
@@ -527,8 +534,11 @@
                     </div>
                 </div>
             </div>
+            <div class="clear"></div>
         </div>
+        <div class="clear"></div>
     </div>
+    <div class="clear"></div>
     <asp:HiddenField runat="server" ID="HdnCustomerNo" />
     <input id="hidAccordionIndex" runat="server" type="hidden" value="0" />
     <input id="hidAddressCode" runat="server" type="hidden" value="" />

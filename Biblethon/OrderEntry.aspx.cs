@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Biblethon.Controller;
+using TWOModel;
 using Telerik.Web.UI;
 
 public partial class Biblethon_OrderEntry : Page
@@ -196,6 +197,21 @@ public partial class Biblethon_OrderEntry : Page
             string fileName = Server.MapPath("~/SalesOrder.xml");
             if (new EConnectModel().SerializeSalesOrderObject(fileName, _connString, orderProcess, listOrders))
             {
+                var orderDetail = new OrderDetail
+                                      {
+                                          OrdNo = orderNo,
+                                          OrdDate = DateTime.Now,
+                                          Status = "Work",
+                                          CustomerName = txtCustomerName.Text.Trim(),
+                                          Operator = Session["LoggedInUser"] != null ? Session["LoggedInUser"].ToString() : "" ,
+                                          OrdTotal = Convert.ToDecimal(lblGrandTotal.Text.Replace("$", ""))
+                                      };
+
+
+                var twoEntities = new TWOEntities();
+                twoEntities.AddToOrderDetails(orderDetail);
+                twoEntities.SaveChanges();
+
                 Reset();
                 lblError.Text = "The Order [" + orderNo + "]  has been processed successfully.";
                 lblError.CssClass = "Success";
@@ -228,7 +244,6 @@ public partial class Biblethon_OrderEntry : Page
             lblError.Text = "Please input required credit card informations and try processing.";
         }
     }
-
 
     public DataTable ToDataTable<T>(IList<T> listData)
     {

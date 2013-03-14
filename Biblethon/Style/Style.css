@@ -3,7 +3,7 @@ BODY
 	font-family: Arial;
 	background: #EFEFEF;
 	margin: 0;
-	padding: 5px;
+	padding: 0px;
 }
 TD, TH
 {
@@ -15,9 +15,9 @@ TD A
 }
 .main
 {
-	width: 1100px;
+	width: 960px;
 	margin: 0 auto;
-	padding: 10px;
+	padding: 0px;
 }
 .main IMG
 {
@@ -85,7 +85,7 @@ TD A
 {
 	width: 200px;
 	float: left;
-	margin-right: 10px;
+	margin-right: 5px;
 	padding-left: 5px;
 }
 .leftcolumn H2, .leftcolumn H3
@@ -112,13 +112,13 @@ TD A
 .accordionarea
 {
 	float: left;
-	width: 860px;
+	width: 740px;
 }
 .accordion
 {
 	margin: 1em 0;
 	float: left;
-	width: 850px;
+	width: 730px;
 }
 .accordion H3
 {
@@ -409,4 +409,7 @@ SELECT
 }
 .errorContainer {
     margin-top: 15px;
+}
+.hidden {
+    display: none;
 }

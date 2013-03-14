@@ -70,6 +70,55 @@ public class EConnectModel
         return sopTransNumber.RollBackSopNumber(sopNumKey, 2, "STDORD", connString);
     }
 
+    public taUpdateCreateCustomerRcd GetCustomerDetails(NewCustomer customer)
+    {
+        var taCreateCustomerRcd = new taUpdateCreateCustomerRcd
+        {
+            CUSTNMBR = customer.CustomerNumber,
+            CUSTNAME = customer.CustomerName,
+            ADRSCODE = customer.AddressCode,
+            ADDRESS1 = customer.Address1,
+            ADDRESS2 = customer.Address2,
+            CITY = customer.City,
+            STATE = customer.State,
+            ZIPCODE = customer.ZipCode,
+            COUNTRY = customer.Country,
+            PHNUMBR1 = customer.PhoneNumber1,
+            PHNUMBR2 = customer.PhoneNumber2,
+            FAX = customer.Fax,
+            CRCARDID = customer.CreditCardId,
+            CRCRDNUM = customer.CreditCardNumber,
+            CCRDXPDT = customer.CreditExpiryDate,
+            UpdateIfExists = customer.UpdateIfExists
+        };
+        return taCreateCustomerRcd;
+
+    }
+
+    public taCreateInternetAddresses_ItemsTaCreateInternetAddresses[] GetCustomerInetInfo(List<CustomerInetInfo> customerInetInfo)
+    {
+        var addressCount = customerInetInfo.Count;
+        var custInternetAddress = new List<taCreateInternetAddresses_ItemsTaCreateInternetAddresses>();
+        for (int i = 0; i < addressCount; i++)
+        {
+            var taCreateCustomerInetaddr = new taCreateInternetAddresses_ItemsTaCreateInternetAddresses
+            {
+                Master_ID = customerInetInfo[i].MasterId,
+                Master_Type = customerInetInfo[i].MasterType,
+                ADRSCODE = customerInetInfo[i].AddressCode,
+                INET1 = customerInetInfo[i].IntenetInfo1,
+                INET2 = customerInetInfo[i].IntenetInfo2,
+                INET3 = customerInetInfo[i].IntenetInfo3,
+                INET4 = customerInetInfo[i].IntenetInfo4,
+                EmailToAddress = customerInetInfo[i].EmailToAddress,
+                EmailBccAddress = customerInetInfo[i].EmailBccAddress,
+                EmailCcAddress = customerInetInfo[i].EmailCcAddress
+            };
+            custInternetAddress.Add(taCreateCustomerInetaddr);
+        }
+        return custInternetAddress.ToArray();
+    }
+
     public taSopHdrIvcInsert GetHeaderItems(OrderProcess order)
     {
         var salesHdr = new taSopHdrIvcInsert();
@@ -177,6 +226,47 @@ public class EConnectModel
 
             //version 11
             status = eConCall.CreateEntity(sConnectionString, sopTransactionDoc);
+        }
+        catch (eConnectException exp)
+        {
+            throw new Exception(exp.ToString());
+        }
+        finally
+        {
+            eConCall.Dispose();
+        }
+        return status;
+    }
+
+    public bool SerilizeCustomerObject(string filename, string sConnectionString, NewCustomer customer, List<CustomerInetInfo> customerInetInfo)
+    {
+        bool status;
+        var serializer = new XmlSerializer(typeof(eConnectType));
+        var eConnect = new eConnectType();
+        var customerMasterType = new RMCustomerMasterType();
+        taUpdateCreateCustomerRcd createCustomerRcd = GetCustomerDetails(customer);
+        var createCustomerAddress = new taCreateCustomerAddress_ItemsTaCreateCustomerAddress[0];
+        taCreateInternetAddresses_ItemsTaCreateInternetAddresses[] createInternetAddresses = GetCustomerInetInfo(customerInetInfo);
+        customerMasterType.taUpdateCreateCustomerRcd = createCustomerRcd;
+        customerMasterType.taCreateCustomerAddress_Items = createCustomerAddress;
+        customerMasterType.taCreateInternetAddresses_Items = createInternetAddresses;
+        Array.Resize(ref eConnect.RMCustomerMasterType, 1);
+        eConnect.RMCustomerMasterType[0] = customerMasterType;
+        var fs = new FileStream(filename, FileMode.Create);
+        var writer = new XmlTextWriter(fs, new UTF8Encoding());
+        var eConCall = new eConnectMethods();
+        var xmldoc = new XmlDocument();
+        serializer.Serialize(writer, eConnect);
+        writer.Close();
+        xmldoc.Load(filename);
+        string customerDocument = xmldoc.OuterXml;
+        try
+        {
+            //version 10
+            //status = eConCall.eConnect_EntryPoint(sConnectionString, EnumTypes.ConnectionStringType.SqlClient,sopTransactionDoc, EnumTypes.SchemaValidationType.None);
+
+            //version 11
+            status = eConCall.CreateEntity(sConnectionString, customerDocument);
         }
         catch (eConnectException exp)
         {

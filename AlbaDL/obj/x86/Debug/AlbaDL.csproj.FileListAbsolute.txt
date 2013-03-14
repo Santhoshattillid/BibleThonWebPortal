@@ -1,0 +1,8 @@
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\AlbaDL\bin\Debug\AlbaDL.dll
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\AlbaDL\bin\Debug\AlbaDL.pdb
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\AlbaDL\obj\x86\Debug\AlbaDL.dll
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\AlbaDL\obj\x86\Debug\AlbaDL.pdb
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\AlbaDL\bin\Debug\AlbaDL.dll
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\AlbaDL\bin\Debug\AlbaDL.pdb
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\AlbaDL\obj\x86\Debug\AlbaDL.dll
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\AlbaDL\obj\x86\Debug\AlbaDL.pdb

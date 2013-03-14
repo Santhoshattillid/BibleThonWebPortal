@@ -9,8 +9,6 @@ $(function () {
         if ($(this).next().is(':hidden')) {
             $('.accordion h3').removeClass('current').next().slideUp();
             $(this).toggleClass('current').next().slideDown();
-
-
         }
     });
 
@@ -21,10 +19,16 @@ $(function () {
         var value = $('[id$=txtCustName]').val();
         if (value != null && $.trim(value) == "") {
             showErrorInfo("Please select customer and then continue.");
-            return false;
-        } else
-            return true;
+        }
+        else
+            $('.ShippingAddressAccordion').trigger('click');
+        return false;
     });
+
+    //    $('[id$=btnBillContinue]').click(function () {
+    //        $('.ShippingAddressAccordion').trigger('click');
+    //        return false; // put always false since everything handling client side itself
+    //    });
 
     function showErrorInfo(message) {
         $('.errorinfo').html(message);
@@ -90,10 +94,6 @@ $(function () {
         return false; // put always false since everything handling client side itself
     });
 
-    $('[id$=btnBillContinue]').click(function () {
-        $('.ShippingAddressAccordion').trigger('click');
-        return false; // put always false since everything handling client side itself
-    });
 
     function resizeGrid() {
         var oWindow = null;
@@ -551,11 +551,11 @@ $(function () {
             validateShipping("Country", element);
             return false;
         }
-//        element = $('[id$=txtEmail]');
-//        if ($.trim(element.val()) == "") {
-//            validateShipping("Email", element);
-//            return false;
-//        }
+        //        element = $('[id$=txtEmail]');
+        //        if ($.trim(element.val()) == "") {
+        //            validateShipping("Email", element);
+        //            return false;
+        //        }
         element = $('[id$=txtZipCode]');
         if ($.trim(element.val()) == "") {
             validateShipping("ZipCode", element);
@@ -590,7 +590,12 @@ $(function () {
             return false;
         }
 
+        showErrorInfo("please wait......");
+        //$(this).attr('disabled', 'disabled');
+        $(this).unbind('click');
+        $('[id$=btnProcessOrder]').attr('disabled', 'disabled');
         return true;
+
     });
 
     function validateShipping(field, element) {
@@ -604,6 +609,46 @@ $(function () {
         $('.creditCardAccordion').trigger('click');
         element.focus();
     }
+
+    // script handling for 'First time caller'
+    $('[id$=cbCaller]').click(function () {
+        if ($(this).is(':checked')) {
+            // hiding the lables first
+            $('[id$=lblAddress1]').hide();
+            $('[id$=lblAddress2]').hide();
+            $('[id$=lblAddress3]').hide();
+            $('[id$=lblCity]').hide();
+            $('[id$=lblState]').hide();
+            $('[id$=lblCountry]').hide();
+            $('[id$=lblZipCode]').hide();
+
+            // show the text boxes
+            $('#TxtBillingAddress1').show();
+            $('#TxtBillingAddress1').val($('[id$=lblAddress1]').text());
+
+            $('#TxtBillingAddress2').show();
+            $('#TxtBillingAddress2').val($('[id$=lblAddress2]').text());
+
+            $('#TxtBillingAddress3').show();
+            $('#TxtBillingAddress3').val($('[id$=lblAddress3]').text());
+
+            $('#TxtBillingCity').show();
+            $('#TxtBillingCity').val($('[id$=lblCity]').text());
+
+            $('#TxtBillingState').show();
+            $('#TxtBillingState').val($('[id$=lblState]').text());
+
+            $('#TxtBillingCountry').show();
+            $('#TxtBillingCountry').val($('[id$=lblCountry]').text());
+
+            $('#TxtBillingZipcode').show();
+            $('#TxtBillingZipcode').val($('[id$=lblZipCode]').text());
+
+        } else {
+
+        }
+    });
+
 });
 
 
