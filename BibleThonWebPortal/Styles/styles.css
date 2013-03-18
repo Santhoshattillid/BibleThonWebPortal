@@ -1,0 +1,360 @@
+﻿/* Required to have full-screen RadSplitter */
+html, body, form 
+{
+	height:100%;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+	/*font: normal 14px/1.5em "Segoe UI", Arial, sans-serif;*/
+	line-height: 16px;
+    font-family: "segoe ui", arial, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;   
+}
+
+form
+{
+	cursor: default; 
+}
+
+/* <header> */
+
+.header
+{
+	height: 84px;
+	background-color: transparent;
+	background-repeat: repeat-x;
+}
+
+.logo
+{
+	background-color: transparent;
+	background-repeat: no-repeat;
+	/*width: 196px;
+	height: 48px;*/
+}
+
+/*
+.RadForm_Black .header, .RadForm_Black .logo,
+.RadForm_Default .header, .RadForm_Default .logo,
+.RadForm_Telerik .header, .RadForm_Telerik .logo,
+.RadForm_Hay .header, .RadForm_Hay .logo,
+.RadForm_Forest .header, .RadForm_Forest .logo,
+.RadForm_Sitefinity .header, .RadForm_Sitefinity .logo
+{
+	background-image: url('Images/header-darks.png');
+}
+
+.RadForm_Black .header { background-position: 0 -49px; }
+.RadForm_Black .logo { background-position: 0 0; }
+.RadForm_Default .header { background-position: 0 -147px; }
+.RadForm_Default .logo { background-position: 0 -98px; }
+.RadForm_Telerik .header { background-position: 0 -245px; }
+.RadForm_Telerik .logo { background-position: 0 -196px; }
+.RadForm_Hay .header { background-position: 0 -343px; }
+.RadForm_Hay .logo { background-position: 0 -294px; }
+.RadForm_Forest .header { background-position: 0 -441px; }
+.RadForm_Forest .logo { background-position: 0 -392px; }
+.RadForm_Sitefinity .header { background-position: 0 -147px; }
+.RadForm_Sitefinity .logo { background-position: 0 -98px; }
+
+.RadForm_Sunset .header, .RadForm_Sunset .logo,
+.RadForm_Outlook .header, .RadForm_Outlook .logo,
+.RadForm_Office2007 .header, .RadForm_Office2007 .logo,
+.RadForm_WebBlue .header, .RadForm_WebBlue .logo,
+.RadForm_Web20 .header, .RadForm_Web20 .logo,
+.RadForm_Vista .header, .RadForm_Vista .logo,
+.RadForm_Windows7 .header, .RadForm_Windows7 .logo
+{
+	background-image: url('Images/header-colds.png');
+}
+
+.RadForm_Sunset .header { background-position: 0 -49px; }
+.RadForm_Sunset .logo { background-position: 0 0; }
+.RadForm_Outlook .header { background-position: 0 -147px; }
+.RadForm_Outlook .logo { background-position: 0 -98px; }
+.RadForm_Office2007 .header { background-position: 0 -245px; }
+.RadForm_Office2007 .logo { background-position: 0 -196px; }
+.RadForm_WebBlue .header { background-position: 0 -343px; }
+.RadForm_WebBlue .logo { background-position: 0 -294px; }
+.RadForm_Web20 .header { background-position: 0 -441px; }
+.RadForm_Web20 .logo { background-position: 0 -392px; }
+.RadForm_Vista .header { background-position: 0 -539px; }
+.RadForm_Vista .logo { background-position: 0 -490px; }
+.RadForm_Windows7 .header { background-position: 0 -245px; }
+.RadForm_Windows7 .logo { background-position: 0 -196px; }
+*/
+
+.current-user
+{
+	position: absolute;
+	top: 13px;
+	right: 13px;
+    text-align:right;
+    vertical-align: bottom;
+	color: black;
+}
+.skin-chooser
+{
+	position: absolute;
+	top: 13px;
+	right: 13px;
+	cursor: default;
+	color: #fff;
+	visibility: hidden;
+}
+
+.rcbSlide
+{
+	z-index: 10000 !important;
+}
+
+/* </header> */
+
+
+/* move the last menu item to the right */
+
+/* center the calendars */
+.calendar-container
+{
+	width: 220px;
+	margin: 10px auto;
+}
+
+/* FF2 bugfix*/
+#RAD_SPLITTER_PANE_CONTENT_ctl00_topPane
+{
+	overflow: visible !important;
+}
+
+#RAD_SPLITTER_PANE_CONTENT_ctl00_ContentPlaceHolder2_RadPane1
+{
+	overflow: hidden;
+}
+
+#ctl00_ContentPlaceHolder1_ctl00_ContentPlaceHolder2_DetailsView1Panel
+{
+	overflow-x: hidden;
+}
+
+/* required so RadGrid in the Contacts page is 100% tall in FireFox */
+#ctl00_ContentPlaceHolder1_ctl00_ContentPlaceHolder2_RadGrid1Panel
+{
+	height:100%;
+}
+
+/* apply height to the update panel that contains the RadScheduler
+   so it can resize properly */
+#ctl00_ContentPlaceHolder1_ctl00_ContentPlaceHolder2_RadScheduler1Panel
+{
+	height:100%;
+}
+
+/* fix for a z-index issue with the RadMenu overlapping the RadScheduler advanced form 
+    in IE9 (IE7 & 8 Standards) and IE9 Compat View (IE7 & 8 Standars) */
+#RAD_SPLITTER_PANE_TR_ctl00_topPane
+{
+    position: relative;
+}
+
+/* fix an issue where RadScheduler grid is shrunk in IE9 (IE7 & 8 Standards) and IE9 Compat View (IE7 & 8 Standars) */
+div.RadScheduler .rsHorizontalHeaderTable, 
+div.RadScheduler .rsContentTable, 
+div.RadScheduler .rsAllDayTable
+{
+    width: /*\**/100%\9 !important;
+}
+
+/* fix an issue where RadScheduler grid is shrunk in IE9 (IE7 & 8 Standards) and IE9 Compat View (IE7 & 8 Standars) */
+* + html div.RadScheduler .rsHorizontalHeaderTable, 
+* + html div.RadScheduler .rsContentTable, 
+* + html div.RadScheduler .rsAllDayTable
+{
+    width: auto !important;
+}
+
+.RadToolBar .rtbTemplate .RadInput 
+{
+	line-height: 22px;
+	display: -moz-inline-stack;
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	vertical-align: baseline;
+}
+
+.RadToolBar .RadComboBox,
+.RadMenu .RadComboBox,
+.RadMenu .skinLabel
+{
+	vertical-align: middle;
+}
+
+* html .RadMenu .rmTemplate .rmText
+{
+	padding-bottom: 3px;
+}
+
+.contacts-filter-toolbar .rtbTemplate
+{
+	color:White;
+	width:400px;
+}
+
+div.RadToolBar
+{
+	width: 100%;
+}
+
+div.home-search-toolbar .rtbOuter,
+div.home-search-toolbar .rtbMiddle,
+div.home-search-toolbar .rtbInner,
+div.contacts-filter-toolbar .rtbOuter,
+div.contacts-filter-toolbar .rtbMiddle,
+div.contacts-filter-toolbar .rtbInner
+{
+	border-left-width: 0;
+	border-right-width: 0;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+div.home-search-toolbar .rtbTemplate
+{
+	margin-left: 100px;
+}
+
+/* message DetailsView*/
+
+#message-body
+{
+	padding: 0 16px 25px;
+}
+
+.rfdBlack #message-body a { color: #9EDA29; }
+.rfdDefault #message-body a { color: #6C6C6C; }
+.rfdForest #message-body a { color: #751A04; }
+.rfdHay #message-body a { color: #50B306; }
+.rfdOffice2007 #message-body a { color: #606F94; }
+.rfdOutlook #message-body a { color: #355D98; }
+.rfdSunset #message-body a { color: #5d1f00; }
+.rfdTelerik #message-body a { color: #64B33E; }
+.rfdVista #message-body a { color: #0F5477; }
+.rfdWeb20 #message-body a { color: #38477F; }
+.rfdWebBlue #message-body a { color: #38477F; }
+
+.message-view
+{
+	width: 100%;
+}
+
+.message-view ul
+{
+	margin: 10px 6px;
+	padding: 0;
+	list-style:none;
+	border-bottom: 1px solid #add1ff;
+}
+
+.message-view ul h3
+{
+	margin: 0;
+}
+
+.message-view li label
+{
+	display: inline-block;
+	width: 40px;
+	color:#6f9dd9;
+}
+
+/* contact details nested view template */
+.contact-details img
+{
+	float:left;
+	margin: 0 12px 0 6px;
+}
+* html .contact-details img { margin-left: 3px }
+
+.contact-details ul
+{
+	list-style:none;
+	margin: 10px;
+}
+
+.contact-details label
+{
+	display:inline-block;
+	font-weight:bold;
+	width:80px;
+}
+
+
+.rpTemplate input
+{
+	vertical-align: middle;
+	margin-top: 0;
+}
+
+/* <notes> */
+
+.notes-list img
+{
+	vertical-align: text-top;
+	margin: 0 4px 0 0;
+}
+
+/* </notes> */
+
+/* <calendar> */
+
+div.RadScheduler .rsAdvancedEdit .rsAdvRadio
+{
+	margin-right: 4px;
+}
+
+/* </calendar> */
+
+.login-form
+{
+	width: 335px;
+	margin:0 auto;
+	list-style:none;
+	padding:0;
+    height: 132px;
+}
+
+.login-form h3
+{
+    font-family: Calibri;
+	font-weight: normal;
+}
+.qsfDark .login-form h3
+{
+	color: #fff;
+}
+
+
+.login-form li
+{
+	padding: 2px;	
+}
+
+.login-form li label
+{
+    font-family: Calibri;
+	float:left;
+	text-align:right;
+	width: 60px;
+	padding: 3px;
+	padding-right: 15px;
+	margin-top: 0px;
+}
+
+.login-form li.button-item
+{
+	text-align:right;
+}
+

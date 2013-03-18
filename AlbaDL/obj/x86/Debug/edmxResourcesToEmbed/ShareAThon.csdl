@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TWOModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="TWOEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ShareAThonDonations" EntityType="TWOModel.ShareAThonDonation" />
+    <EntitySet Name="ShareAThonDonationFrequencies" EntityType="TWOModel.ShareAThonDonationFrequency" />
+    <EntitySet Name="ShareAThonOfferLines" EntityType="TWOModel.ShareAThonOfferLine" />
+    <AssociationSet Name="FK_ShareAThonDonationFrequency_ShareAThonDonation" Association="TWOModel.FK_ShareAThonDonationFrequency_ShareAThonDonation">
+      <End Role="ShareAThonDonation" EntitySet="ShareAThonDonations" />
+      <End Role="ShareAThonDonationFrequency" EntitySet="ShareAThonDonationFrequencies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShareAThonOfferLines_ShareAThonDonation" Association="TWOModel.FK_ShareAThonOfferLines_ShareAThonDonation">
+      <End Role="ShareAThonDonation" EntitySet="ShareAThonDonations" />
+      <End Role="ShareAThonOfferLine" EntitySet="ShareAThonOfferLines" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ShareAThonDonation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CustomerId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="CurrentlyDonorOf" Precision="19" Scale="4" />
+    <Property Type="DateTime" Name="InitialChargeOn" />
+    <Property Type="Decimal" Name="DonationAmount" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="IncreasingTo" Precision="19" Scale="4" />
+    <Property Type="Int32" Name="DayToChargeMonthly" />
+    <Property Type="String" Name="OrderId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ShareAThonDonationFrequencies" Relationship="TWOModel.FK_ShareAThonDonationFrequency_ShareAThonDonation" FromRole="ShareAThonDonation" ToRole="ShareAThonDonationFrequency" />
+    <NavigationProperty Name="ShareAThonOfferLines" Relationship="TWOModel.FK_ShareAThonOfferLines_ShareAThonDonation" FromRole="ShareAThonDonation" ToRole="ShareAThonOfferLine" />
+  </EntityType>
+  <EntityType Name="ShareAThonDonationFrequency">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="OrderId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="DueDate" Nullable="false" />
+    <Property Type="Decimal" Name="Amount" Nullable="false" Precision="19" Scale="4" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="ShareAThonDonationId" Nullable="false" />
+    <NavigationProperty Name="ShareAThonDonation" Relationship="TWOModel.FK_ShareAThonDonationFrequency_ShareAThonDonation" FromRole="ShareAThonDonationFrequency" ToRole="ShareAThonDonation" />
+  </EntityType>
+  <EntityType Name="ShareAThonOfferLine">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="OrderId" />
+      <PropertyRef Name="OfferNo" />
+      <PropertyRef Name="Qty" />
+      <PropertyRef Name="ShareAThonDonationId" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="OrderId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="OfferNo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Qty" Nullable="false" />
+    <Property Type="Int32" Name="ShareAThonDonationId" Nullable="false" />
+    <NavigationProperty Name="ShareAThonDonation" Relationship="TWOModel.FK_ShareAThonOfferLines_ShareAThonDonation" FromRole="ShareAThonOfferLine" ToRole="ShareAThonDonation" />
+  </EntityType>
+  <Association Name="FK_ShareAThonDonationFrequency_ShareAThonDonation">
+    <End Type="TWOModel.ShareAThonDonation" Role="ShareAThonDonation" Multiplicity="1" />
+    <End Type="TWOModel.ShareAThonDonationFrequency" Role="ShareAThonDonationFrequency" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShareAThonDonation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ShareAThonDonationFrequency">
+        <PropertyRef Name="ShareAThonDonationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShareAThonOfferLines_ShareAThonDonation">
+    <End Type="TWOModel.ShareAThonDonation" Role="ShareAThonDonation" Multiplicity="1" />
+    <End Type="TWOModel.ShareAThonOfferLine" Role="ShareAThonOfferLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShareAThonDonation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ShareAThonOfferLine">
+        <PropertyRef Name="ShareAThonDonationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

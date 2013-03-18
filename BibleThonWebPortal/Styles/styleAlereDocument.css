@@ -1,0 +1,182 @@
+﻿.checkboxLabel
+{
+    margin-top: 4px;
+    float: none;
+    width: 120px;
+    color: #333;
+}
+
+.exampleWrapper
+{
+    background: transparent url(images/registration-successful.gif) no-repeat left top;
+    width: 738px;
+    height: 528px;
+    position: relative;
+}
+
+.multiPage
+{
+    position: absolute;
+    top: 110px;
+    height: 390px;
+}
+
+.tblMain
+{
+    width: 100%;
+}
+
+.tblMain td
+{
+    width: 150px;
+    padding-left: 10px;
+}
+
+.formList
+{
+    width: 683px;
+    list-style: none;
+    padding: 0 0 0 23px;
+}
+
+.formList li
+{
+    padding: 5px 0px;
+}
+
+.formList li.lastListItem
+{
+    border: none;
+}
+
+.textInput, textarea
+{
+    border: 1px solid;
+    border-color: #abadb3 #dbdfe6 #e3e9ef #e2e3ea;
+    background: #fff;
+}
+
+textarea
+{
+    font: normal 11px Verdana,sans-serif;
+}
+
+#newsletterOptions
+{
+    padding-top: 15px;
+}
+
+#newsletterOptions input
+{
+    margin-left: 50px;
+}
+
+.nextButton
+{
+    border: none;
+    width: 93px;
+    height: 25px;
+    font: normal 12px Arial, sans-serif;
+    color: Navy;
+}
+
+.buttonSeparator
+{
+    width: 378px;
+    border-bottom: 1px solid #959485;
+    height: 1px;
+}
+
+.previewWrapper
+{
+    width: 30%; 
+    vertical-align: top;
+}
+
+.previewWrapper h2
+{
+    font-size: 21px;
+    color: #904C23;
+    border-bottom: solid 1px #904C23;
+    margin-right: 18px;
+    font-family: Calibri;
+}
+
+.previewWrapper h3
+{
+    color: #904C23;
+    font-size :12px;
+    margin-right: 18px;
+    margin-top: 20px;
+    border-bottom: dotted 1px #904C23;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    font-family: Calibri;
+    font-style: italic;
+}
+
+.previewWrapper ul
+{
+    list-style:none;
+    margin:0 0px;
+    font-family: Calibri;
+    font-size :12px;
+}
+
+.classname {
+	-moz-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #378de5) );
+	background:-moz-linear-gradient( center top, #79bbff 5%, #378de5 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5');
+	background-color:#79bbff;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #84bbf3;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:12px;
+	font-weight:bold;
+	padding:4px 14px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #528ecc;
+}.classname:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #378de5), color-stop(1, #79bbff) );
+	background:-moz-linear-gradient( center top, #378de5 5%, #79bbff 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff');
+	background-color:#378de5;
+}.classname:active {
+	position:relative;
+	top:1px;
+}
+
+
+.rcbHeader ul,
+.rcbFooter ul,
+.rcbItem ul, .rcbHovered ul, .rcbDisabled ul
+{
+    width: 100%;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.col1, .col2
+{
+    float: left;
+    margin: 0;
+    padding: 0 5px 0 0;
+    line-height: 14px;
+}
+.col1
+{
+    width: 100px;
+}
+.col2
+{
+    width: 250px;
+}

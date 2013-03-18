@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.5, 10.5" name="HomeMonitoringData">
+  <DataContextMoniker Name="/AlereHomeMonitoringDataDataContext" />
+  <nestedChildShapes>
+    <classShape Id="2a4c8d77-cf03-4e39-b632-87d2c73f01d7" absoluteBounds="10.25, 0.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/AlereHomeMonitoringDataDataContext/AS_WF_VW_AlereOrderLookup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f202d1fb-1dcd-43f4-aa5f-251fc1147135" absoluteBounds="10.265, 0.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="19410c6b-6545-4be1-82b9-12de06f977c0" absoluteBounds="8.125, 5.125, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/AlereHomeMonitoringDataDataContext/AS_WF_VW_AlereDoctorInformation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="02c596d6-b27f-442a-9c79-6e242ebff40e" absoluteBounds="8.14, 5.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4d60f654-450d-45ad-838d-729637c71ddb" absoluteBounds="10.25, 4.625, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/AlereHomeMonitoringDataDataContext/AS_WF_VW_AlerePatientInformation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ec92462a-75d2-4478-a2a8-d9615f876b27" absoluteBounds="10.265, 5.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fa747523-d1fb-4cf1-8a13-6b10d9cadd75" absoluteBounds="8.125, 0.5, 2, 4.4631168619791666">
+      <DataClassMoniker Name="/AlereHomeMonitoringDataDataContext/AS_WF_VW_AlereInsuranceInformation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2f3ff22b-f8e6-4c87-80ce-3c2075831a7b" absoluteBounds="8.14, 0.96, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1813636e-9374-46eb-a42d-3b24ffb4063d" absoluteBounds="10.25, 2.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/AlereHomeMonitoringDataDataContext/AS_WF_VW_AlerePatientLookup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="89d07676-01f5-4e3b-878a-76d943707038" absoluteBounds="10.265, 3.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="be04ccc5-5776-4939-9515-e71288a59b61" absoluteBounds="6.125, 0.5, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/AlereHomeMonitoringDataDataContext/AS_WF_VW_AlereBasicInformation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e2b3d03a-bcc1-44b0-81b5-1a8502a070ff" absoluteBounds="6.14, 0.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ff273f7f-0c42-43b2-81bb-b27d0ae7523d" absoluteBounds="0.5, 4.375, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/AlereHomeMonitoringDataDataContext/AS_Alere_OrderDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="04919748-c62a-4fe5-9f14-32d31222adf9" absoluteBounds="0.51500000000000012, 4.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3a1cbeb6-35d5-4580-8b37-9856b6e9a2f4" absoluteBounds="0.5, 0.5, 2, 3.6939111328124996">
+      <DataClassMoniker Name="/AlereHomeMonitoringDataDataContext/AS_Alere_Order" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4b25f4dc-f628-4365-a845-46db62342cf8" absoluteBounds="0.515, 0.96, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6104cac0-f7d3-4fa5-bbe2-aeb4db8d057d" absoluteBounds="2.625, 0.5, 2, 2.5401025390625">
+      <DataClassMoniker Name="/AlereHomeMonitoringDataDataContext/AS_Alere_BasicInformation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="214182ce-1cff-4f83-8e31-4c0fbeb7daa1" absoluteBounds="2.64, 0.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0e91dd8f-82c1-4e43-90ca-53495b4c0a0a" absoluteBounds="2.625, 3.125, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/AlereHomeMonitoringDataDataContext/AS_Alere_DoctorInformation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6b42c82b-3452-44fc-8c8e-d4add60b746d" absoluteBounds="2.64, 3.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="46521584-1ff1-495d-a866-a8dcd1806b4f" absoluteBounds="2.625, 5.625, 2, 4.6554182942708326">
+      <DataClassMoniker Name="/AlereHomeMonitoringDataDataContext/AS_Alere_InsuranceInformation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9210e07f-50aa-4990-8ce8-7642f1d7c803" absoluteBounds="2.64, 6.085, 1.9700000000000002, 4.095418294270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f959a1d5-8d8f-467f-8957-5486819b3df7" absoluteBounds="4.75, 3.125, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/AlereHomeMonitoringDataDataContext/AS_Alere_PatientInformation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f5dac02c-c619-4840-8288-bc5d4fdbc355" absoluteBounds="4.765, 3.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

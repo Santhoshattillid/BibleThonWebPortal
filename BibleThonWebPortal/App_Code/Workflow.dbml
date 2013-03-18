@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AWF" Class="WorkflowDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=RIC-ASUS\ALBA;Initial Catalog=AWF;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="AWFConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AS_WF_Users" Member="AS_WF_Users">
+    <Type Name="AS_WF_User">
+      <Column Name="UserID" Type="System.String" DbType="NVarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserPassword" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ERPUserID" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Department" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Company" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EmailAdd" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserRole" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompanyPosition" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_WF_WorkflowSetup" Member="AS_WF_WorkflowSetups">
+    <Type Name="AS_WF_WorkflowSetup">
+      <Column Name="WFID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DocType" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="WFName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="WFDescription" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Department" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ProcessingMode" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="WFScheduleID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="WFEnabled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TriggerOnCreate" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TriggerOnUpdate" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TriggerOnDelete" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="WorkflowPath" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="IsCustom" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SubCategory" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="HeaderQuery" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="DetailQuery1" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="DetailQuery2" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="DetailQuery3" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="DetailQuery4" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="DetailQuery5" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="WorkflowDefinition" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_WF_WorkflowDocumentTypes" Member="AS_WF_WorkflowDocumentTypes">
+    <Type Name="AS_WF_WorkflowDocumentType">
+      <Column Name="DocType" Type="System.String" DbType="NVarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StrKeyName1" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="StrKeyName2" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="StrKeyName3" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="StrKeyName4" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="StrKeyName5" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="IntKeyName1" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="IntKeyName2" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="IntKeyName3" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="IntKeyName4" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="IntKeyName5" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DecKeyName1" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DecKeyName2" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DecKeyName3" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DecKeyName4" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DecKeyName5" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="WorkflowDefinitionTemplate" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IsWebBased" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="WorkflowDocViewName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_WF_WorkflowInstance" Member="AS_WF_WorkflowInstances">
+    <Type Name="AS_WF_WorkflowInstance">
+      <Column Name="WFInstanceID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="WFID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="GPCompanyID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WFContextID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="DocType" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="CreationDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CreationTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="AssignedTo" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Comment" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="WFRequestType" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ActionDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ActionTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="Importance" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DueDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="WFStatus" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LockedBy" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DocKey_Str1" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DocKey_Str2" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DocKey_Str3" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DocKey_Str4" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DocKey_Str5" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DocKey_Int1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DocKey_Int2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DocKey_Int3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DocKey_Int4" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DocKey_Int5" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DocKey_Dec1" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="DocKey_Dec2" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="DocKey_Dec3" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="DocKey_Dec4" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="DocKey_Dec5" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="UserDefinedField1" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserDefinedField2" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserDefinedField3" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserDefinedField4" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserDefinedField5" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_WF_WorkflowInstanceHistory" Member="AS_WF_WorkflowInstanceHistories">
+    <Type Name="AS_WF_WorkflowInstanceHistory">
+      <Column Name="WFInstanceHistoryID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="WFInstanceID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="WFID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="GPCompanyID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WFContextID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="DocType" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="CreationDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CreationTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="AssignedTo" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Comment" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="WFRequestType" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ActionDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ActionTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="Importance" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DueDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="WFStatus" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LockedBy" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DocKey_Str1" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DocKey_Str2" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DocKey_Str3" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DocKey_Str4" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DocKey_Str5" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DocKey_Int1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DocKey_Int2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DocKey_Int3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DocKey_Int4" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DocKey_Int5" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DocKey_Dec1" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="DocKey_Dec2" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="DocKey_Dec3" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="DocKey_Dec4" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="DocKey_Dec5" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="UserDefinedField1" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserDefinedField2" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserDefinedField3" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserDefinedField4" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserDefinedField5" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_WF_VW_WorkflowHistory" Member="AS_WF_VW_WorkflowHistories">
+    <Type Name="AS_WF_VW_WorkflowHistory">
+      <Column Name="WFID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="WFInstanceID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="WFInstanceHistoryID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Department" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="WorkflowName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="WorkflowDescription" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DocType" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="CreationDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CreationTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="AssignedTo" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Comment" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="WorkflowStep" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompletionDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CompletionTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="Importance" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DueDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DocumentKey" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Key2" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LockedBy" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserDefinedField1" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserDefinedField2" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserDefinedField3" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserDefinedField4" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserDefinedField5" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_WF_VW_WorkflowTasks" Member="AS_WF_VW_WorkflowTasks">
+    <Type Name="AS_WF_VW_WorkflowTask">
+      <Column Name="WFID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="WFInstanceID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Department" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="WorkflowName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="WorkflowDescription" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DocType" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="CreationDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CreationTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="AssignedTo" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Comment" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="WorkflowStep" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CompletionDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CompletionTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="Importance" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DueDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DocumentKey" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Key2" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="WFContextID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="LockedBy" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserDefinedField1" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserDefinedField2" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserDefinedField3" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserDefinedField4" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UserDefinedField5" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_WF_GroupsWorkflowDocumentTypes" Member="AS_WF_GroupsWorkflowDocumentTypes">
+    <Type Name="AS_WF_GroupsWorkflowDocumentType">
+      <Column Name="GroupID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DocType" Type="System.String" DbType="NVarChar(250) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.AS_WF_spGetNextInSequence" Method="AS_WF_spGetNextInSequence">
+    <Parameter Name="SequenceKey" Parameter="sequenceKey" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Out_FormattedNumber" Parameter="out_FormattedNumber" Type="System.String" DbType="NVarChar(30)" Direction="InOut" />
+    <ElementType Name="AS_WF_spGetNextInSequenceResult">
+      <Column Name="SequenceKey" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NextSequenceFormatted" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="NextSequenceInt" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

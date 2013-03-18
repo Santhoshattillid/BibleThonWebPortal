@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 12.75" name="AlereVerbalAuthExistingPatientData">
+  <DataContextMoniker Name="/AlereVerbalAuthExistingPatientDataDataContext" />
+  <nestedChildShapes>
+    <classShape Id="eaa4c23a-6b04-4460-8826-13a14deac16d" absoluteBounds="0.5, 0.5, 2, 1.9631982421875">
+      <DataClassMoniker Name="/AlereVerbalAuthExistingPatientDataDataContext/AS_Alere_VAEP_Record" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d9fca236-8ac0-4e4d-874a-10d6c6154634" absoluteBounds="0.51499999999999968, 0.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1f14f2df-5587-4a93-bd2b-6ed1bca99f36" absoluteBounds="2.625, 0.5, 2, 7.9245426432291648">
+      <DataClassMoniker Name="/AlereVerbalAuthExistingPatientDataDataContext/AS_Alere_VAEP_CB" />
+      <nestedChildShapes>
+        <elementListCompartment Id="97ffe02b-2529-454e-a22b-7598f6253b43" absoluteBounds="2.6399999999999997, 0.96, 1.9700000000000002, 7.3645426432291661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="578be4dc-2adc-40af-b3bb-b3b8a13230a5" absoluteBounds="0.5, 2.625, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/AlereVerbalAuthExistingPatientDataDataContext/AS_Alere_VAEP_PickList" />
+      <nestedChildShapes>
+        <elementListCompartment Id="63202ef5-cff6-418b-93fc-90b972ec6460" absoluteBounds="0.51499999999999968, 3.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2357b7e8-370f-4788-8dab-7f94ee5caf07" absoluteBounds="4.75, 0.5, 2, 8.8860498046875">
+      <DataClassMoniker Name="/AlereVerbalAuthExistingPatientDataDataContext/uvw_AHM_Patient_Detail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="62dc7b9e-bd08-41c4-96e3-4285952c0b37" absoluteBounds="4.7650000000000006, 0.96, 1.9700000000000002, 8.3260498046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="81a7aba1-d7f7-4675-9aad-75090fa11d8f" absoluteBounds="6.875, 0.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/AlereVerbalAuthExistingPatientDataDataContext/AS_Alere_VAEP_Records_AuditTrail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6efdc5ae-2aee-426e-b9e4-492105107c99" absoluteBounds="6.8900000000000006, 0.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="69a517de-1315-4b9c-b487-fb7ce60012f7" absoluteBounds="0.5, 4, 2, 8.5014469401041666">
+      <DataClassMoniker Name="/AlereVerbalAuthExistingPatientDataDataContext/AS_Alere_VAEP_Detail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c4748376-3afa-413d-8cf1-0238bbdeec7a" absoluteBounds="0.51500000000000057, 4.46, 1.9700000000000002, 7.941446940104167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

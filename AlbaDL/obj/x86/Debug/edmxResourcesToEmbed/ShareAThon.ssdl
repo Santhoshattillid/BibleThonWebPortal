@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TWOModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="TWOModelStoreContainer">
+    <EntitySet Name="ShareAThonDonation" EntityType="TWOModel.Store.ShareAThonDonation" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ShareAThonDonationFrequency" EntityType="TWOModel.Store.ShareAThonDonationFrequency" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ShareAThonOfferLines" EntityType="TWOModel.Store.ShareAThonOfferLines" store:Type="Tables" store:Schema="dbo" store:Name="ShareAThonOfferLines">
+      <DefiningQuery>SELECT 
+      [ShareAThonOfferLines].[Id] AS [Id], 
+      [ShareAThonOfferLines].[OrderId] AS [OrderId], 
+      [ShareAThonOfferLines].[OfferNo] AS [OfferNo], 
+      [ShareAThonOfferLines].[Description] AS [Description], 
+      [ShareAThonOfferLines].[Qty] AS [Qty], 
+      [ShareAThonOfferLines].[ShareAThonDonationId] AS [ShareAThonDonationId]
+      FROM [dbo].[ShareAThonOfferLines] AS [ShareAThonOfferLines]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_ShareAThonDonationFrequency_ShareAThonDonation" Association="TWOModel.Store.FK_ShareAThonDonationFrequency_ShareAThonDonation">
+      <End Role="ShareAThonDonation" EntitySet="ShareAThonDonation" />
+      <End Role="ShareAThonDonationFrequency" EntitySet="ShareAThonDonationFrequency" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShareAThonOfferLines_ShareAThonDonation" Association="TWOModel.Store.FK_ShareAThonOfferLines_ShareAThonDonation">
+      <End Role="ShareAThonDonation" EntitySet="ShareAThonDonation" />
+      <End Role="ShareAThonOfferLines" EntitySet="ShareAThonOfferLines" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ShareAThonDonation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="CurrentlyDonorOf" Type="money" />
+    <Property Name="InitialChargeOn" Type="date" />
+    <Property Name="DonationAmount" Type="money" />
+    <Property Name="IncreasingTo" Type="money" />
+    <Property Name="DayToChargeMonthly" Type="int" />
+    <Property Name="OrderId" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ShareAThonDonationFrequency">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OrderId" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DueDate" Type="date" Nullable="false" />
+    <Property Name="Amount" Type="money" Nullable="false" />
+    <Property Name="Status" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ShareAThonDonationId" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'TWO.dbo.ShareAThonOfferLines' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="ShareAThonOfferLines">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="OrderId" />
+      <PropertyRef Name="OfferNo" />
+      <PropertyRef Name="Qty" />
+      <PropertyRef Name="ShareAThonDonationId" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OrderId" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="OfferNo" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+    <Property Name="Qty" Type="int" Nullable="false" />
+    <Property Name="ShareAThonDonationId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ShareAThonDonationFrequency_ShareAThonDonation">
+    <End Role="ShareAThonDonation" Type="TWOModel.Store.ShareAThonDonation" Multiplicity="1" />
+    <End Role="ShareAThonDonationFrequency" Type="TWOModel.Store.ShareAThonDonationFrequency" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShareAThonDonation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ShareAThonDonationFrequency">
+        <PropertyRef Name="ShareAThonDonationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShareAThonOfferLines_ShareAThonDonation">
+    <End Role="ShareAThonDonation" Type="TWOModel.Store.ShareAThonDonation" Multiplicity="1" />
+    <End Role="ShareAThonOfferLines" Type="TWOModel.Store.ShareAThonOfferLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShareAThonDonation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ShareAThonOfferLines">
+        <PropertyRef Name="ShareAThonDonationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

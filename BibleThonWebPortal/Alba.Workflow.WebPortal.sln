@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "BibleThonWebPortal", "..\BibleThonWebPortal", "{443C1652-CC2C-4470-9FD0-C824B6906427}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}|AlbaDL.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/BibleThonWebPortal"
+		Debug.AspNetCompiler.PhysicalPath = "..\BibleThonWebPortal\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\BibleThonWebPortal\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/BibleThonWebPortal"
+		Release.AspNetCompiler.PhysicalPath = "..\BibleThonWebPortal\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\BibleThonWebPortal\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "8804"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlbaDL", "..\AlbaDL\AlbaDL.csproj", "{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "..\TestConsole\TestConsole.csproj", "{3BB0DF4B-97B4-42FA-933D-5C025669D323}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://albaazuredemo1.cloudapp.net:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccWebProject1 = true
+		SccProjectUniqueName1 = .
+		SccLocalPath1 = .
+		SccProjectEnlistmentChoice1 = 2
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{443C1652-CC2C-4470-9FD0-C824B6906427}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{443C1652-CC2C-4470-9FD0-C824B6906427}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{443C1652-CC2C-4470-9FD0-C824B6906427}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{443C1652-CC2C-4470-9FD0-C824B6906427}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{443C1652-CC2C-4470-9FD0-C824B6906427}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{443C1652-CC2C-4470-9FD0-C824B6906427}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{443C1652-CC2C-4470-9FD0-C824B6906427}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{443C1652-CC2C-4470-9FD0-C824B6906427}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{443C1652-CC2C-4470-9FD0-C824B6906427}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{443C1652-CC2C-4470-9FD0-C824B6906427}.Release|x86.ActiveCfg = Debug|Any CPU
+		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Debug|x86.ActiveCfg = Debug|x86
+		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Debug|x86.Build.0 = Debug|x86
+		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Release|Any CPU.ActiveCfg = Release|x86
+		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Release|Mixed Platforms.Build.0 = Release|x86
+		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Release|x86.ActiveCfg = Release|x86
+		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Release|x86.Build.0 = Release|x86
+		{3BB0DF4B-97B4-42FA-933D-5C025669D323}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{3BB0DF4B-97B4-42FA-933D-5C025669D323}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{3BB0DF4B-97B4-42FA-933D-5C025669D323}.Debug|x86.ActiveCfg = Debug|x86
+		{3BB0DF4B-97B4-42FA-933D-5C025669D323}.Debug|x86.Build.0 = Debug|x86
+		{3BB0DF4B-97B4-42FA-933D-5C025669D323}.Release|Any CPU.ActiveCfg = Release|x86
+		{3BB0DF4B-97B4-42FA-933D-5C025669D323}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{3BB0DF4B-97B4-42FA-933D-5C025669D323}.Release|Mixed Platforms.Build.0 = Release|x86
+		{3BB0DF4B-97B4-42FA-933D-5C025669D323}.Release|x86.ActiveCfg = Release|x86
+		{3BB0DF4B-97B4-42FA-933D-5C025669D323}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

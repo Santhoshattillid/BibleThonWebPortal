@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ShareAThonDLStoreContainer" CdmEntityContainer="ShareAThonDLContainer">
+    <EntitySetMapping Name="ShareAThonDonations">
+      <EntityTypeMapping TypeName="IsTypeOf(ShareAThonDL.ShareAThonDonation)">
+        <MappingFragment StoreEntitySet="ShareAThonDonations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="CurrentlyDonorOf" ColumnName="CurrentlyDonorOf" />
+          <ScalarProperty Name="InitialChargeOn" ColumnName="InitialChargeOn" />
+          <ScalarProperty Name="DonationAmount" ColumnName="DonationAmount" />
+          <ScalarProperty Name="IncreasingTo" ColumnName="IncreasingTo" />
+          <ScalarProperty Name="DayToChargeMonthly" ColumnName="DayToChargeMonthly" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShareAThonDonationFrequencies">
+      <EntityTypeMapping TypeName="IsTypeOf(ShareAThonDL.ShareAThonDonationFrequency)">
+        <MappingFragment StoreEntitySet="ShareAThonDonationFrequencies">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ShareAThonDonationId" ColumnName="ShareAThonDonationId" />
+          <ScalarProperty Name="ShareAThonDonationId1" ColumnName="ShareAThonDonationId1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShareAThonOfferLines">
+      <EntityTypeMapping TypeName="IsTypeOf(ShareAThonDL.ShareAThonOfferLine)">
+        <MappingFragment StoreEntitySet="ShareAThonOfferLines">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="OfferNo" ColumnName="OfferNo" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="ShareAThonDonationId" ColumnName="ShareAThonDonationId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ShareAThonDonationId1" ColumnName="ShareAThonDonationId1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

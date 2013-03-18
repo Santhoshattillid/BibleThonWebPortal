@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="PresidioApprovals">
+  <DataContextMoniker Name="/PresidioApprovalsDataDataContext" />
+  <nestedChildShapes>
+    <classShape Id="e911f543-536c-48b7-bb0b-5e05a2a02319" absoluteBounds="1, 0.625, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/PresidioApprovalsDataDataContext/AS_Presidio_ApprovalLevel" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1f573c5e-6ca4-4b49-bdeb-d6bb07663ecd" absoluteBounds="1.0149999999999997, 1.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3da95afc-69e4-4150-8f8d-74ec257699e1" absoluteBounds="3.25, 0.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/PresidioApprovalsDataDataContext/AS_Presidio_ApprovalLevel_User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="99a794b4-ff26-4dd4-ab84-14aaac1dd7c3" absoluteBounds="3.2649999999999997, 1.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a296c7a2-369f-42a4-a042-f4d972c93241" absoluteBounds="5.5, 0.625, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/PresidioApprovalsDataDataContext/AS_Presidio_Approval" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7969f254-82b6-4fb8-b8b1-867c1efba9ff" absoluteBounds="5.5150000000000006, 1.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

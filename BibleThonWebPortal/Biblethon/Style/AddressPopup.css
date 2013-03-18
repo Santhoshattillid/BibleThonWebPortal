@@ -1,0 +1,35 @@
+﻿*
+{
+	padding: 0px;
+	margin: 0px;
+}
+.header
+{
+	padding: 8px;
+}
+.header H3
+{
+	color: #777;
+	font-size: 0.9em;
+}
+.header A
+{
+	text-decoration: none;
+	color: #777;
+	font-weight: bold;
+	font-size: 0.9em;
+}
+.header DIV
+{
+	float: left;
+}
+.clear
+{
+	clear: both;
+	float: none;
+}
+.header .right
+{
+	text-align: right;
+	width: 780px;
+}

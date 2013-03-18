@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TWOModelStoreContainer" CdmEntityContainer="TWOEntities">
+    <EntitySetMapping Name="ShareAThonDonations">
+      <EntityTypeMapping TypeName="TWOModel.ShareAThonDonation">
+        <MappingFragment StoreEntitySet="ShareAThonDonation">
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="DayToChargeMonthly" ColumnName="DayToChargeMonthly" />
+          <ScalarProperty Name="IncreasingTo" ColumnName="IncreasingTo" />
+          <ScalarProperty Name="DonationAmount" ColumnName="DonationAmount" />
+          <ScalarProperty Name="InitialChargeOn" ColumnName="InitialChargeOn" />
+          <ScalarProperty Name="CurrentlyDonorOf" ColumnName="CurrentlyDonorOf" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShareAThonDonationFrequencies">
+      <EntityTypeMapping TypeName="TWOModel.ShareAThonDonationFrequency">
+        <MappingFragment StoreEntitySet="ShareAThonDonationFrequency">
+          <ScalarProperty Name="ShareAThonDonationId" ColumnName="ShareAThonDonationId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShareAThonOfferLines">
+      <EntityTypeMapping TypeName="TWOModel.ShareAThonOfferLine">
+        <MappingFragment StoreEntitySet="ShareAThonOfferLines">
+          <ScalarProperty Name="ShareAThonDonationId" ColumnName="ShareAThonDonationId" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="OfferNo" ColumnName="OfferNo" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

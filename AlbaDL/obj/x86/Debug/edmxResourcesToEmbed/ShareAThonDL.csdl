@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ShareAThonDL" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="ShareAThonDLContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ShareAThonDonations" EntityType="ShareAThonDL.ShareAThonDonation" />
+    <EntitySet Name="ShareAThonDonationFrequencies" EntityType="ShareAThonDL.ShareAThonDonationFrequency" />
+    <EntitySet Name="ShareAThonOfferLines" EntityType="ShareAThonDL.ShareAThonOfferLine" />
+    <AssociationSet Name="ShareAThonDonationShareAThonDonationFrequency" Association="ShareAThonDL.ShareAThonDonationShareAThonDonationFrequency">
+      <End Role="ShareAThonDonation" EntitySet="ShareAThonDonations" />
+      <End Role="ShareAThonDonationFrequency" EntitySet="ShareAThonDonationFrequencies" />
+    </AssociationSet>
+    <AssociationSet Name="ShareAThonDonationShareAThonOfferLine" Association="ShareAThonDL.ShareAThonDonationShareAThonOfferLine">
+      <End Role="ShareAThonDonation" EntitySet="ShareAThonDonations" />
+      <End Role="ShareAThonOfferLine" EntitySet="ShareAThonOfferLines" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ShareAThonDonation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CustomerId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="CurrentlyDonorOf" Precision="19" Scale="4" />
+    <Property Type="DateTime" Name="InitialChargeOn" />
+    <Property Type="Decimal" Name="DonationAmount" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="IncreasingTo" Precision="19" Scale="4" />
+    <Property Type="Int32" Name="DayToChargeMonthly" />
+    <Property Type="String" Name="OrderId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ShareAThonDonationFrequencies" Relationship="ShareAThonDL.ShareAThonDonationShareAThonDonationFrequency" FromRole="ShareAThonDonation" ToRole="ShareAThonDonationFrequency" />
+    <NavigationProperty Name="ShareAThonOfferLines" Relationship="ShareAThonDL.ShareAThonDonationShareAThonOfferLine" FromRole="ShareAThonDonation" ToRole="ShareAThonOfferLine" />
+  </EntityType>
+  <EntityType Name="ShareAThonDonationFrequency">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="OrderId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="DueDate" Nullable="false" />
+    <Property Type="Decimal" Name="Amount" Nullable="false" Precision="19" Scale="4" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="ShareAThonDonationId" Nullable="false" />
+    <NavigationProperty Name="ShareAThonDonation" Relationship="ShareAThonDL.ShareAThonDonationShareAThonDonationFrequency" FromRole="ShareAThonDonationFrequency" ToRole="ShareAThonDonation" />
+    <Property Type="Int32" Name="ShareAThonDonationId1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShareAThonOfferLine">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="OrderId" />
+      <PropertyRef Name="OfferNo" />
+      <PropertyRef Name="Qty" />
+      <PropertyRef Name="ShareAThonDonationId" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="OrderId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="OfferNo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Qty" Nullable="false" />
+    <Property Type="Int32" Name="ShareAThonDonationId" Nullable="false" />
+    <NavigationProperty Name="ShareAThonDonation" Relationship="ShareAThonDL.ShareAThonDonationShareAThonOfferLine" FromRole="ShareAThonOfferLine" ToRole="ShareAThonDonation" />
+    <Property Type="Int32" Name="ShareAThonDonationId1" Nullable="false" />
+  </EntityType>
+  <Association Name="ShareAThonDonationShareAThonDonationFrequency">
+    <End Type="ShareAThonDL.ShareAThonDonation" Role="ShareAThonDonation" Multiplicity="1" />
+    <End Type="ShareAThonDL.ShareAThonDonationFrequency" Role="ShareAThonDonationFrequency" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShareAThonDonation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ShareAThonDonationFrequency">
+        <PropertyRef Name="ShareAThonDonationId1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ShareAThonDonationShareAThonOfferLine">
+    <End Type="ShareAThonDL.ShareAThonDonation" Role="ShareAThonDonation" Multiplicity="1" />
+    <End Type="ShareAThonDL.ShareAThonOfferLine" Role="ShareAThonOfferLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShareAThonDonation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ShareAThonOfferLine">
+        <PropertyRef Name="ShareAThonDonationId1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

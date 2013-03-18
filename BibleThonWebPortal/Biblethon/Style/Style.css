@@ -1,0 +1,415 @@
+BODY
+{
+	font-family: Arial;
+	background: #EFEFEF;
+	margin: 0;
+	padding: 0px;
+}
+TD, TH
+{
+	border-color: #CCC;
+}
+TD A
+{
+	color: #2180BC;
+}
+.main
+{
+	width: 960px;
+	margin: 0 auto;
+	padding: 0px;
+}
+.main IMG
+{
+	border: 0;
+}
+.container
+{
+	background: #FFF;
+	float: left;
+	border: 1px solid #CCC;
+	padding: 0px;
+	margin: 0 auto;
+	height: auto;
+}
+#txtName
+{
+	width: 380px;
+}
+.gridId
+{
+	width: 100%;
+	font-size: 12px;
+}
+.modalBackground
+{
+	background-color: #000000;
+	filter: alpha(opacity=90);
+	opacity: 0.8;
+}
+.modalPopup
+{
+	background-color: #FFFFFF;
+	border-width: 3px;
+	border-style: solid;
+	border-color: #000000;
+	padding-top: 10px;
+	padding-left: 10px;
+	width: 700px;
+	height: auto;
+}
+.divAccordian
+{
+	background-color: #EFFBFF;
+	height: auto !important;
+}
+.lnkButton
+{
+	text-decoration: none;
+	color: #2180BC;
+	background: inherit;
+	word-break: break-all;
+}
+.txtID
+{
+	width: 0px;
+	border: 0px;
+	color: #FFFFFF;
+	visibility: hidden;
+}
+.selectedRow
+{
+	background-color: #FFFF00;
+}
+.leftcolumn
+{
+	width: 200px;
+	float: left;
+	margin-right: 5px;
+	padding-left: 5px;
+}
+.leftcolumn H2, .leftcolumn H3
+{
+	color: #215968;
+	font-size: 18px;
+	font-weight: 400;
+	border-bottom: 1px solid #215968;
+}
+.leftcolumn H3
+{
+	font-style: italic;
+	font-weight: 400;
+	font-size: 14px;
+	width: 100%;
+	border-bottom: 1px dotted #215968;
+}
+.leftcolumn P
+{
+	color: #4A404F;
+	font-size: 12px;
+	padding-left: 10px;
+}
+.accordionarea
+{
+	float: left;
+	width: 740px;
+}
+.accordion
+{
+	margin: 1em 0;
+	float: left;
+	width: 730px;
+}
+.accordion H3
+{
+	background: url('../../Images/acc-bg1.png');
+	color: #888;
+	cursor: pointer;
+	margin: 0;
+	padding: 4px 10px;
+	height: 20px;
+	border: 1px solid #848284;
+	margin-top: 2px;
+}
+.accordion H3.current
+{
+	background: url('../../Images/acc-bg.png');
+	cursor: default;
+	height: 18px;
+	color: #FFF;
+	border-bottom: 0;
+}
+.accordion DIV.divAccordian
+{
+	padding: 5px 10px;
+	border: 1px solid #848284;
+	border-top: 0;
+}
+.accordion DIV.divAccordian .txtarea
+{
+	color: #444;
+}
+.accordion H3 A, .accordion H3.current A
+{
+	font-size: 12px;
+	color: #666;
+	font-weight: normal;
+	text-decoration: none;
+}
+.accordion DIV.divAccordian TABLE
+{
+	font-size: 12px;
+}
+.accordion DIV.divAccordian TD IMG
+{
+	border-color: #848284 !important;
+}
+.accordion H3.current A
+{
+	color: #000;
+}
+.redfnt
+{
+	color: #FF0000;
+}
+.label
+{
+	font-weight: bold;
+}
+.fifthpara .label
+{
+	width: 100px;
+}
+.fifthpara .inputxt
+{
+	width: 200px;
+	border: 1px solid #BFBFBF;
+	height: 25px;
+	background: #FFF;
+}
+.fifthpara .buttunback
+{
+	padding-top: 20px;
+	padding: 0;
+}
+.forthpara
+{
+	padding: 20px 0;
+}
+.forthpara TD, .forthpara TR
+{
+	padding: 0;
+	margin: 0;
+}
+.forthpara INPUT, .forthpara SELECT
+{
+	background: none;
+	border: 0;
+}
+.forthpara .label, .secondpara .label
+{
+	width: 60px;
+	padding: 0;
+}
+.forthpara .label
+{
+	width: 160px;
+}
+.forthpara .txtarea, .fifthpara .txtarea
+{
+	background: #FFF;
+	border: 1px solid #CCC;
+	padding: 3px;
+}
+.txtarea, .txtareabtm
+{
+	background: #FFF;
+	border: 1px solid #CCC;
+	padding: 3px;
+}
+.order
+{
+	background: #FFF;
+	border: 1px solid #CCC;
+	padding: 3px;
+	height: 18px;
+}
+.secondpara .txtarea
+{
+	margin: 0;
+}
+.secondpara TD
+{
+	border: 0;
+}
+.secondpara .buttunback, .forthpara .buttunback
+{
+	text-align: right;
+}
+.txtareabtm
+{
+	border-top: 0px solid #CCC;
+}
+.buttunback
+{
+	width: 100%;
+	padding: 6px;
+	border-top: 1px solid #CCC;
+	text-align: right;
+}
+.tablehd TH
+{
+	background: url(../../Images/table-bg.png);
+	height: 20px;
+	font-size: 12px;
+}
+.search
+{
+	background: #EFFBFF url(../../Images/search_button.png) no-repeat;
+	color: #F2F2F2;
+	height: 22px !important;
+	width: 29px;
+	position: relative;
+	text-indent: -9999;
+	border: 0 !important;
+	float: left;
+	font-size: 1px;
+}
+.close, .btn
+{
+	background: url(../../Images/btn-bg.png);
+	padding: 4px;
+	color: #FFF;
+	font-weight: bold;
+	border: 1px solid #EFEFEF;
+	font-size: 11px;
+}
+.close:hover, .btn:hover
+{
+	background: url(../../Images/btn-bg1.png);
+}
+#imgSearch
+{
+	border: 0 none;
+}
+.errorinfo
+{
+	color: #DF3637;
+	clear: both;
+	font-size: 12px;
+	background: #EFEFEF;
+}
+.Success {
+    color: #05690f;
+}
+SPAN.error
+{
+	font-size: 0.8em;
+	width: 600px;
+}
+.header H3
+{
+	color: #777;
+	font-size: 12px;
+	margin-left: 8px;
+}
+.smalltxt
+{
+	min-width: 60px;
+	background: #FFF;
+	border: 1px solid #CCC;
+	padding: 3px;
+}
+.total
+{
+	width: 100%;
+}
+.totalright
+{
+	width: 50px;
+	text-align: right;
+	padding: 0;
+	margin: 0;
+}
+.totalright .txtarea
+{
+	float: left;
+	margin-left: 5px;
+	width: 150px;
+}
+.total .label
+{
+	text-align: right;
+}
+.hafdiv
+{
+	width: 100%;
+	vertical-align: top;
+	padding: 0px;
+	margin: 0px;
+}
+.hafdiv TD
+{
+	padding: 3px;
+}
+.dollar
+{
+	float: left;
+	width: 5px;
+	display: none;
+}
+.error
+{
+}
+.halftd
+{
+	vertical-align: top;
+	width: 420px;
+}
+.required, .phoneUs, .email, .zipUS
+{
+}
+.creditCardAccordion, .OffLinesAccordion, .ShippingAddressAccordion, .BillingAddressAccordion, .orderConfirmationAccordion
+{
+}
+.OffLinesAccordion TABLE
+{
+	width: 100%;
+}
+INPUT[type=text], SELECT
+{
+	width: 250px;
+	padding: 4px;
+}
+SELECT
+{
+	width: 260px;
+}
+.readOnly
+{
+	background: #DDD;
+	border: #666;
+}
+.radGrid
+{
+	width: 100%;
+}
+.NextPrevAndNumeric DIV
+{
+	display: block;
+}
+.accordion DIV.divAccordian .currencyfield
+{
+	text-align: right;
+	width: 80px;
+}
+.divAccordian
+{
+	display: none;
+}
+.errorContainer {
+    margin-top: 15px;
+}
+.hidden {
+    display: none;
+}

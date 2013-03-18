@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TWO" Class="AlereHomeMonitoringDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=RIC-ASUS\ALBA;Initial Catalog=TWO;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TWOConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AS_WF_VW_AlereOrderLookup" Member="AS_WF_VW_AlereOrderLookups">
+    <Type Name="AS_WF_VW_AlereOrderLookup">
+      <Column Name="OrderID" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="WorkflowState" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PatientID" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TotalAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_WF_VW_AlereDoctorInformation" Member="AS_WF_VW_AlereDoctorInformations">
+    <Type Name="AS_WF_VW_AlereDoctorInformation">
+      <Column Name="PatientID" Type="System.String" DbType="Char(9) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="Char(11)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="Char(25)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="Zip" Type="System.String" DbType="Char(11)" CanBeNull="true" />
+      <Column Name="ClinicCode" Type="System.String" DbType="Char(7) NOT NULL" CanBeNull="false" />
+      <Column Name="Clinic" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_WF_VW_AlerePatientInformation" Member="AS_WF_VW_AlerePatientInformations">
+    <Type Name="AS_WF_VW_AlerePatientInformation">
+      <Column Name="PatientID" Type="System.String" DbType="Char(9) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(14)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="Char(61) NOT NULL" CanBeNull="false" />
+      <Column Name="AddressID" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="PatientAddress" Type="System.String" DbType="Char(31) NOT NULL" CanBeNull="false" />
+      <Column Name="City" Type="System.String" DbType="Char(25) NOT NULL" CanBeNull="false" />
+      <Column Name="State" Type="System.String" DbType="Char(3) NOT NULL" CanBeNull="false" />
+      <Column Name="Zip" Type="System.String" DbType="Char(11) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_WF_VW_AlereInsuranceInformation" Member="AS_WF_VW_AlereInsuranceInformations">
+    <Type Name="AS_WF_VW_AlereInsuranceInformation">
+      <Column Name="PatientID" Type="System.String" DbType="Char(9) NOT NULL" CanBeNull="false" />
+      <Column Name="PrimaryPlan" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="PrimaryPolicyNumber" Type="System.String" DbType="VarChar(19)" CanBeNull="true" />
+      <Column Name="PrimaryGroupNumber" Type="System.String" DbType="VarChar(19)" CanBeNull="true" />
+      <Column Name="PrimaryClaimPhoneNumber" Type="System.String" DbType="Char(11)" CanBeNull="true" />
+      <Column Name="PrimaryAddress" Type="System.String" DbType="Char(31)" CanBeNull="true" />
+      <Column Name="PrimaryCity" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="PrimaryState" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="PrimaryZip" Type="System.String" DbType="Char(11)" CanBeNull="true" />
+      <Column Name="PrimaryEffectivityDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SecondaryPlan" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="SecondaryPolicyNumber" Type="System.String" DbType="VarChar(19)" CanBeNull="true" />
+      <Column Name="SecondaryGroupNumber" Type="System.String" DbType="VarChar(19)" CanBeNull="true" />
+      <Column Name="SecondaryClaimPhoneNumber" Type="System.String" DbType="Char(11)" CanBeNull="true" />
+      <Column Name="SecondaryAddress" Type="System.String" DbType="Char(31)" CanBeNull="true" />
+      <Column Name="SecondaryCity" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="SecondaryState" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="SecondaryZip" Type="System.String" DbType="Char(11)" CanBeNull="true" />
+      <Column Name="SecondaryEffectivityDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_WF_VW_AlerePatientLookup" Member="AS_WF_VW_AlerePatientLookups">
+    <Type Name="AS_WF_VW_AlerePatientLookup">
+      <Column Name="PATIENTID" Type="System.String" DbType="Char(15) NOT NULL" CanBeNull="false" />
+      <Column Name="LASTNAME" Type="System.String" DbType="Char(25)" CanBeNull="true" />
+      <Column Name="FIRSTNAME" Type="System.String" DbType="Char(15)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_WF_VW_AlereBasicInformation" Member="AS_WF_VW_AlereBasicInformations">
+    <Type Name="AS_WF_VW_AlereBasicInformation">
+      <Column Name="PatientID" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="Char(15) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="Char(25) NOT NULL" CanBeNull="false" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerClass" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="LastShipDate" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MeterType" Type="System.String" DbType="Char(7)" CanBeNull="true" />
+      <Column Name="LancetType" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_Alere_OrderDetail" Member="AS_Alere_OrderDetails">
+    <Type Name="AS_Alere_OrderDetail">
+      <Column Name="PatientID" Type="System.String" DbType="NVarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OrderID" Type="System.String" DbType="NVarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ItemSKU" Type="System.String" DbType="NVarChar(250) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ExtendedPrice" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_Alere_Orders" Member="AS_Alere_Orders">
+    <Type Name="AS_Alere_Order">
+      <Column Name="PatientID" Type="System.String" DbType="NVarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OrderID" Type="System.String" DbType="NVarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TotalAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ShippingMethodID" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="SuppliesNotNeeded" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="WorkflowState" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PatientChanged" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DoctorChanged" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="InsuranceChanged" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NoteColumn" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="BasicInfoNoteColumn" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DoctorInfoNoteColumn" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="InsuranceInfoNoteColumn" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PatientInfoNoteColumn" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_Alere_BasicInformation" Member="AS_Alere_BasicInformations">
+    <Type Name="AS_Alere_BasicInformation">
+      <Column Name="PatientID" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CustomerClass" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastShipDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="MeterType" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="LancetType" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="DueDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_Alere_DoctorInformation" Member="AS_Alere_DoctorInformations">
+    <Type Name="AS_Alere_DoctorInformation">
+      <Column Name="PatientID" Type="System.String" DbType="NVarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DoctorName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Zip" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Clinic" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ClinicCode" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_Alere_InsuranceInformation" Member="AS_Alere_InsuranceInformations">
+    <Type Name="AS_Alere_InsuranceInformation">
+      <Column Name="PatientID" Type="System.String" DbType="NVarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PrimaryPlan" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PrimaryPolicyNumber" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PrimaryGroupNumber" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PrimaryClaimPhoneNumber" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PrimaryAddress" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PrimaryCity" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PrimaryState" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PrimaryZip" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PrimaryEffectivityDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SecondaryPlan" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="SecondaryPolicyNumber" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="SecondaryGroupNumber" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="SecondaryClaimPhoneNumber" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="SecondaryAddress" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="SecondaryCity" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="SecondaryState" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="SecondaryZip" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="SecondaryEffectivityDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SupplyOrder" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_Alere_PatientInformation" Member="AS_Alere_PatientInformations">
+    <Type Name="AS_Alere_PatientInformation">
+      <Column Name="PatientID" Type="System.String" DbType="NVarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AddressID" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PatientAddress" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Zip" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="EMail" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,8 @@
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\TestConsole\bin\Debug\TestConsole.exe
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\TestConsole\bin\Debug\TestConsole.pdb
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\TestConsole\bin\Debug\AlbaDL.dll
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\TestConsole\bin\Debug\AlbaDL.pdb
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\TestConsole\obj\x86\Debug\TestConsole.csprojResolveAssemblyReference.cache
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\TestConsole\obj\x86\Debug\TestConsole.exe
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\TestConsole\obj\x86\Debug\TestConsole.pdb
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\TestConsole\bin\Debug\TestConsole.exe.config

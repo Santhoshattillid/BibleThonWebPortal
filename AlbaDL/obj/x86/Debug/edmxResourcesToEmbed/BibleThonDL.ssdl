@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TWOModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="TWOModelStoreContainer">
+    <EntitySet Name="OrderDetails" EntityType="TWOModel.Store.OrderDetails" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="OrderDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="OrdDate" Type="datetime" Nullable="true" />
+    <Property Name="Status" Type="nchar" Nullable="true" MaxLength="12" />
+    <Property Name="FormData" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="OrdNo" Type="nchar" Nullable="true" MaxLength="25" />
+    <Property Name="Operator" Type="nchar" Nullable="true" MaxLength="255" />
+    <Property Name="CustomerName" Type="nchar" Nullable="true" MaxLength="255" />
+    <Property Name="OrdTotal" Type="decimal" Nullable="true" Precision="18" Scale="2" />
+  </EntityType>
+</Schema>

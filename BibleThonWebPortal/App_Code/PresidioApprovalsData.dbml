@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TWO" Class="PresidioApprovalsDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=RIC-ASUS\ALBA;Initial Catalog=TWO;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TWOConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AS_Presidio_ApprovalLevels" Member="AS_Presidio_ApprovalLevels">
+    <Type Name="AS_Presidio_ApprovalLevel">
+      <Column Name="ApprovalLevel" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ApprovalArea" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ApprovalType" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ApprovalLevelName" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="ApprovalAmountThreshold" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ApprovalOverride" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ApprovalRequired" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_Presidio_ApprovalLevel_Users" Member="AS_Presidio_ApprovalLevel_Users">
+    <Type Name="AS_Presidio_ApprovalLevel_User">
+      <Column Name="ApprovalLevel" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ApprovalArea" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ApprovalType" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ApproverID" Type="System.String" DbType="NVarChar(250) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AS_Presidio_Approvals" Member="AS_Presidio_Approvals">
+    <Type Name="AS_Presidio_Approval">
+      <Column Name="RecordID" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WorkflowID" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ApprovalArea" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ApprovalType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ApproverID" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="LastApprovalLevel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WorkflowState" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

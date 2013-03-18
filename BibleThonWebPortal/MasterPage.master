@@ -1,0 +1,143 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Alba.Workflow.WebPortal.MasterPage" %>
+
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<%@ Register Namespace="HelpDesk" TagPrefix="helpDesk" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Alba360 Advanced Workflow - User Portal</title>
+    <link href="Styles/styles.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script src="Script/jquery-1.8.3.js" type="text/javascript"></script>
+    <script src="Script/jquery-ui.js" type="text/javascript"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <telerik:RadScriptBlock runat="server" ID="RadScriptBlock1">
+        <script type="text/javascript">
+    //<![CDATA[
+
+            function onClicked(sender, eventArgs) {
+                if (eventArgs.get_item().get_text().indexOf(document.getElementById("<%= lblCompanyName.ClientID %>").innerHTML) != -1) {
+                    if (document.getElementById("<%= lblUserRole.ClientID %>").innerHTML.toUpperCase() != "WORKFLOW ADMIN") {
+                        alert("You do not have sufficient rights to access this window. Please contact your system administrator.");
+                    }
+                    else {
+                        var urlLink = "Documents/EditForms/" + document.getElementById("<%= lblCompanyName.ClientID %>").innerHTML + "/" + eventArgs.get_item().get_text().replace(/ /g, "_") + ".aspx";
+                        var wnd = window.radopen(urlLink, "RadWindow1");
+                        wnd.setSize(800, 600);
+                        return false;
+                    }
+                }
+            }
+    //]]>
+        </script>
+    </telerik:RadScriptBlock>
+    <telerik:RadScriptManager runat="server" EnableCdn="true" ID="RadScriptManager1">
+    </telerik:RadScriptManager>
+    <telerik:RadStyleSheetManager runat="server" ID="RadStyleSheet1" />
+    <telerik:RadFormDecorator runat="server" ID="RadFormDecorator1" DecoratedControls="Default,Zone" />
+    <telerik:RadSplitter runat="Server" ID="RadSplitter1" Width="100%" BorderSize="0"
+        BorderStyle="None" PanesBorderSize="0" Height="100%" Orientation="Horizontal"
+        VisibleDuringInit="false">
+        <telerik:RadPane ID="topPane" runat="server" Height="110px">
+            <div class="header">
+                <div class="logo">
+                    <img src="Images/alba_logo.jpg" alt="" />
+                </div>
+                <div class="current-user">
+                    <asp:Label ID="lblLoggedInUser" runat="server"></asp:Label>
+                    [<a href="Logout.aspx">LOGOUT</a>]
+                </div>
+                <div class="skin-chooser">
+                    <label for="ctl00_SkinChooser_Input" class="skinLabel">
+                        Skin:</label>
+                    <telerik:RadSkinManager runat="server" ID="RadSkinManager1" ShowChooser="true" Skin="Windows7"
+                        PersistenceKey="Skin" PersistenceMode="Session" />
+                </div>
+            </div>
+            <telerik:RadMenu runat="Server" ID="RadMenu1" EnableShadows="true" EnableRoundedCorners="true"
+                Style="float: none; position: absolute; top: 84px; z-index: 2000" Width="100%"
+                OnClientItemClicked="onClicked">
+                <Items>
+                    <telerik:RadMenuItem runat="server" Text="File">
+                        <Items>
+                            <telerik:RadMenuItem Text="Workflow Forms" Enabled="false" />
+                            <telerik:RadMenuItem IsSeparator="true" />
+                            <telerik:RadMenuItem Text="Exit" Enabled="true" NavigateUrl="Logout.aspx" />
+                        </Items>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuItem runat="server" Text="Edit">
+                        <Items>
+                            <%--<telerik:RadMenuItem Text="Update Scripts" Enabled="true" ImageUrl="~/Images/mark.gif" />--%>
+                            <%--<telerik:RadMenuItem Text="Mark as Unread" Enabled="false" ImageUrl="~/Images/unread.gif" />--%>
+                        </Items>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuItem runat="server" Text="Go">
+                        <Items>
+                            <%--<telerik:RadMenuItem Text="Tasks" ImageUrl="~/Images/inbox.gif" NavigateUrl="Default.aspx" />
+							<telerik:RadMenuItem Text="Calendar" ImageUrl="~/Images/calendar.gif" />
+							<telerik:RadMenuItem Text="Reports" ImageUrl="~/Images/notes.gif" />--%>
+                        </Items>
+                    </telerik:RadMenuItem>
+                    <telerik:RadMenuItem Text="Help">
+                        <Items>
+                            <%--<telerik:RadMenuItem Text="Online Help" ImageUrl="~/Images/help.png" />
+    							<telerik:RadMenuItem Text="About Alba Advanced Workflow" ImageUrl="~/Images/help.png" />--%>
+                        </Items>
+                    </telerik:RadMenuItem>
+                </Items>
+            </telerik:RadMenu>
+        </telerik:RadPane>
+        <telerik:RadPane runat="server" ID="contentPane" Scrolling="none">
+            <telerik:RadSplitter runat="server" ID="RadSplitter2" BorderStyle="None" PanesBorderSize="0">
+                <telerik:RadPane runat="Server" ID="leftPane" Width="240px" MinWidth="240" MaxWidth="600"
+                    Scrolling="None">
+                    <telerik:RadSplitter runat="server" ID="RadSplitter3" BorderStyle="None" PanesBorderSize="0"
+                        Height="100%" Orientation="Horizontal">
+                        <telerik:RadPane runat="server" ID="topLeftPane">
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </telerik:RadPane>
+                        <telerik:RadSplitBar runat="server" ID="RadSplitBar3" CollapseMode="Backward" EnableResize="false" />
+                        <telerik:RadPane runat="server" ID="bottomLeftPane" Height="90px">
+                            <telerik:RadPanelBar runat="server" ID="RadPanelBar1" Width="100%">
+                                <Items>
+                                    <telerik:RadPanelItem Text="Dashboard" NavigateUrl="Default.aspx" />
+                                    <telerik:RadPanelItem Text="Calendar" NavigateUrl="Calendar.aspx" Visible="False" />
+                                    <telerik:RadPanelItem Text="Reports" NavigateUrl="Notes.aspx" Visible="False" />
+                                </Items>
+                            </telerik:RadPanelBar>
+                        </telerik:RadPane>
+                    </telerik:RadSplitter>
+                </telerik:RadPane>
+                <telerik:RadSplitBar runat="server" ID="RadSplitBar1" CollapseMode="Forward" />
+                <telerik:RadPane runat="Server" ID="rightPane" CssClass="right-pane" Scrolling="None">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                    </asp:ContentPlaceHolder>
+                </telerik:RadPane>
+            </telerik:RadSplitter>
+        </telerik:RadPane>
+    </telerik:RadSplitter>
+    <asp:PlaceHolder runat="server" ID="AnalyticsPlaceholder">
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-111455-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function () {
+                var ga = document.createElement('script');
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' :
+					'http://www') + '.google-analytics.com/ga.js';
+                ga.setAttribute('async', 'true');
+                document.documentElement.firstChild.appendChild(ga);
+            })();
+        </script>
+    </asp:PlaceHolder>
+    <label id="lblUserRole" runat="server">
+    </label>
+    <label id="lblCompanyName" runat="server">
+    </label>
+    </form>
+</body>
+</html>
