@@ -406,6 +406,7 @@
         $('input[id$=lblGrandTotal]').val(formatToMoney(total, "$", "."));
         $('input[id$=TxtTotalOrder]').val(formatToMoney(total, "$", "."));
         $('[id$=LblTotalAmount]').html(formatToMoney(total, "$", "."));
+        $('[id$=HdnGrandTotal]').val(formatToMoney(total, "$", "."));
     }
 
     // allow only numbers for specified fields

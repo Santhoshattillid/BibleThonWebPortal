@@ -796,7 +796,7 @@ public static class Helper
         try
         {
             GPGLItemList glItems = pGlDocument.GLItems;
-            var eConnect = new eConnectType();
+            var eConnect = new Microsoft.Dynamics.GP.eConnect.Serialization.eConnectType();
             var glHeader = new taGLTransactionHeaderInsert();
             var itemsArray = new taGLTransactionLineInsert_ItemsTaGLTransactionLineInsert[glItems.Count];
 

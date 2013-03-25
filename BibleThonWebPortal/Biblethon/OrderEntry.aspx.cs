@@ -5,7 +5,6 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using AlbaDL;
@@ -15,9 +14,6 @@ using Telerik.Web.UI;
 public partial class Biblethon_OrderEntry : Page
 {
     private readonly string _connString = ConfigurationManager.ConnectionStrings["GPConnectionString"].ToString();
-    public List<BillingAddress> CustomerAddress;
-    public List<ShippingAddress> ShippingAddress;
-    public List<OfferLines> OfferLines;
     private DataRow[] _dtFilterRows;
 
     protected void Page_Load(object sender, EventArgs e)
@@ -56,6 +52,12 @@ public partial class Biblethon_OrderEntry : Page
         {
             UpdateSessionVariables();
             LoadRadGridData(false);
+
+            // assigning left hand side panel labels
+            LblAdditionalDonation.Text = string.Format("${0}", txtADonation.Text);
+            LblShippingTotal.Text = string.Format("${0}", txtShipping.Text);
+            LblOrderSubtotal.Text = string.Format("${0}", Convert.ToDecimal(string.IsNullOrEmpty(HdnGrandTotal.Value.Replace("$", "")) ? "0" : HdnGrandTotal.Value.Replace("$", "")) - Convert.ToDecimal(string.IsNullOrEmpty(txtADonation.Text.Replace("$", "")) ? "0" : txtADonation.Text.Replace("$", "")) - Convert.ToDecimal(string.IsNullOrEmpty(txtShipping.Text.Replace("$", "")) ? "0" : txtShipping.Text.Replace("$", "")));
+            LblTotalAmount.Text = HdnGrandTotal.Value;
         }
 
         // setting operator here
@@ -80,12 +82,6 @@ public partial class Biblethon_OrderEntry : Page
         //txtZipCode.ReadOnly = true;
         //txtCountry.ReadOnly = true;
         //txtEmail.ReadOnly = true;
-
-        // assigning left hand side panel labels
-        LblAdditionalDonation.Text = string.Format("${0}", txtADonation.Text);
-        LblShippingTotal.Text = string.Format("${0}", txtShipping.Text);
-        LblOrderSubtotal.Text = string.Format("${0}", Convert.ToDecimal(string.IsNullOrEmpty(lblGrandTotal.Text.Replace("$", "")) ? "0" : lblGrandTotal.Text.Replace("$", "")) - Convert.ToDecimal(string.IsNullOrEmpty(txtADonation.Text.Replace("$", "")) ? "0" : txtADonation.Text.Replace("$", "")) - Convert.ToDecimal(string.IsNullOrEmpty(txtShipping.Text.Replace("$", "")) ? "0" : txtShipping.Text.Replace("$", "")));
-        LblTotalAmount.Text = lblGrandTotal.Text;
     }
 
     protected void btnSaveOrder_Click(object sender, EventArgs e)
@@ -159,7 +155,8 @@ public partial class Biblethon_OrderEntry : Page
             }
 
             // validation for offerlines
-            if (Convert.ToDecimal(lblGrandTotal.Text.Trim().Replace("$", "")) <= 0)
+
+            if (string.IsNullOrEmpty(HdnGrandTotal.Value.Trim()) || Convert.ToDecimal(HdnGrandTotal.Value.Trim().Replace("$", "")) <= 0)
             {
                 lblError.Text = "Atleast select a product to process.";
                 hidAccordionIndex.Value = "2";
@@ -195,16 +192,15 @@ public partial class Biblethon_OrderEntry : Page
             string fileName = Server.MapPath("~/SalesOrder.xml");
             if (new EConnectModel().SerializeSalesOrderObject(fileName, _connString, orderProcess, listOrders))
             {
-                var twoEntities = new AlbaDL.TWOEntities();
-
-                var orderDetail = new AlbaDL.OrderDetail
+                var twoEntities = new TWOEntities();
+                var orderDetail = new OrderDetail
                                       {
                                           OrdNo = orderNo,
                                           OrdDate = DateTime.Now,
                                           Status = "Work",
                                           CustomerName = txtCustomerName.Text.Trim(),
                                           Operator = Session["LoggedInUser"] != null ? Session["LoggedInUser"].ToString() : "",
-                                          OrdTotal = Convert.ToDecimal(lblGrandTotal.Text.Replace("$", "")),
+                                          OrdTotal = Convert.ToDecimal(HdnGrandTotal.Value.Replace("$", "")),
                                           Id = twoEntities.OrderDetails.Max(id => id.Id) + 1
                                       };
 
@@ -219,7 +215,7 @@ public partial class Biblethon_OrderEntry : Page
             {
                 lblError.Text = "Ooops something went wrong in our server. We are not able to process your request.";
                 lblError.CssClass = "error errorinfo";
-                econnectModel.RollbackSalseDocNumber(_connString, HttpContext.Current.Session["orderNumber"].ToString());
+                econnectModel.RollbackSalseDocNumber(_connString, Session["orderNumber"].ToString());
             }
 
             //Response.Redirect("OrderDetails.aspx");
@@ -227,7 +223,7 @@ public partial class Biblethon_OrderEntry : Page
         catch (Exception ex)
         {
             lblError.Text = "Ooops something went wrong in our server. We are not able to process your request. <br /> " + ex.Message;
-            econnectModel.RollbackSalseDocNumber(_connString, HttpContext.Current.Session["orderNumber"].ToString());
+            econnectModel.RollbackSalseDocNumber(_connString, Session["orderNumber"].ToString());
         }
     }
 
@@ -236,7 +232,7 @@ public partial class Biblethon_OrderEntry : Page
         if (!string.IsNullOrEmpty(txtExpirationDate.Text.Trim()) && !string.IsNullOrEmpty(txtCreditCardNo.Text.Trim()) && !string.IsNullOrEmpty(txtCVN.Text.Trim()))
         {
             UpdateSessionVariables();
-            Response.Redirect("PaymentProcessing.aspx?Amount=" + lblGrandTotal.Text.Trim().Replace("$", "") + "&CardNo=" + txtCreditCardNo.Text.Trim() + "&ExpDate=" + txtExpirationDate.Text.Trim() + "&CVV=" + txtCVN.Text.Trim());
+            Response.Redirect("PaymentProcessing.aspx?Amount=" + HdnGrandTotal.Value.Trim().Replace("$", "") + "&CardNo=" + txtCreditCardNo.Text.Trim() + "&ExpDate=" + txtExpirationDate.Text.Trim() + "&CVV=" + txtCVN.Text.Trim());
         }
         else
         {
@@ -320,11 +316,11 @@ public partial class Biblethon_OrderEntry : Page
         }
     }
 
-    public OrderProcess GetCustomerHeader(string orderNumber)
+    private OrderProcess GetCustomerHeader(string orderNumber)
     {
         var shipping = string.IsNullOrEmpty(txtShipping.Text.Replace("$", "")) ? 0 : Convert.ToDecimal(txtShipping.Text.Replace("$", ""));
         var donation = string.IsNullOrEmpty(txtADonation.Text.Replace("$", "")) ? 0 : Convert.ToDecimal(txtADonation.Text.Replace("$", ""));
-        var subTotal = (string.IsNullOrEmpty(lblGrandTotal.Text.Replace("$", "")) ? 0 : Convert.ToDecimal(lblGrandTotal.Text.Replace("$", ""))) - shipping - donation;
+        var subTotal = (string.IsNullOrEmpty(HdnGrandTotal.Value.Replace("$", "")) ? 0 : Convert.ToDecimal(HdnGrandTotal.Value.Replace("$", ""))) - shipping - donation;
         var orderProcess = new OrderProcess
         {
             SOPTYPE = 2,
@@ -355,7 +351,7 @@ public partial class Biblethon_OrderEntry : Page
         return orderProcess;
     }
 
-    public void RadGridOfferLinesDataBinding(object sender, EventArgs e)
+    protected void RadGridOfferLinesDataBinding(object sender, EventArgs e)
     {
         LoadRadGridData(false);
     }
@@ -390,7 +386,7 @@ public partial class Biblethon_OrderEntry : Page
         RadGridOfferLines.DataBind();
     }
 
-    public List<OrderItems> GetOrderedItems(string orderNumber)
+    private List<OrderItems> GetOrderedItems(string orderNumber)
     {
         return (from GridDataItem gridDataItem in RadGridOfferLines.Items
                 let itemQty = (TextBox)gridDataItem.FindControl("TxtQuantity")

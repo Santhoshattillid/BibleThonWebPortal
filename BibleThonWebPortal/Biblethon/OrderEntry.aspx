@@ -92,7 +92,7 @@
             </div>
             <div class="accordionarea">
                 <div class="errorContainer">
-                    <asp:Label ID="lblError" CssClass="error errorinfo" runat="server" Text=""></asp:Label></div>
+                    <asp:Label ID="lblError" CssClass="error errorinfo" runat="server"></asp:Label></div>
                 <div class="accordion">
                     <!-- Billing Address Accordation -->
                     <h3>
@@ -128,7 +128,7 @@
                                             <td>
                                             </td>
                                             <td colspan="2">
-                                                <asp:Label ID="lblAddress2" for="LblBAddress2" runat="server" Text=""></asp:Label>
+                                                <asp:Label ID="lblAddress2" for="LblBAddress2" runat="server"></asp:Label>
                                                 <input type="text" for="LblBAddress2,lblAddress2" name="TxtBillingAddress2" class="hidden txtarea"
                                                     id="TxtBillingAddress2" />
                                             </td>
@@ -137,7 +137,7 @@
                                             <td>
                                             </td>
                                             <td colspan="2">
-                                                <asp:Label ID="lblAddress3" runat="server" Text=""></asp:Label>
+                                                <asp:Label ID="lblAddress3" runat="server"></asp:Label>
                                                 <input type="text" for="LblBAddress3,lblAddress3" name="TxtBillingAddress3" class="hidden txtarea"
                                                     id="TxtBillingAddress3" />
                                             </td>
@@ -147,7 +147,7 @@
                                                 City
                                             </td>
                                             <td colspan="2">
-                                                <asp:Label ID="lblCity" runat="server" Text=""></asp:Label>
+                                                <asp:Label ID="lblCity" runat="server"></asp:Label>
                                                 <input type="text" for="LblBAddress3,lblAddress3" name="TxtBillingCity" class="hidden"
                                                     id="TxtBillingCity" />
                                             </td>
@@ -157,7 +157,7 @@
                                                 State
                                             </td>
                                             <td colspan="2">
-                                                <asp:Label ID="lblState" runat="server" Text=""></asp:Label>
+                                                <asp:Label ID="lblState" runat="server"></asp:Label>
                                                 <input type="text" for="lblState" name="TxtBillingState" class="hidden" id="TxtBillingState" />
                                             </td>
                                         </tr>
@@ -166,7 +166,7 @@
                                                 Country
                                             </td>
                                             <td colspan="2">
-                                                <asp:Label ID="lblCountry" for="LblBCountry" runat="server" Text=""></asp:Label>
+                                                <asp:Label ID="lblCountry" for="LblBCountry" runat="server"></asp:Label>
                                                 <input type="text" for="lblCountry" name="TxtBillingCountry" class="hidden" id="TxtBillingCountry" />
                                             </td>
                                         </tr>
@@ -195,7 +195,7 @@
                                                 Zip Code
                                             </td>
                                             <td>
-                                                <asp:Label ID="lblZipCode" runat="server" Text=""></asp:Label>
+                                                <asp:Label ID="lblZipCode" runat="server"></asp:Label>
                                                 <input type="text" for="lblZipCode" name="TxtBillingZipcode" class="hidden" id="TxtBillingZipcode" />
                                             </td>
                                         </tr>
@@ -401,6 +401,7 @@
                                 </td>
                                 <td class="totalright">
                                     <asp:TextBox ID="lblGrandTotal" runat="server" CssClass="txtarea currencyfield" ReadOnly="True"></asp:TextBox>
+                                    <asp:HiddenField runat="server" ID="HdnGrandTotal" />
                                 </td>
                             </tr>
                         </table>

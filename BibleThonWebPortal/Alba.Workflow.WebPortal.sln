@@ -3,8 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "BibleThonWebPortal", "..\BibleThonWebPortal", "{443C1652-CC2C-4470-9FD0-C824B6906427}"
 	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "SAK"
+		SccAuxPath = "SAK"
+		SccLocalPath = "SAK"
+		SccProvider = "SAK"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		ProjectReferences = "{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}|AlbaDL.dll;"
+		ProjectReferences = ""
 		Debug.AspNetCompiler.VirtualPath = "/BibleThonWebPortal"
 		Debug.AspNetCompiler.PhysicalPath = "..\BibleThonWebPortal\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\BibleThonWebPortal\"
@@ -30,7 +34,7 @@ Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 2
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://albaazuredemo1.cloudapp.net:8080/tfs/defaultcollection
+		SccTeamFoundationServer = http://192.168.1.152:8081/tfs/biblethon
 		SccLocalPath0 = .
 		SccWebProject1 = true
 		SccProjectUniqueName1 = .

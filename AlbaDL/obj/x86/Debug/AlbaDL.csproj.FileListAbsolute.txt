@@ -10,3 +10,8 @@ C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\Alb
 C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\AlbaDL\bin\Debug\AuthorizeNet.dll
 C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\AlbaDL\bin\Debug\AuthorizeNet.pdb
 C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\AlbaDL\bin\Debug\AuthorizeNet.xml
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\AlbaDL\bin\Debug\Microsoft.Dynamics.GP.eConnect.dll
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\AlbaDL\bin\Debug\Microsoft.Dynamics.GP.eConnect.MiscRoutines.dll
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\AlbaDL\bin\Debug\Microsoft.Dynamics.GP.eConnect.Serialization.dll
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\AlbaDL\bin\Debug\System.EnterpriseServices.dll
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\AlbaDL\bin\Debug\System.Runtime.Serialization.dll

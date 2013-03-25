@@ -6,6 +6,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using Biblethon.Controller;
 using Microsoft.Dynamics.GP.eConnect;
+using Microsoft.Dynamics.GP.eConnect.MiscRoutines;
 using Microsoft.Dynamics.GP.eConnect.Serialization;
 
 namespace AlbaDL
@@ -32,10 +33,10 @@ namespace AlbaDL
             xmlCustomerdoc.Load(memStream);
 
             // version 11
-            var customerDoc = econ.GetEntity(connString, xmlCustomerdoc.OuterXml);
+            //var customerDoc = econ.GetEntity(connString, xmlCustomerdoc.OuterXml);
 
             // version 10
-            //var customerDoc = econ.eConnect_Requester(connString,EnumTypes.ConnectionStringType.SqlClient ,xmlCustomerdoc.OuterXml);
+            var customerDoc = econ.eConnect_Requester(connString, EnumTypes.ConnectionStringType.SqlClient, xmlCustomerdoc.OuterXml);
             return customerDoc;
         }
 
@@ -54,9 +55,9 @@ namespace AlbaDL
             xmlCustomerdoc.Load(memStream);
 
             // version 11
-            var customerDoc = econ.GetEntity(connString, xmlCustomerdoc.OuterXml);
+            //var customerDoc = econ.GetEntity(connString, xmlCustomerdoc.OuterXml);
 
-            //var customerDoc = econ.eConnect_Requester(connString, EnumTypes.ConnectionStringType.SqlClient, xmlCustomerdoc.OuterXml);
+            var customerDoc = econ.eConnect_Requester(connString, EnumTypes.ConnectionStringType.SqlClient, xmlCustomerdoc.OuterXml);
             return customerDoc;
         }
 
@@ -77,50 +78,50 @@ namespace AlbaDL
         public taUpdateCreateCustomerRcd GetCustomerDetails(NewCustomer customer)
         {
             var taCreateCustomerRcd = new taUpdateCreateCustomerRcd
-                                          {
-                                              CUSTNMBR = customer.CustomerNumber,
-                                              CUSTNAME = customer.CustomerName,
-                                              ADRSCODE = customer.AddressCode,
-                                              ADDRESS1 = customer.Address1,
-                                              ADDRESS2 = customer.Address2,
-                                              CITY = customer.City,
-                                              STATE = customer.State,
-                                              ZIPCODE = customer.ZipCode,
-                                              COUNTRY = customer.Country,
-                                              PHNUMBR1 = customer.PhoneNumber1,
-                                              PHNUMBR2 = customer.PhoneNumber2,
-                                              FAX = customer.Fax,
-                                              CRCARDID = customer.CreditCardId,
-                                              CRCRDNUM = customer.CreditCardNumber,
-                                              CCRDXPDT = customer.CreditExpiryDate,
-                                              UpdateIfExists = customer.UpdateIfExists
-                                          };
+            {
+                CUSTNMBR = customer.CustomerNumber,
+                CUSTNAME = customer.CustomerName,
+                ADRSCODE = customer.AddressCode,
+                ADDRESS1 = customer.Address1,
+                ADDRESS2 = customer.Address2,
+                CITY = customer.City,
+                STATE = customer.State,
+                ZIPCODE = customer.ZipCode,
+                COUNTRY = customer.Country,
+                PHNUMBR1 = customer.PhoneNumber1,
+                PHNUMBR2 = customer.PhoneNumber2,
+                FAX = customer.Fax,
+                CRCARDID = customer.CreditCardId,
+                CRCRDNUM = customer.CreditCardNumber,
+                CCRDXPDT = customer.CreditExpiryDate,
+                UpdateIfExists = customer.UpdateIfExists
+            };
             return taCreateCustomerRcd;
         }
 
-        public taCreateInternetAddresses_ItemsTaCreateInternetAddresses[] GetCustomerInetInfo(List<CustomerInetInfo> customerInetInfo)
-        {
-            var addressCount = customerInetInfo.Count;
-            var custInternetAddress = new List<taCreateInternetAddresses_ItemsTaCreateInternetAddresses>();
-            for (int i = 0; i < addressCount; i++)
-            {
-                var taCreateCustomerInetaddr = new taCreateInternetAddresses_ItemsTaCreateInternetAddresses
-                                                   {
-                                                       Master_ID = customerInetInfo[i].MasterId,
-                                                       Master_Type = customerInetInfo[i].MasterType,
-                                                       ADRSCODE = customerInetInfo[i].AddressCode,
-                                                       INET1 = customerInetInfo[i].IntenetInfo1,
-                                                       INET2 = customerInetInfo[i].IntenetInfo2,
-                                                       INET3 = customerInetInfo[i].IntenetInfo3,
-                                                       INET4 = customerInetInfo[i].IntenetInfo4,
-                                                       EmailToAddress = customerInetInfo[i].EmailToAddress,
-                                                       EmailBccAddress = customerInetInfo[i].EmailBccAddress,
-                                                       EmailCcAddress = customerInetInfo[i].EmailCcAddress
-                                                   };
-                custInternetAddress.Add(taCreateCustomerInetaddr);
-            }
-            return custInternetAddress.ToArray();
-        }
+        //public taCreateInternetAddresses_ItemsTaCreateInternetAddresses[] GetCustomerInetInfo(List<CustomerInetInfo> customerInetInfo)
+        //{
+        //    var addressCount = customerInetInfo.Count;
+        //    var custInternetAddress = new List<taCreateInternetAddresses_ItemsTaCreateInternetAddresses>();
+        //    for (int i = 0; i < addressCount; i++)
+        //    {
+        //        var taCreateCustomerInetaddr = new taCreateInternetAddresses_ItemsTaCreateInternetAddresses
+        //                                           {
+        //                                               Master_ID = customerInetInfo[i].MasterId,
+        //                                               Master_Type = customerInetInfo[i].MasterType,
+        //                                               ADRSCODE = customerInetInfo[i].AddressCode,
+        //                                               INET1 = customerInetInfo[i].IntenetInfo1,
+        //                                               INET2 = customerInetInfo[i].IntenetInfo2,
+        //                                               INET3 = customerInetInfo[i].IntenetInfo3,
+        //                                               INET4 = customerInetInfo[i].IntenetInfo4,
+        //                                               EmailToAddress = customerInetInfo[i].EmailToAddress,
+        //                                               EmailBccAddress = customerInetInfo[i].EmailBccAddress,
+        //                                               EmailCcAddress = customerInetInfo[i].EmailCcAddress
+        //                                           };
+        //        custInternetAddress.Add(taCreateCustomerInetaddr);
+        //    }
+        //    return custInternetAddress.ToArray();
+        //}
 
         public taSopHdrIvcInsert GetHeaderItems(OrderProcess order)
         {
@@ -169,27 +170,27 @@ namespace AlbaDL
                 for (int i = 0; i < lineCount; i++)
                 {
                     var salesLine = new taSopLineIvcInsert_ItemsTaSopLineIvcInsert
-                                        {
-                                            SOPTYPE = order[i].SOPTYPE,
-                                            SOPNUMBE = order[i].SOPNUMBE,
-                                            CUSTNMBR = order[i].CUSTNMBR,
-                                            QUANTITY = order[i].QUANTITY,
-                                            ITEMNMBR = order[i].ITEMNMBR,
-                                            ITEMDESC = order[i].ITEMDESC,
-                                            UNITPRCE = order[i].UNITPRCE,
-                                            XTNDPRCE = order[i].XTNDPRCE,
-                                            DOCDATE = order[i].DOCDATE,
-                                            TOTALQTY = order[i].TOTALQTY,
-                                            ShipToName = order[i].ShipToName,
-                                            ADDRESS1 = order[i].ADDRESS1,
-                                            ADDRESS2 = order[i].ADDRESS2,
-                                            ADDRESS3 = order[i].ADDRESS3,
-                                            CITY = order[i].CITY,
-                                            STATE = order[i].STATE,
-                                            ZIPCODE = order[i].ZIPCODE,
-                                            COUNTRY = order[i].COUNTRY,
-                                            PHONE1 = order[i].PHNUMBR1
-                                        };
+                    {
+                        SOPTYPE = order[i].SOPTYPE,
+                        SOPNUMBE = order[i].SOPNUMBE,
+                        CUSTNMBR = order[i].CUSTNMBR,
+                        QUANTITY = order[i].QUANTITY,
+                        ITEMNMBR = order[i].ITEMNMBR,
+                        ITEMDESC = order[i].ITEMDESC,
+                        UNITPRCE = order[i].UNITPRCE,
+                        XTNDPRCE = order[i].XTNDPRCE,
+                        DOCDATE = order[i].DOCDATE,
+                        TOTALQTY = order[i].TOTALQTY,
+                        ShipToName = order[i].ShipToName,
+                        ADDRESS1 = order[i].ADDRESS1,
+                        ADDRESS2 = order[i].ADDRESS2,
+                        ADDRESS3 = order[i].ADDRESS3,
+                        CITY = order[i].CITY,
+                        STATE = order[i].STATE,
+                        ZIPCODE = order[i].ZIPCODE,
+                        COUNTRY = order[i].COUNTRY,
+                        PHONE1 = order[i].PHNUMBR1
+                    };
                     lineItems.Add(salesLine);
                 }
             }
@@ -223,10 +224,10 @@ namespace AlbaDL
             try
             {
                 //version 10
-                //status = eConCall.eConnect_EntryPoint(sConnectionString, EnumTypes.ConnectionStringType.SqlClient,sopTransactionDoc, EnumTypes.SchemaValidationType.None);
+                status = eConCall.eConnect_EntryPoint(sConnectionString, EnumTypes.ConnectionStringType.SqlClient, sopTransactionDoc, EnumTypes.SchemaValidationType.None);
 
                 //version 11
-                status = eConCall.CreateEntity(sConnectionString, sopTransactionDoc);
+                //status = eConCall.CreateEntity(sConnectionString, sopTransactionDoc);
             }
             catch (eConnectException exp)
             {
@@ -247,10 +248,12 @@ namespace AlbaDL
             var customerMasterType = new RMCustomerMasterType();
             taUpdateCreateCustomerRcd createCustomerRcd = GetCustomerDetails(customer);
             var createCustomerAddress = new taCreateCustomerAddress_ItemsTaCreateCustomerAddress[0];
-            taCreateInternetAddresses_ItemsTaCreateInternetAddresses[] createInternetAddresses = GetCustomerInetInfo(customerInetInfo);
+
+            //taCreateInternetAddresses_ItemsTaCreateInternetAddresses[] createInternetAddresses = GetCustomerInetInfo(customerInetInfo);
             customerMasterType.taUpdateCreateCustomerRcd = createCustomerRcd;
             customerMasterType.taCreateCustomerAddress_Items = createCustomerAddress;
-            customerMasterType.taCreateInternetAddresses_Items = createInternetAddresses;
+
+            //customerMasterType.taCreateInternetAddresses_Items = createInternetAddresses;
             Array.Resize(ref eConnect.RMCustomerMasterType, 1);
             eConnect.RMCustomerMasterType[0] = customerMasterType;
             var fs = new FileStream(filename, FileMode.Create);
@@ -264,10 +267,10 @@ namespace AlbaDL
             try
             {
                 //version 10
-                //status = eConCall.eConnect_EntryPoint(sConnectionString, EnumTypes.ConnectionStringType.SqlClient,sopTransactionDoc, EnumTypes.SchemaValidationType.None);
+                status = eConCall.eConnect_EntryPoint(sConnectionString, EnumTypes.ConnectionStringType.SqlClient, customerDocument, EnumTypes.SchemaValidationType.None);
 
                 //version 11
-                status = eConCall.CreateEntity(sConnectionString, customerDocument);
+                //status = eConCall.CreateEntity(sConnectionString, customerDocument);
             }
             catch (eConnectException exp)
             {

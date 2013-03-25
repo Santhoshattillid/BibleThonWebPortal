@@ -207,7 +207,7 @@ namespace ShareAThon
             }
         }
 
-        public List<OrderItems> GetOrderedItems(string orderNumber)
+        private List<OrderItems> GetOrderedItems(string orderNumber)
         {
             return (from GridDataItem gridDataItem in RadGridOfferLines.Items
                     let itemQty = (TextBox)gridDataItem.FindControl("TxtQuantity")
@@ -238,7 +238,7 @@ namespace ShareAThon
                     }).ToList();
         }
 
-        public decimal GetUnitPrice(string offerNo)
+        private decimal GetUnitPrice(string offerNo)
         {
             decimal unitPrice = 0;
             var sourceOfferLines = new OfferLines().GetOfferLines(_connString);
@@ -249,7 +249,7 @@ namespace ShareAThon
             return unitPrice;
         }
 
-        public OrderProcess GetCustomerHeader(string orderNumber, decimal subTotal)
+        private OrderProcess GetCustomerHeader(string orderNumber, decimal subTotal)
         {
             var orderProcess = new OrderProcess
             {
@@ -278,11 +278,17 @@ namespace ShareAThon
                 TAXAMNT = 0,
             };
 
+            var donationAmount = Convert.ToDecimal(string.IsNullOrEmpty(txtDonationAmt.Text) ? "0" : txtDonationAmt.Text);
+            if (donationAmount > subTotal)
+            {
+                orderProcess.MISCAMNT = donationAmount - subTotal;
+            }
+
             orderProcess.DOCAMNT = Convert.ToDecimal(orderProcess.SUBTOTAL + orderProcess.FREIGHT + orderProcess.MISCAMNT + orderProcess.MSCTXAMT + orderProcess.TAXAMNT + orderProcess.FRTTXAMT) - Convert.ToDecimal(orderProcess.TRDISAMT);
             return orderProcess;
         }
 
-        public List<ShareAThonOfferLine> GetOfferedLines(string orderNumber)
+        private List<ShareAThonOfferLine> GetOfferedLines(string orderNumber)
         {
             return (from GridDataItem gridDataItem in RadGridOfferLines.Items
                     let itemQty = (TextBox)gridDataItem.FindControl("TxtQuantity")
@@ -296,7 +302,7 @@ namespace ShareAThon
                                }).ToList();
         }
 
-        public void RadGridOfferLinesDataBinding(object sender, EventArgs e)
+        protected void RadGridOfferLinesDataBinding(object sender, EventArgs e)
         {
             LoadRadGridData();
         }
@@ -326,7 +332,7 @@ namespace ShareAThon
             Session["userSelectedOfferlines"] = result;
         }
 
-        protected void LoadChargeMonthly()
+        private void LoadChargeMonthly()
         {
             var daysInMonth = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
             for (int i = 1; i <= daysInMonth; i++)

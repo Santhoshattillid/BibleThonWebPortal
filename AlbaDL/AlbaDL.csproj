@@ -43,16 +43,24 @@
     </Reference>
     <Reference Include="Microsoft.Dynamics.GP.eConnect, Version=11.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Dynamics\eConnect 11.0\API\Microsoft.Dynamics.GP.eConnect.dll</HintPath>
+      <HintPath>..\..\GP10Libraries\Microsoft.Dynamics.GP.eConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Dynamics.GP.eConnect.MiscRoutines">
+      <HintPath>..\..\GP10Libraries\Microsoft.Dynamics.GP.eConnect.MiscRoutines.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Dynamics.GP.eConnect.Serialization, Version=11.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Dynamics\eConnect 11.0\API\Microsoft.Dynamics.GP.eConnect.Serialization.dll</HintPath>
+      <HintPath>..\..\GP10Libraries\Microsoft.Dynamics.GP.eConnect.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
-    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.EnterpriseServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -100,6 +108,9 @@
   <ItemGroup>
     <Content Include="BibleThonDL.edmx.sql" />
     <Content Include="ShareAThonDL.edmx.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
