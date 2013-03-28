@@ -1,7 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="PaymentProcessing.aspx.cs"
-    Inherits="Biblethon_PaymentProcessing" %>
+    Inherits="Biblethon.BiblethonPaymentProcessing" %>
 
 <%@ Import Namespace="System.Globalization" %>
+<%@ Import Namespace="AlbaBL" %>
 <%@ Import Namespace="AlbaDL" %>
 <%@ Import Namespace="AuthorizeNet" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -19,7 +20,6 @@
     <form action='<%= Utilities.AuthorizeNetUrl %>' method='post'>
     <% var seq = Crypto.GenerateSequence();
        var timeStamp = Crypto.GenerateTimestamp().ToString(CultureInfo.InvariantCulture);
-
     %>
     <input type='hidden' name='x_fp_hash' value='<%= Utilities.GenerateFingerprint(Convert.ToDecimal(Request.QueryString["Amount"]),seq,timeStamp) %>' />
     <input type='hidden' name='x_fp_sequence' value='<%= seq %>' />
@@ -33,18 +33,19 @@
     <input type='hidden' size='5' maxlength='5' name='x_exp_date' value='<%= Request.QueryString["ExpDate"]  %>'
         id='x_exp_date' />
     <input type='hidden' size='5' maxlength='5' name='x_card_code' id='x_card_code' value='<%= Request.QueryString["CVV"] %>' />
+    <input type='hidden' name='x_type' value='AUTH_CAPTURE' />
     <div>
         <label>
-            Please wait while your payment is processing.
+            Please wait while your payment is processing........
         </label>
     </div>
-    <div class="ui-helper-hidden">
+    <%--<div class="ui-helper-hidden">
         <label>
             This page will be submitted automatically within few seconds. Otherwise click the
             submit button to continue.
         </label>
         <input type="submit" value="Submit" />
-    </div>
+    </div>--%>
     </form>
 </body>
 </html>

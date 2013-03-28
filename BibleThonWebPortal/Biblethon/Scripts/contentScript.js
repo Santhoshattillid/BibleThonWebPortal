@@ -162,6 +162,17 @@
         }
     }
 
+    // Button handling for adding new customer
+    $('#ImgAddCustomer').click(function () {
+        var wnd = window.radopen("../ShareAThon/AddCustomer.aspx");
+        wnd.setSize(845, 450);
+        //wnd.autoSize(true);
+        //wnd.set_autoSize(true);
+        wnd.add_close(onClientClose);
+        wnd.center();
+        return false;
+    });
+
     // custom search for shipping address
     $('#ImgShippingAddressModify').click(function () {
         var wnd = window.radopen("ShippingAddress.aspx?CustomerNo=" + $('[id$=HdnCustomerNo]').val());

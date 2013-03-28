@@ -1,0 +1,13 @@
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\AlbaBL\bin\Debug\AlbaBL.dll
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\AlbaBL\bin\Debug\AlbaBL.pdb
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\AlbaBL\bin\Debug\AlbaDL.dll
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\AlbaBL\bin\Debug\AuthorizeNet.dll
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\AlbaBL\bin\Debug\AuthorizeNet.Helpers.dll
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\AlbaBL\bin\Debug\AlbaDL.pdb
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\AlbaBL\bin\Debug\AuthorizeNet.pdb
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\AlbaBL\bin\Debug\AuthorizeNet.xml
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\AlbaBL\bin\Debug\AuthorizeNet.Helpers.pdb
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\AlbaBL\obj\Debug\AlbaBL.csprojResolveAssemblyReference.cache
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\AlbaBL\obj\Debug\AlbaBL.dll
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\AlbaBL\obj\Debug\AlbaBL.pdb
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\AlbaBL\bin\Debug\AlbaBL.dll.config

@@ -229,9 +229,14 @@ namespace Alba.Workflow.WebPortal
                         rtDropDownNew.Buttons.Add(btnSeparator);
                     }
 
+                    // Biblethon menu were added
+                    var menuBiblethon = new RadToolBarButton { Text = "Biblethon" };
+                    rtDropDownNew.Buttons.Add(menuBiblethon);
 
-                    var btnNew = new RadToolBarButton { Text = "Biblethon" };
-                    rtDropDownNew.Buttons.Add(btnNew);
+                    // Shareathon menu were added
+                    var menuShareathon = new RadToolBarButton { Text = "ShareAthon" };
+                    rtDropDownNew.Buttons.Add(menuShareathon);
+
                     var btnSeparatorNew = new RadToolBarButton { IsSeparator = true };
                     rtDropDownNew.Buttons.Add(btnSeparatorNew);
 

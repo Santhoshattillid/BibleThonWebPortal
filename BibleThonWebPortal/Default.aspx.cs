@@ -1,17 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Configuration;
-using System.Collections;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text.RegularExpressions;
-using System.Web;
-using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
 using Telerik.Web.UI;
 
 namespace Alba.Workflow.WebPortal
@@ -60,6 +54,7 @@ namespace Alba.Workflow.WebPortal
         private void SelectFirstGridRow()
         {
             GridDataItem firstDataItem = RadGrid2.Items.OfType<GridDataItem>().FirstOrDefault();
+
             //GridDataItem firstDataItem = RadGrid1.Items.OfType<GridDataItem>().FirstOrDefault();
             if (firstDataItem != null)
             {
@@ -90,6 +85,7 @@ namespace Alba.Workflow.WebPortal
                     RadSplitter1.Visible = true;
 
                     break;
+
                 case "Past Due":
                     Session["SelectedWFInstanceStatus"] = "Pending Action";
                     Session["SelectedWFInstanceDueDateStart"] = "01/01/1900";
@@ -99,9 +95,10 @@ namespace Alba.Workflow.WebPortal
 
                     // RadGrid2.DataSourceID = "LinqDataSource3";
                     RadPane1.Collapsed = false;
-                    RadSplitter1.Visible = true;                   
+                    RadSplitter1.Visible = true;
 
                     break;
+
                 case "Completed":
                     Session["SelectedWFInstanceStatus"] = "Completed";
                     Session["SelectedWFInstanceWorkflowStep"] = "End";
@@ -117,9 +114,9 @@ namespace Alba.Workflow.WebPortal
                         if (tbItem.Text != "View Document")
                             tbItem.Enabled = false;
                     }
-                    
 
                     break;
+
                 case "Started By Me":
                     Session["SelectedWFInstanceCreatedBy"] = Session["LoggedInUser"].ToString();
                     Session["SelectedWFInstanceStatus"] = "New";
@@ -137,7 +134,8 @@ namespace Alba.Workflow.WebPortal
                     }
 
                     break;
-                default:                    
+
+                default:
                     RadSplitter1.Visible = false;
                     break;
             }
@@ -203,6 +201,7 @@ namespace Alba.Workflow.WebPortal
                         cmd.Parameters.AddWithValue("@Due_DateEnd", Session["SelectedWFInstanceDueDateEnd"].ToString());
                     }
                     break;
+
                 case "Past Due":
                     if (Session["UserRole"].ToString().ToUpper() != "WORKFLOW ADMIN")
                     {
@@ -244,6 +243,7 @@ namespace Alba.Workflow.WebPortal
                         cmd.Parameters.AddWithValue("@Due_DateEnd", Session["SelectedWFInstanceDueDateEnd"].ToString());
                     }
                     break;
+
                 case "Completed":
                     if (Session["UserRole"].ToString().ToUpper() != "WORKFLOW ADMIN")
                     {
@@ -257,7 +257,6 @@ namespace Alba.Workflow.WebPortal
                         "AS_WF_VW_WorkflowTasks.CompletionDate, AS_WF_VW_WorkflowTasks.CompletionTime, AS_WF_VW_WorkflowTasks.Importance, AS_WF_VW_WorkflowTasks.DueDate, AS_WF_VW_WorkflowTasks.Status, AS_WF_VW_WorkflowTasks.DocumentKey, AS_WF_VW_WorkflowTasks.Key2, AS_WF_VW_WorkflowTasks.Key3, AS_WF_VW_WorkflowTasks.WFInstanceID, AS_WF_VW_WorkflowTasks.WFID, AS_WF_VW_WorkflowTasks.WFContextID, AS_WF_VW_WorkflowTasks.LockedBy, AS_WF_VW_WorkflowTasks.UserDefinedField1, AS_WF_VW_WorkflowTasks.UserDefinedField2, " +
                         "AS_WF_VW_WorkflowTasks.UserDefinedField3, AS_WF_VW_WorkflowTasks.UserDefinedField4, AS_WF_VW_WorkflowTasks.UserDefinedField5 FROM AS_WF_VW_WorkflowTasks " +
                         "WHERE AS_WF_VW_WorkflowTasks.Status = @Status AND AS_WF_VW_WorkflowTasks.WorkflowStep = @Workflow_Step AND AS_WF_VW_WorkflowTasks.DocumentKey IN (SELECT DocumentKey FROM AS_WF_VW_WorkflowHistory WHERE AS_WF_VW_WorkflowHistory.CreatedBy = @Assigned_To) ";
-
 
                         //List<string> groupList = Helper.UserGroup(Session["LoggedInUser"].ToString());
                         //int ctr = 0;
@@ -288,6 +287,7 @@ namespace Alba.Workflow.WebPortal
                         cmd.Parameters.AddWithValue("@Workflow_Step", Session["SelectedWFInstanceWorkflowStep"].ToString());
                     }
                     break;
+
                 case "Started By Me":
                     sqlQuery = "SELECT AS_WF_VW_WorkflowTasks.Department, AS_WF_VW_WorkflowTasks.WorkflowName, AS_WF_VW_WorkflowTasks.DocType, AS_WF_VW_WorkflowTasks.Description, AS_WF_VW_WorkflowTasks.CreatedBy, AS_WF_VW_WorkflowTasks.CreationDate, AS_WF_VW_WorkflowTasks.CreationTime, AS_WF_VW_WorkflowTasks.AssignedTo, AS_WF_VW_WorkflowTasks.Comment, AS_WF_VW_WorkflowTasks.WorkflowStep, " +
                     "AS_WF_VW_WorkflowTasks.CompletionDate, AS_WF_VW_WorkflowTasks.CompletionTime, AS_WF_VW_WorkflowTasks.Importance, AS_WF_VW_WorkflowTasks.DueDate, AS_WF_VW_WorkflowTasks.Status, AS_WF_VW_WorkflowTasks.DocumentKey, AS_WF_VW_WorkflowTasks.Key2, AS_WF_VW_WorkflowTasks.Key3, AS_WF_VW_WorkflowTasks.WFInstanceID, AS_WF_VW_WorkflowTasks.WFID, AS_WF_VW_WorkflowTasks.WFContextID, AS_WF_VW_WorkflowTasks.LockedBy, AS_WF_VW_WorkflowTasks.UserDefinedField1, AS_WF_VW_WorkflowTasks.UserDefinedField2, " +
@@ -299,7 +299,6 @@ namespace Alba.Workflow.WebPortal
                     cmd.Parameters.AddWithValue("@Status", Session["SelectedWFInstanceStatus"].ToString());
                     cmd.Parameters.AddWithValue("@Created_By", Session["SelectedWFInstanceCreatedBy"].ToString());
                     break;
-
             }
 
             adapter.SelectCommand = cmd;
@@ -322,7 +321,7 @@ namespace Alba.Workflow.WebPortal
             this.RadGrid2.DataSource = dt;
         }
 
-        #endregion
+        #endregion Methods
 
         #region Events
 
@@ -364,7 +363,6 @@ namespace Alba.Workflow.WebPortal
 
                 //if(item["Document_Key"].Text.Length > 10)
                 //    item["Document_Key"].Text = item["Document_Key"].Text.Substring(0, 10) + "...";
-
             }
         }
 
@@ -396,143 +394,51 @@ namespace Alba.Workflow.WebPortal
 
                 //if (selectedIndex < RadGrid2.Items.Count)
                 //{
-                    GridItemCollection gridRows = RadGrid2.SelectedItems;
-                    foreach (GridDataItem selectedRow in gridRows)
+                GridItemCollection gridRows = RadGrid2.SelectedItems;
+                foreach (GridDataItem selectedRow in gridRows)
+                {
+                    //GridDataItem selectedRow = RadGrid2.Items[selectedIndex];
+                    if (selectedRow["Status"].Text == "Pending Action")
                     {
-                        //GridDataItem selectedRow = RadGrid2.Items[selectedIndex];                        
-                        if (selectedRow["Status"].Text == "Pending Action")
+                        if ((e.Item).Text == "View Document")
                         {
-                            if ((e.Item).Text == "View Document")
+                            // Do Nothing because this is being handled from the client side
+                            return;
+                        }
+
+                        #region Lock
+
+                        else if ((e.Item).Text == "Lock")
+                        {
+                            //Verify first if locked already
+                            SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["AWFConnectionString"].ConnectionString);
+                            try
                             {
-                                // Do Nothing because this is being handled from the client side
-                                return;
-                            }
-                            #region Lock
-                            else if ((e.Item).Text == "Lock")
-                            {
-                                //Verify first if locked already                            
-                                SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["AWFConnectionString"].ConnectionString);
-                                try
-                                {
-                                    //GridDataItem selectedRow = RadGrid2.Items[selectedIndex];
-                                    string wfInstanceID = selectedRow["WFInstanceID"].Text;
-
-                                    string sqlString = "SELECT LockedBy FROM AS_WF_WorkflowInstance WHERE WFInstanceID = @WFInstanceID";
-
-                                    SqlCommand cmd = new SqlCommand(sqlString, connection);
-
-                                    cmd.Parameters.AddWithValue("@WFInstanceID", wfInstanceID);
-
-                                    if (connection.State == ConnectionState.Closed)
-                                        connection.Open();
-
-                                    object objRtn = cmd.ExecuteScalar();
-
-                                    if (objRtn != null && !string.IsNullOrEmpty(objRtn.ToString()))
-                                    {
-                                        // Already Locked            
-                                        // Need to add code here. Javascript does not work
-                                    }
-                                    else
-                                    {
-                                        // Create a new record in the historical first
-                                        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AWFConnectionString"].ConnectionString);
-                                        try
-                                        {
-                                            string wfContextID = selectedRow["WFContextID"].Text;
-                                            string wfDescription = selectedRow["Description"].Text;
-                                            string wfImportance = selectedRow["Importance"].Text;
-                                            string wfAssignedTo = selectedRow["AssignedTo"].Text;
-
-                                            string wfStep = selectedRow["WorkflowStep"].Text;
-
-                                            DateTime wfDueDate;
-
-                                            if (!DateTime.TryParse(selectedRow["DueDate"].Text, out wfDueDate))
-                                                wfDueDate = DateTime.MaxValue;
-
-                                            cmd = new SqlCommand("AS_WF_spSaveWorkflowInstance", conn);
-                                            cmd.CommandType = CommandType.StoredProcedure;
-
-                                            cmd.Parameters.Add("@pWFInstanceID", wfInstanceID);
-                                            cmd.Parameters.AddWithValue("@pWFContextID", wfContextID);
-                                            cmd.Parameters.AddWithValue("@pDescription", wfDescription);
-                                            cmd.Parameters.AddWithValue("@pCreatedBy", Session["LoggedInUser"].ToString());
-                                            cmd.Parameters.AddWithValue("@pAssignedTo", wfAssignedTo);
-                                            cmd.Parameters.AddWithValue("@pComment", "Locked by " + Session["LoggedInUser"].ToString());
-                                            cmd.Parameters.AddWithValue("@pRequestType", wfStep);
-                                            cmd.Parameters.AddWithValue("@pStatus", "Pending Action");
-                                            cmd.Parameters.AddWithValue("@pActionDate", DateTime.Now);
-                                            cmd.Parameters.AddWithValue("@pActionTime", DateTime.Now);
-                                            cmd.Parameters.AddWithValue("@pImportance", wfImportance);
-                                            cmd.Parameters.AddWithValue("@pDueDate", wfDueDate);
-
-                                            if (conn.State == ConnectionState.Closed)
-                                                conn.Open();
-
-                                            cmd.ExecuteNonQuery();
-
-                                            // Lock the record
-                                            sqlString = "UPDATE AS_WF_WorkflowInstance SET LockedBy = @LockedBy WHERE WFInstanceID = @WFInstanceID";
-                                            cmd = new SqlCommand(sqlString, conn);
-
-                                            if (conn.State == ConnectionState.Closed)
-                                                conn.Open();
-
-                                            cmd.Parameters.AddWithValue("@WFInstanceID", wfInstanceID);
-                                            cmd.Parameters.AddWithValue("@LockedBy", Session["LoggedInUser"].ToString());
-
-                                            cmd.ExecuteNonQuery();                                            
-                                        }
-                                        catch (Exception ex)
-                                        {
-                                            log.Error(ex);
-                                        }
-                                        finally
-                                        {
-                                            conn.Close();
-                                        }
-                                    }
-
-                                }
-                                catch (Exception ex)
-                                {
-                                    log.Error(ex);
-                                }
-                                finally
-                                {
-                                    if (connection.State == ConnectionState.Open)
-                                        connection.Close();
-                                }
-                            }
-                            #endregion
-                            #region Unlock
-                            else if ((e.Item).Text == "Unlock")
-                            {
-                                //Verify first if locked by another person
+                                //GridDataItem selectedRow = RadGrid2.Items[selectedIndex];
                                 string wfInstanceID = selectedRow["WFInstanceID"].Text;
 
                                 string sqlString = "SELECT LockedBy FROM AS_WF_WorkflowInstance WHERE WFInstanceID = @WFInstanceID";
-                                SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["AWFConnectionString"].ConnectionString);
-                                try
+
+                                SqlCommand cmd = new SqlCommand(sqlString, connection);
+
+                                cmd.Parameters.AddWithValue("@WFInstanceID", wfInstanceID);
+
+                                if (connection.State == ConnectionState.Closed)
+                                    connection.Open();
+
+                                object objRtn = cmd.ExecuteScalar();
+
+                                if (objRtn != null && !string.IsNullOrEmpty(objRtn.ToString()))
                                 {
-                                    SqlCommand cmd = new SqlCommand(sqlString, connection);
-
-                                    cmd.Parameters.AddWithValue("@WFInstanceID", wfInstanceID);
-
-                                    if (connection.State == ConnectionState.Closed)
-                                        connection.Open();
-
-                                    object objRtn = cmd.ExecuteScalar();
-
-                                    if (objRtn != null && !string.IsNullOrEmpty(objRtn.ToString()) && objRtn.ToString() != Session["LoggedInUser"].ToString())
+                                    // Already Locked
+                                    // Need to add code here. Javascript does not work
+                                }
+                                else
+                                {
+                                    // Create a new record in the historical first
+                                    SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["AWFConnectionString"].ConnectionString);
+                                    try
                                     {
-                                        // Already Locked            
-                                        // Need to add code here. Javascript does not work
-                                    }
-                                    else
-                                    {
-                                        // Create a new record in the historical first
                                         string wfContextID = selectedRow["WFContextID"].Text;
                                         string wfDescription = selectedRow["Description"].Text;
                                         string wfImportance = selectedRow["Importance"].Text;
@@ -545,7 +451,7 @@ namespace Alba.Workflow.WebPortal
                                         if (!DateTime.TryParse(selectedRow["DueDate"].Text, out wfDueDate))
                                             wfDueDate = DateTime.MaxValue;
 
-                                        cmd = new SqlCommand("AS_WF_spSaveWorkflowInstance", connection);
+                                        cmd = new SqlCommand("AS_WF_spSaveWorkflowInstance", conn);
                                         cmd.CommandType = CommandType.StoredProcedure;
 
                                         cmd.Parameters.Add("@pWFInstanceID", wfInstanceID);
@@ -553,7 +459,7 @@ namespace Alba.Workflow.WebPortal
                                         cmd.Parameters.AddWithValue("@pDescription", wfDescription);
                                         cmd.Parameters.AddWithValue("@pCreatedBy", Session["LoggedInUser"].ToString());
                                         cmd.Parameters.AddWithValue("@pAssignedTo", wfAssignedTo);
-                                        cmd.Parameters.AddWithValue("@pComment", "Unlocked by " + Session["LoggedInUser"].ToString());
+                                        cmd.Parameters.AddWithValue("@pComment", "Locked by " + Session["LoggedInUser"].ToString());
                                         cmd.Parameters.AddWithValue("@pRequestType", wfStep);
                                         cmd.Parameters.AddWithValue("@pStatus", "Pending Action");
                                         cmd.Parameters.AddWithValue("@pActionDate", DateTime.Now);
@@ -561,45 +467,144 @@ namespace Alba.Workflow.WebPortal
                                         cmd.Parameters.AddWithValue("@pImportance", wfImportance);
                                         cmd.Parameters.AddWithValue("@pDueDate", wfDueDate);
 
-                                        if (connection.State == ConnectionState.Closed)
-                                            connection.Open();
+                                        if (conn.State == ConnectionState.Closed)
+                                            conn.Open();
 
                                         cmd.ExecuteNonQuery();
 
                                         // Lock the record
-                                        sqlString = "UPDATE AS_WF_WorkflowInstance SET LockedBy = '' WHERE WFInstanceID = @WFInstanceID";
-                                        cmd = new SqlCommand(sqlString, connection);
+                                        sqlString = "UPDATE AS_WF_WorkflowInstance SET LockedBy = @LockedBy WHERE WFInstanceID = @WFInstanceID";
+                                        cmd = new SqlCommand(sqlString, conn);
 
-                                        if (connection.State == ConnectionState.Closed)
-                                            connection.Open();
+                                        if (conn.State == ConnectionState.Closed)
+                                            conn.Open();
 
                                         cmd.Parameters.AddWithValue("@WFInstanceID", wfInstanceID);
+                                        cmd.Parameters.AddWithValue("@LockedBy", Session["LoggedInUser"].ToString());
 
-                                        cmd.ExecuteNonQuery();                                        
+                                        cmd.ExecuteNonQuery();
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        log.Error(ex);
+                                    }
+                                    finally
+                                    {
+                                        conn.Close();
                                     }
                                 }
-                                catch (Exception ex)
-                                {
-                                    log.Error(ex);
-                                }
-                                finally
-                                {
-                                    if (connection.State == ConnectionState.Open)
-                                        connection.Close();
-                                }
                             }
-                            #endregion
-                            else
+                            catch (Exception ex)
                             {
-                                //Transferred code to ActionComment
+                                log.Error(ex);
+                            }
+                            finally
+                            {
+                                if (connection.State == ConnectionState.Open)
+                                    connection.Close();
                             }
                         }
+
+                        #endregion Lock
+
+                        #region Unlock
+
+                        else if ((e.Item).Text == "Unlock")
+                        {
+                            //Verify first if locked by another person
+                            string wfInstanceID = selectedRow["WFInstanceID"].Text;
+
+                            string sqlString = "SELECT LockedBy FROM AS_WF_WorkflowInstance WHERE WFInstanceID = @WFInstanceID";
+                            SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["AWFConnectionString"].ConnectionString);
+                            try
+                            {
+                                SqlCommand cmd = new SqlCommand(sqlString, connection);
+
+                                cmd.Parameters.AddWithValue("@WFInstanceID", wfInstanceID);
+
+                                if (connection.State == ConnectionState.Closed)
+                                    connection.Open();
+
+                                object objRtn = cmd.ExecuteScalar();
+
+                                if (objRtn != null && !string.IsNullOrEmpty(objRtn.ToString()) && objRtn.ToString() != Session["LoggedInUser"].ToString())
+                                {
+                                    // Already Locked
+                                    // Need to add code here. Javascript does not work
+                                }
+                                else
+                                {
+                                    // Create a new record in the historical first
+                                    string wfContextID = selectedRow["WFContextID"].Text;
+                                    string wfDescription = selectedRow["Description"].Text;
+                                    string wfImportance = selectedRow["Importance"].Text;
+                                    string wfAssignedTo = selectedRow["AssignedTo"].Text;
+
+                                    string wfStep = selectedRow["WorkflowStep"].Text;
+
+                                    DateTime wfDueDate;
+
+                                    if (!DateTime.TryParse(selectedRow["DueDate"].Text, out wfDueDate))
+                                        wfDueDate = DateTime.MaxValue;
+
+                                    cmd = new SqlCommand("AS_WF_spSaveWorkflowInstance", connection);
+                                    cmd.CommandType = CommandType.StoredProcedure;
+
+                                    cmd.Parameters.Add("@pWFInstanceID", wfInstanceID);
+                                    cmd.Parameters.AddWithValue("@pWFContextID", wfContextID);
+                                    cmd.Parameters.AddWithValue("@pDescription", wfDescription);
+                                    cmd.Parameters.AddWithValue("@pCreatedBy", Session["LoggedInUser"].ToString());
+                                    cmd.Parameters.AddWithValue("@pAssignedTo", wfAssignedTo);
+                                    cmd.Parameters.AddWithValue("@pComment", "Unlocked by " + Session["LoggedInUser"].ToString());
+                                    cmd.Parameters.AddWithValue("@pRequestType", wfStep);
+                                    cmd.Parameters.AddWithValue("@pStatus", "Pending Action");
+                                    cmd.Parameters.AddWithValue("@pActionDate", DateTime.Now);
+                                    cmd.Parameters.AddWithValue("@pActionTime", DateTime.Now);
+                                    cmd.Parameters.AddWithValue("@pImportance", wfImportance);
+                                    cmd.Parameters.AddWithValue("@pDueDate", wfDueDate);
+
+                                    if (connection.State == ConnectionState.Closed)
+                                        connection.Open();
+
+                                    cmd.ExecuteNonQuery();
+
+                                    // Lock the record
+                                    sqlString = "UPDATE AS_WF_WorkflowInstance SET LockedBy = '' WHERE WFInstanceID = @WFInstanceID";
+                                    cmd = new SqlCommand(sqlString, connection);
+
+                                    if (connection.State == ConnectionState.Closed)
+                                        connection.Open();
+
+                                    cmd.Parameters.AddWithValue("@WFInstanceID", wfInstanceID);
+
+                                    cmd.ExecuteNonQuery();
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                log.Error(ex);
+                            }
+                            finally
+                            {
+                                if (connection.State == ConnectionState.Open)
+                                    connection.Close();
+                            }
+                        }
+
+                        #endregion Unlock
+
+                        else
+                        {
+                            //Transferred code to ActionComment
+                        }
                     }
+                }
+
                 //}
 
                 Response.Redirect("Default.aspx");
-
             }
+
             //}
         }
 
@@ -626,15 +631,19 @@ namespace Alba.Workflow.WebPortal
                 case "Open":
                     Session["SelectedNode"] = e.Node.Text;
                     break;
+
                 case "Past Due":
                     Session["SelectedNode"] = e.Node.Text;
                     break;
+
                 case "Completed":
                     Session["SelectedNode"] = e.Node.Text;
                     break;
+
                 case "Started By Me":
                     Session["SelectedNode"] = e.Node.Text;
                     break;
+
                 default:
                     Session.Remove("e.Node.Text");
                     break;
@@ -648,6 +657,6 @@ namespace Alba.Workflow.WebPortal
             SelectFirstGridRow();
         }
 
-        #endregion
+        #endregion Events
     }
 }

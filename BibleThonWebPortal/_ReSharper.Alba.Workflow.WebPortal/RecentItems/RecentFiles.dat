@@ -1,18 +1,53 @@
 ﻿<RecentFiles>
   <RecentFiles>
-    <File id="BFCBCFFE-98A7-4078-B177-15A476BDDD4E/f:EConnectModel.cs" caret="1550" fromTop="19" />
-    <File id="BFCBCFFE-98A7-4078-B177-15A476BDDD4E/f:ShareAThonDL.edmx.sql" caret="4311" fromTop="32" />
-    <File id="BFCBCFFE-98A7-4078-B177-15A476BDDD4E/f:BibleThonDL.edmx.sql" caret="448" fromTop="10" />
-    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Documents/f:frmPresidioApprovalDocument.aspx.cs" caret="0" fromTop="0" />
-    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Documents/f:frmGaiamChargebackDocument.aspx.cs" caret="0" fromTop="0" />
-    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/f:Default.aspx.cs" caret="0" fromTop="0" />
-    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Documents/f:frmAlereHomeMonitoringDocument.aspx.cs" caret="0" fromTop="0" />
-    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Documents/f:frmGaiamChargebackDocument.aspx" caret="0" fromTop="0" />
-    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Documents/f:frmPresidioApprovalDocument.aspx" caret="0" fromTop="0" />
-    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/f:Default.aspx" caret="0" fromTop="0" />
-    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Documents/f:frmAlereHomeMonitoringDocument.aspx" caret="0" fromTop="0" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Biblethon/f:OrderEntry.aspx" caret="0" fromTop="0" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Biblethon/f:PaymentReceiving.aspx" caret="0" fromTop="0" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Biblethon/f:OrderDetails.aspx" caret="597" fromTop="17" />
+    <File id="BFCBCFFE-98A7-4078-B177-15A476BDDD4E/f:BibleThonDL.edmx.sql" caret="681" fromTop="13" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Biblethon/f:PaymentProcessing.aspx.cs" caret="0" fromTop="0" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Biblethon/f:PaymentProcessing.aspx" caret="2090" fromTop="23" />
+    <File id="BFCBCFFE-98A7-4078-B177-15A476BDDD4E/f:CustomerDetails.cs" caret="0" fromTop="0" />
+    <File id="BFCBCFFE-98A7-4078-B177-15A476BDDD4E/f:BibleThonDL.Designer.cs" caret="5353" fromTop="39" />
+    <File id="BFCBCFFE-98A7-4078-B177-15A476BDDD4E/f:SessionOrderDetails.cs" caret="0" fromTop="0" />
+    <File id="BFCBCFFE-98A7-4078-B177-15A476BDDD4E/f:ShareAThonDL.edmx.sql" caret="437" fromTop="9" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:ShareAThon/f:OrderEntry.aspx" caret="0" fromTop="0" />
+    <File id="C8EB7409-6526-4BE0-9E3D-DBABA33B0F68/f:Utilities.cs" caret="0" fromTop="0" />
+    <File id="C8EB7409-6526-4BE0-9E3D-DBABA33B0F68/f:AuthorizeNetSubscription.cs" caret="3170" fromTop="51" />
+    <File id="BFCBCFFE-98A7-4078-B177-15A476BDDD4E/f:FormatUtilities.cs" caret="60" fromTop="2" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:ShareAThon/f:SubscriptionProcess.aspx" caret="375" fromTop="8" />
+    <File id="9D61F86B-E074-42C3-8EF3-F36BA4431564/f:Program.cs" caret="1837" fromTop="20" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:ShareAThon/f:SubscriptionProcess.aspx.cs" caret="265" fromTop="11" />
+    <File id="C8EB7409-6526-4BE0-9E3D-DBABA33B0F68/f:GPEconnect.cs" caret="2978" fromTop="60" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Biblethon/f:BillingAddress.aspx" caret="0" fromTop="0" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Biblethon/f:BillingAddress.aspx.cs" caret="3399" fromTop="8" />
+    <File id="BFCBCFFE-98A7-4078-B177-15A476BDDD4E/f:EConnectModel.cs" caret="8222" fromTop="17" />
+    <File id="BFCBCFFE-98A7-4078-B177-15A476BDDD4E/f:CardDetails.cs" caret="743" fromTop="20" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:ShareAThon/f:OrderEntry.aspx.cs" caret="14115" fromTop="29" />
+    <File id="C8EB7409-6526-4BE0-9E3D-DBABA33B0F68/f:OrderEntry.cs" caret="332" fromTop="13" />
+    <File id="3BB0DF4B-97B4-42FA-933D-5C025669D323/f:Program.cs" caret="1331" fromTop="21" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Biblethon/f:PaymentReceiving.aspx.cs" caret="2637" fromTop="25" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Biblethon/f:OrderDetails.aspx.cs" caret="3517" fromTop="22" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Biblethon/f:OrderEntry.aspx.cs" caret="5767" fromTop="28" />
   </RecentFiles>
   <RecentEdits>
-    <File id="BFCBCFFE-98A7-4078-B177-15A476BDDD4E/f:BibleThonDL.edmx.sql" caret="5362" fromTop="42" />
+    <File id="BFCBCFFE-98A7-4078-B177-15A476BDDD4E/f:SessionOrderDetails.cs" caret="574" fromTop="22" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Biblethon/f:OrderDetails.aspx" caret="597" fromTop="17" />
+    <File id="C8EB7409-6526-4BE0-9E3D-DBABA33B0F68/f:Utilities.cs" caret="2345" fromTop="29" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Biblethon/f:PaymentProcessing.aspx" caret="2090" fromTop="17" />
+    <File id="3BB0DF4B-97B4-42FA-933D-5C025669D323/f:Program.cs" caret="9788" fromTop="25" />
+    <File id="BFCBCFFE-98A7-4078-B177-15A476BDDD4E/f:CardDetails.cs" caret="121" fromTop="7" />
+    <File id="C8EB7409-6526-4BE0-9E3D-DBABA33B0F68/f:AuthorizeNetSubscription.cs" caret="233" fromTop="8" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:ShareAThon/f:SubscriptionProcess.aspx" caret="387" fromTop="9" />
+    <File id="BFCBCFFE-98A7-4078-B177-15A476BDDD4E/f:FormatUtilities.cs" caret="976" fromTop="8" />
+    <File id="9D61F86B-E074-42C3-8EF3-F36BA4431564/f:Program.cs" caret="395" fromTop="16" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:ShareAThon/f:SubscriptionProcess.aspx.cs" caret="265" fromTop="11" />
+    <File id="C8EB7409-6526-4BE0-9E3D-DBABA33B0F68/f:GPEconnect.cs" caret="2978" fromTop="31" />
+    <File id="C8EB7409-6526-4BE0-9E3D-DBABA33B0F68/f:OrderEntry.cs" caret="2409" fromTop="23" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Biblethon/f:BillingAddress.aspx.cs" caret="3399" fromTop="8" />
+    <File id="BFCBCFFE-98A7-4078-B177-15A476BDDD4E/f:EConnectModel.cs" caret="9251" fromTop="28" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Biblethon/f:OrderEntry.aspx.cs" caret="5597" fromTop="18" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Biblethon/f:OrderDetails.aspx.cs" caret="3335" fromTop="18" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:Biblethon/f:PaymentReceiving.aspx.cs" caret="2381" fromTop="18" />
+    <File id="443C1652-CC2C-4470-9FD0-C824B6906427/d:ShareAThon/f:OrderEntry.aspx.cs" caret="11234" fromTop="20" />
   </RecentEdits>
 </RecentFiles>

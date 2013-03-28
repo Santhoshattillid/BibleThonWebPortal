@@ -84,13 +84,18 @@
                 else
                 {
                     var wfDocType = args.get_item().get_text();
+                    
                     if(wfDocType == "Biblethon") {
                         openWin("Biblethon/OrderEntry.aspx");
+                    }
+                    else if(wfDocType == "ShareAthon") {
+                        openWin("ShareAThon/OrderEntry.aspx");
                     }
                     else {
                         wfDocType = wfDocType.replace(/ /g, "");
                         openWin("Documents/frm" + wfDocType + ".aspx");
                     }
+                    
                 }
 			}
 

@@ -2,6 +2,7 @@
 <Schema Namespace="TWOModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
   <EntityContainer Name="TWOEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="OrderDetails" EntityType="TWOModel.OrderDetail" />
+    <EntitySet Name="AuthorizeNetTransactions" EntityType="TWOModel.AuthorizeNetTransaction" />
   </EntityContainer>
   <EntityType Name="OrderDetail">
     <Key>
@@ -15,5 +16,18 @@
     <Property Name="Operator" Type="String" MaxLength="255" Unicode="true" FixedLength="true" />
     <Property Name="CustomerName" Type="String" MaxLength="255" Unicode="true" FixedLength="true" />
     <Property Name="OrdTotal" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="AuthorizeNetTransaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CardNumber" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="AuthorizationCode" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="InvoiceNumber" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="TransactionID" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="Message" Nullable="false" />
+    <Property Type="Decimal" Name="Amount" Nullable="false" />
+    <Property Type="Boolean" Name="Approved" Nullable="false" />
   </EntityType>
 </Schema>

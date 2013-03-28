@@ -8,17 +8,17 @@
     <link href="Style/AddressPopup.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <form id="form1" runat="server">
-    <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+    <form runat="server">
+    <telerik:RadScriptManager runat="server">
     </telerik:RadScriptManager>
     <div class="header">
         <h3>
             Select Shipping Address</h3>
     </div>
     <div class="grid">
-        <telerik:RadGrid ID="RadGrid1" runat="server" OnPageIndexChanged="RadGrid1_DataBinding"
-            PageSize="10" AllowPaging="True" OnPageSizeChanged="RadGrid1_DataBinding" AllowSorting="True"
-            OnSortCommand="RadGrid1_DataBinding">
+        <telerik:RadGrid ID="GridShippingAddress" runat="server" OnPageIndexChanged="GridShippingAddressDataBinding"
+            PageSize="10" AllowPaging="True" OnPageSizeChanged="GridShippingAddressDataBinding"
+            AllowSorting="True" OnSortCommand="GridShippingAddressDataBinding">
         </telerik:RadGrid>
     </div>
     </form>

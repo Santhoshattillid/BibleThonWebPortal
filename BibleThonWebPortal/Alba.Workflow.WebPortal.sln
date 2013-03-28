@@ -8,7 +8,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "BibleThonWebPortal", "..\Bi
 		SccLocalPath = "SAK"
 		SccProvider = "SAK"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		ProjectReferences = ""
+		ProjectReferences = "{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}|AlbaDL.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/BibleThonWebPortal"
 		Debug.AspNetCompiler.PhysicalPath = "..\BibleThonWebPortal\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\BibleThonWebPortal\"
@@ -26,13 +26,17 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "BibleThonWebPortal", "..\Bi
 		VWDPort = "8804"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "..\TestConsole\TestConsole.csproj", "{3BB0DF4B-97B4-42FA-933D-5C025669D323}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShareAthonService", "..\ShareAthonService\ShareAthonService.csproj", "{9D61F86B-E074-42C3-8EF3-F36BA4431564}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlbaDL", "..\AlbaDL\AlbaDL.csproj", "{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "..\TestConsole\TestConsole.csproj", "{3BB0DF4B-97B4-42FA-933D-5C025669D323}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlbaBL", "..\AlbaBL\AlbaBL.csproj", "{C8EB7409-6526-4BE0-9E3D-DBABA33B0F68}"
 EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 2
+		SccNumberOfProjects = 6
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = http://192.168.1.152:8081/tfs/biblethon
 		SccLocalPath0 = .
@@ -40,6 +44,18 @@ Global
 		SccProjectUniqueName1 = .
 		SccLocalPath1 = .
 		SccProjectEnlistmentChoice1 = 2
+		SccProjectUniqueName2 = ..\\ShareAthonService\\ShareAthonService.csproj
+		SccProjectName2 = ../ShareAthonService
+		SccLocalPath2 = ..\\ShareAthonService
+		SccProjectUniqueName3 = ..\\AlbaDL\\AlbaDL.csproj
+		SccProjectName3 = ../AlbaDL
+		SccLocalPath3 = ..\\AlbaDL
+		SccProjectUniqueName4 = ..\\TestConsole\\TestConsole.csproj
+		SccProjectName4 = ../TestConsole
+		SccLocalPath4 = ..\\TestConsole
+		SccProjectUniqueName5 = ..\\AlbaBL\\AlbaBL.csproj
+		SccProjectName5 = ../AlbaBL
+		SccLocalPath5 = ..\\AlbaBL
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,15 +76,6 @@ Global
 		{443C1652-CC2C-4470-9FD0-C824B6906427}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{443C1652-CC2C-4470-9FD0-C824B6906427}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
 		{443C1652-CC2C-4470-9FD0-C824B6906427}.Release|x86.ActiveCfg = Debug|Any CPU
-		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Debug|x86.ActiveCfg = Debug|x86
-		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Debug|x86.Build.0 = Debug|x86
-		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Release|Any CPU.ActiveCfg = Release|x86
-		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Release|Mixed Platforms.Build.0 = Release|x86
-		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Release|x86.ActiveCfg = Release|x86
-		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Release|x86.Build.0 = Release|x86
 		{3BB0DF4B-97B4-42FA-933D-5C025669D323}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{3BB0DF4B-97B4-42FA-933D-5C025669D323}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{3BB0DF4B-97B4-42FA-933D-5C025669D323}.Debug|x86.ActiveCfg = Debug|x86
@@ -78,6 +85,36 @@ Global
 		{3BB0DF4B-97B4-42FA-933D-5C025669D323}.Release|Mixed Platforms.Build.0 = Release|x86
 		{3BB0DF4B-97B4-42FA-933D-5C025669D323}.Release|x86.ActiveCfg = Release|x86
 		{3BB0DF4B-97B4-42FA-933D-5C025669D323}.Release|x86.Build.0 = Release|x86
+		{9D61F86B-E074-42C3-8EF3-F36BA4431564}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{9D61F86B-E074-42C3-8EF3-F36BA4431564}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{9D61F86B-E074-42C3-8EF3-F36BA4431564}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{9D61F86B-E074-42C3-8EF3-F36BA4431564}.Debug|x86.ActiveCfg = Debug|x86
+		{9D61F86B-E074-42C3-8EF3-F36BA4431564}.Debug|x86.Build.0 = Debug|x86
+		{9D61F86B-E074-42C3-8EF3-F36BA4431564}.Release|Any CPU.ActiveCfg = Release|x86
+		{9D61F86B-E074-42C3-8EF3-F36BA4431564}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{9D61F86B-E074-42C3-8EF3-F36BA4431564}.Release|Mixed Platforms.Build.0 = Release|x86
+		{9D61F86B-E074-42C3-8EF3-F36BA4431564}.Release|x86.ActiveCfg = Release|x86
+		{9D61F86B-E074-42C3-8EF3-F36BA4431564}.Release|x86.Build.0 = Release|x86
+		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Debug|x86.ActiveCfg = Debug|x86
+		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Debug|x86.Build.0 = Debug|x86
+		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Release|Any CPU.ActiveCfg = Release|x86
+		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Release|Mixed Platforms.Build.0 = Release|x86
+		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Release|x86.ActiveCfg = Release|x86
+		{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}.Release|x86.Build.0 = Release|x86
+		{C8EB7409-6526-4BE0-9E3D-DBABA33B0F68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8EB7409-6526-4BE0-9E3D-DBABA33B0F68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8EB7409-6526-4BE0-9E3D-DBABA33B0F68}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C8EB7409-6526-4BE0-9E3D-DBABA33B0F68}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C8EB7409-6526-4BE0-9E3D-DBABA33B0F68}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C8EB7409-6526-4BE0-9E3D-DBABA33B0F68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8EB7409-6526-4BE0-9E3D-DBABA33B0F68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8EB7409-6526-4BE0-9E3D-DBABA33B0F68}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C8EB7409-6526-4BE0-9E3D-DBABA33B0F68}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C8EB7409-6526-4BE0-9E3D-DBABA33B0F68}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Web.Script.Serialization;
 using System.Web.UI;
+using AlbaDL;
 using Telerik.Web.UI;
 
 namespace Alba.Workflow.WebPortal
@@ -76,12 +77,15 @@ namespace Alba.Workflow.WebPortal
                 case NoteCommand.Insert:
                     NotesList.Add(new Note(data.Content, data.Category));
                     break;
+
                 case NoteCommand.Update:
                     note.Subject = data.Content;
                     break;
+
                 case NoteCommand.Delete:
                     NotesList.Remove(note);
                     break;
+
                 case NoteCommand.Categorize:
                     note.Category = data.Category;
                     break;
@@ -93,8 +97,11 @@ namespace Alba.Workflow.WebPortal
         private class NoteEditData
         {
             public String Id { get; set; }
+
             public string Content { get; set; }
+
             public string Category { get; set; }
+
             public NoteCommand Command { get; set; }
         }
 

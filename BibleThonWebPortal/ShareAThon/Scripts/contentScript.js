@@ -62,6 +62,17 @@
         return oWindow;
     }
 
+    // popup script for adding new customer
+    $('#ImgAddCustomer').click(function() {
+        var wnd = window.radopen("AddCustomer.aspx");
+        wnd.setSize(845, 450);
+        //wnd.autoSize(true);
+        //wnd.set_autoSize(true);
+        wnd.add_close(onClientClose);
+        wnd.center();
+        return false;
+    });
+
     $('#BtnBack').click(function() {
         window.history.back();
     });

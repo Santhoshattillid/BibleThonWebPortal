@@ -137,7 +137,7 @@
                             </td>
                         </tr>
                     </table>
-                    <uc1:ShareathonSummaryCtrl ID="previewControl" runat="server" />
+                    <uc1:ShareathonSummaryCtrl ID="previewControl" runat="server"></uc1:ShareathonSummaryCtrl>
                 </td>
             </tr>
             <tr style="height: 600px;">

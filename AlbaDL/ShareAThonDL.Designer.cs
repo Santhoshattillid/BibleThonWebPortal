@@ -172,12 +172,14 @@ namespace AlbaDL
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="customerId">Initial value of the CustomerId property.</param>
         /// <param name="orderId">Initial value of the OrderId property.</param>
-        public static ShareAThonDonation CreateShareAThonDonation(global::System.Int32 id, global::System.String customerId, global::System.String orderId)
+        /// <param name="authorizeNetSubscriptionId">Initial value of the AuthorizeNetSubscriptionId property.</param>
+        public static ShareAThonDonation CreateShareAThonDonation(global::System.Int32 id, global::System.String customerId, global::System.String orderId, global::System.Int64 authorizeNetSubscriptionId)
         {
             ShareAThonDonation shareAThonDonation = new ShareAThonDonation();
             shareAThonDonation.Id = id;
             shareAThonDonation.CustomerId = customerId;
             shareAThonDonation.OrderId = orderId;
+            shareAThonDonation.AuthorizeNetSubscriptionId = authorizeNetSubscriptionId;
             return shareAThonDonation;
         }
 
@@ -379,6 +381,30 @@ namespace AlbaDL
         private global::System.String _OrderId;
         partial void OnOrderIdChanging(global::System.String value);
         partial void OnOrderIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 AuthorizeNetSubscriptionId
+        {
+            get
+            {
+                return _AuthorizeNetSubscriptionId;
+            }
+            set
+            {
+                OnAuthorizeNetSubscriptionIdChanging(value);
+                ReportPropertyChanging("AuthorizeNetSubscriptionId");
+                _AuthorizeNetSubscriptionId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AuthorizeNetSubscriptionId");
+                OnAuthorizeNetSubscriptionIdChanged();
+            }
+        }
+        private global::System.Int64 _AuthorizeNetSubscriptionId;
+        partial void OnAuthorizeNetSubscriptionIdChanging(global::System.Int64 value);
+        partial void OnAuthorizeNetSubscriptionIdChanged();
 
         #endregion
 
@@ -453,7 +479,8 @@ namespace AlbaDL
         /// <param name="status">Initial value of the Status property.</param>
         /// <param name="shareAThonDonationId">Initial value of the ShareAThonDonationId property.</param>
         /// <param name="shareAThonDonationId1">Initial value of the ShareAThonDonationId1 property.</param>
-        public static ShareAThonDonationFrequency CreateShareAThonDonationFrequency(global::System.Int32 id, global::System.String orderId, global::System.DateTime dueDate, global::System.Decimal amount, global::System.String status, global::System.Int32 shareAThonDonationId, global::System.Int32 shareAThonDonationId1)
+        /// <param name="modeOfDonation">Initial value of the ModeOfDonation property.</param>
+        public static ShareAThonDonationFrequency CreateShareAThonDonationFrequency(global::System.Int32 id, global::System.String orderId, global::System.DateTime dueDate, global::System.Decimal amount, global::System.String status, global::System.Int32 shareAThonDonationId, global::System.Int32 shareAThonDonationId1, global::System.String modeOfDonation)
         {
             ShareAThonDonationFrequency shareAThonDonationFrequency = new ShareAThonDonationFrequency();
             shareAThonDonationFrequency.Id = id;
@@ -463,6 +490,7 @@ namespace AlbaDL
             shareAThonDonationFrequency.Status = status;
             shareAThonDonationFrequency.ShareAThonDonationId = shareAThonDonationId;
             shareAThonDonationFrequency.ShareAThonDonationId1 = shareAThonDonationId1;
+            shareAThonDonationFrequency.ModeOfDonation = modeOfDonation;
             return shareAThonDonationFrequency;
         }
 
@@ -640,6 +668,30 @@ namespace AlbaDL
         private global::System.Int32 _ShareAThonDonationId1;
         partial void OnShareAThonDonationId1Changing(global::System.Int32 value);
         partial void OnShareAThonDonationId1Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ModeOfDonation
+        {
+            get
+            {
+                return _ModeOfDonation;
+            }
+            set
+            {
+                OnModeOfDonationChanging(value);
+                ReportPropertyChanging("ModeOfDonation");
+                _ModeOfDonation = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ModeOfDonation");
+                OnModeOfDonationChanged();
+            }
+        }
+        private global::System.String _ModeOfDonation;
+        partial void OnModeOfDonationChanging(global::System.String value);
+        partial void OnModeOfDonationChanged();
 
         #endregion
 

@@ -30,6 +30,7 @@
     <Property Name="IncreasingTo" Type="decimal" Nullable="true" Precision="19" Scale="4" />
     <Property Name="DayToChargeMonthly" Type="int" Nullable="true" />
     <Property Name="OrderId" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="AuthorizeNetSubscriptionId" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="ShareAThonDonationFrequencies">
     <Key>
@@ -42,6 +43,7 @@
     <Property Name="Status" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="ShareAThonDonationId" Type="int" Nullable="false" />
     <Property Name="ShareAThonDonationId1" Type="int" Nullable="false" />
+    <Property Name="ModeOfDonation" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="ShareAThonOfferLines">
     <Key>
@@ -114,6 +116,7 @@
           <Property Type="String" Name="OrderId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="ShareAThonDonationFrequencies" Relationship="ShareAThonDL.ShareAThonDonationShareAThonDonationFrequency" FromRole="ShareAThonDonation" ToRole="ShareAThonDonationFrequency" />
           <NavigationProperty Name="ShareAThonOfferLines" Relationship="ShareAThonDL.ShareAThonDonationShareAThonOfferLine" FromRole="ShareAThonDonation" ToRole="ShareAThonOfferLine" />
+          <Property Type="Int64" Name="AuthorizeNetSubscriptionId" Nullable="false" />
         </EntityType>
         <EntityType Name="ShareAThonDonationFrequency">
           <Key>
@@ -127,6 +130,7 @@
           <Property Type="Int32" Name="ShareAThonDonationId" Nullable="false" />
           <NavigationProperty Name="ShareAThonDonation" Relationship="ShareAThonDL.ShareAThonDonationShareAThonDonationFrequency" FromRole="ShareAThonDonationFrequency" ToRole="ShareAThonDonation" />
           <Property Type="Int32" Name="ShareAThonDonationId1" Nullable="false" />
+          <Property Type="String" Name="ModeOfDonation" Nullable="false" />
         </EntityType>
         <EntityType Name="ShareAThonOfferLine">
           <Key>
@@ -186,6 +190,7 @@
           <ScalarProperty Name="IncreasingTo" ColumnName="IncreasingTo" />
           <ScalarProperty Name="DayToChargeMonthly" ColumnName="DayToChargeMonthly" />
           <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="AuthorizeNetSubscriptionId" ColumnName="AuthorizeNetSubscriptionId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -199,6 +204,7 @@
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="ShareAThonDonationId" ColumnName="ShareAThonDonationId" />
           <ScalarProperty Name="ShareAThonDonationId1" ColumnName="ShareAThonDonationId1" />
+          <ScalarProperty Name="ModeOfDonation" ColumnName="ModeOfDonation" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -233,18 +239,17 @@
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram Name="ShareAThonDL" >
-        <EntityTypeShape EntityType="ShareAThonDL.ShareAThonDonation" Width="1.5" PointX="0.60859914897410161" PointY="6.3114735811536544" />
-        <EntityTypeShape EntityType="ShareAThonDL.ShareAThonDonationFrequency" Width="1.5" PointX="7.5" PointY="0.75" Height="2.1725878906249996" />
-        <EntityTypeShape EntityType="ShareAThonDL.ShareAThonOfferLine" Width="1.5" PointX="6.5" PointY="4.125" Height="2.1725878906249996" />
+      <Diagram Name="ShareAThonDL" ZoomLevel="98" >
+        <EntityTypeShape EntityType="ShareAThonDL.ShareAThonDonation" Width="1.5" PointX="0.625" PointY="1.5" Height="3.1340950520833326" />
+        <EntityTypeShape EntityType="ShareAThonDL.ShareAThonDonationFrequency" Width="1.5" PointX="3.25" PointY="1.125" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="ShareAThonDL.ShareAThonOfferLine" Width="1.5" PointX="5.5" PointY="2.625" Height="2.5571907552083317" />
         <AssociationConnector Association="ShareAThonDL.ShareAThonDonationShareAThonDonationFrequency">
-          <ConnectorPoint PointX="2.25" PointY="2.0285953776041667" />
-          <ConnectorPoint PointX="7.5" PointY="2.0285953776041667" />
+          <ConnectorPoint PointX="2.125" PointY="2.68724609375" />
+          <ConnectorPoint PointX="3.25" PointY="2.68724609375" />
         </AssociationConnector>
         <AssociationConnector Association="ShareAThonDL.ShareAThonDonationShareAThonOfferLine">
-          <ConnectorPoint PointX="2.25" PointY="3.5307421874999996" />
-          <ConnectorPoint PointX="6.96875" PointY="3.5307421874999996" />
-          <ConnectorPoint PointX="6.96875" PointY="4.125" />
+          <ConnectorPoint PointX="2.125" PointY="4.2855436197916656" />
+          <ConnectorPoint PointX="5.5" PointY="4.2855436197916656" />
         </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>

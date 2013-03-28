@@ -12,6 +12,7 @@
           <ScalarProperty Name="IncreasingTo" ColumnName="IncreasingTo" />
           <ScalarProperty Name="DayToChargeMonthly" ColumnName="DayToChargeMonthly" />
           <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="AuthorizeNetSubscriptionId" ColumnName="AuthorizeNetSubscriptionId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -25,6 +26,7 @@
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="ShareAThonDonationId" ColumnName="ShareAThonDonationId" />
           <ScalarProperty Name="ShareAThonDonationId1" ColumnName="ShareAThonDonationId1" />
+          <ScalarProperty Name="ModeOfDonation" ColumnName="ModeOfDonation" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -1,4 +1,5 @@
-﻿using AuthorizeNet;
+﻿using System.Configuration;
+using AuthorizeNet;
 
 namespace AlbaDL
 {
@@ -7,10 +8,11 @@ namespace AlbaDL
     /// </summary>
     public class Utilities
     {
-        public static string SiteUrl = "";
-        public static string ApiLoginID = "8hw54A7VJ";
-        public static string TransactionKey = "7443fLVdSp89dU32";
-        public static string MerchantHash = "C2D03ADC1E90F1221BA9";
+        public static string _connString = ConfigurationManager.ConnectionStrings["GPConnectionString"].ToString();
+        public const string SiteUrl = "";
+        public const string ApiLoginID = "8hw54A7VJ";
+        public const string TransactionKey = "7443fLVdSp89dU32";
+        public const string MerchantHash = "C2D03ADC1E90F1221BA9";
 
         public static string AuthorizeNetUrl
         {
@@ -21,5 +23,7 @@ namespace AlbaDL
         {
             return Crypto.GenerateFingerprint(TransactionKey, ApiLoginID, amount, seq, timeStamp);
         }
+
+        public static bool DevelopmentMode = true;
     }
 }

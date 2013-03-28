@@ -27,6 +27,7 @@
     <Property Type="String" Name="OrderId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="ShareAThonDonationFrequencies" Relationship="ShareAThonDL.ShareAThonDonationShareAThonDonationFrequency" FromRole="ShareAThonDonation" ToRole="ShareAThonDonationFrequency" />
     <NavigationProperty Name="ShareAThonOfferLines" Relationship="ShareAThonDL.ShareAThonDonationShareAThonOfferLine" FromRole="ShareAThonDonation" ToRole="ShareAThonOfferLine" />
+    <Property Type="Int64" Name="AuthorizeNetSubscriptionId" Nullable="false" />
   </EntityType>
   <EntityType Name="ShareAThonDonationFrequency">
     <Key>
@@ -40,6 +41,7 @@
     <Property Type="Int32" Name="ShareAThonDonationId" Nullable="false" />
     <NavigationProperty Name="ShareAThonDonation" Relationship="ShareAThonDL.ShareAThonDonationShareAThonDonationFrequency" FromRole="ShareAThonDonationFrequency" ToRole="ShareAThonDonation" />
     <Property Type="Int32" Name="ShareAThonDonationId1" Nullable="false" />
+    <Property Type="String" Name="ModeOfDonation" Nullable="false" />
   </EntityType>
   <EntityType Name="ShareAThonOfferLine">
     <Key>

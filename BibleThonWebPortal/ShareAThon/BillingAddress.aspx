@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="BillingAddress.aspx.cs" Inherits="Share_a_Thon_BillingAddress" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="BillingAddress.aspx.cs" Inherits="ShareAThon.ShareAThonBillingAddress" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -16,9 +16,9 @@
                 Select Customer</h3>
         </div>
         <div class="grid">
-            <telerik:RadGrid ID="RadGridCustomerIds" runat="server" OnPageIndexChanged="RadGrid1_DataBinding"
-                PageSize="10" AllowPaging="True" OnPageSizeChanged="RadGrid1_DataBinding" AllowSorting="True"
-                OnSortCommand="RadGrid1_DataBinding" CssClass="radGrid">
+            <telerik:RadGrid ID="RadGridCustomerIds" runat="server" OnPageIndexChanged="RadGridCustomerIdsDataBinding"
+                PageSize="10" AllowPaging="True" OnPageSizeChanged="RadGridCustomerIdsDataBinding"
+                AllowSorting="True" OnSortCommand="RadGridCustomerIdsDataBinding" CssClass="radGrid">
             </telerik:RadGrid>
         </div>
     </asp:Panel>

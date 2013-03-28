@@ -106,6 +106,9 @@
                                             <td>
                                                 <img class="search" id="imgSearch" alt="search" src="../Images/search_button.png" />
                                             </td>
+                                            <td>
+                                                <img class="search" id="ImgAddCustomer" alt="Add Customer" src="../Images/AddRecord.gif" />
+                                            </td>
                                         </tr>
                                         <tr id="tr1" runat="server">
                                             <td class="label">

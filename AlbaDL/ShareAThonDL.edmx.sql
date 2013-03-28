@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 03/18/2013 17:46:21
+-- Date Created: 03/28/2013 16:34:12
 -- Generated from EDMX file: C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\AlbaDL\ShareAThonDL.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,26 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_ShareAThonDonationShareAThonDonationFrequency]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ShareAThonDonationFrequencies] DROP CONSTRAINT [FK_ShareAThonDonationShareAThonDonationFrequency];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ShareAThonDonationShareAThonOfferLine]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ShareAThonOfferLines] DROP CONSTRAINT [FK_ShareAThonDonationShareAThonOfferLine];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[ShareAThonDonations]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ShareAThonDonations];
+GO
+IF OBJECT_ID(N'[dbo].[ShareAThonDonationFrequencies]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ShareAThonDonationFrequencies];
+GO
+IF OBJECT_ID(N'[dbo].[ShareAThonOfferLines]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ShareAThonOfferLines];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -36,7 +51,8 @@ CREATE TABLE [dbo].[ShareAThonDonations] (
     [DonationAmount] decimal(19,4)  NULL,
     [IncreasingTo] decimal(19,4)  NULL,
     [DayToChargeMonthly] int  NULL,
-    [OrderId] varchar(50)  NOT NULL
+    [OrderId] varchar(50)  NOT NULL,
+    [AuthorizeNetSubscriptionId] bigint  NOT NULL
 );
 GO
 
@@ -48,7 +64,8 @@ CREATE TABLE [dbo].[ShareAThonDonationFrequencies] (
     [Amount] decimal(19,4)  NOT NULL,
     [Status] varchar(50)  NOT NULL,
     [ShareAThonDonationId] int  NOT NULL,
-    [ShareAThonDonationId1] int  NOT NULL
+    [ShareAThonDonationId1] int  NOT NULL,
+    [ModeOfDonation] nvarchar(max)  NOT NULL
 );
 GO
 

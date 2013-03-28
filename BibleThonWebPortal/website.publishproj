@@ -43,5 +43,11 @@ Copyright (C) Microsoft Corporation. All rights reserved.
       <Value>$(AssemblyVersion)</Value>
     </AssemblyAttributes>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AlbaDL\AlbaDL.csproj">
+      <Project>{BFCBCFFE-98A7-4078-B177-15A476BDDD4E}</Project>
+      <Name>AlbaDL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(_WebPublishTargetsPath)\Web\Microsoft.WebSite.Publishing.targets" />
 </Project>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="OrderEntry.aspx.cs" Inherits="Biblethon_OrderEntry" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="OrderEntry.aspx.cs" Inherits="Biblethon.BiblethonOrderEntry" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
@@ -8,9 +8,9 @@
 </head>
 <body>
     <form runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    <asp:ScriptManager runat="server">
     </asp:ScriptManager>
-    <telerik:RadWindowManager ID="RadWindowManager1" Modal="true" Behaviors="Close" KeepInScreenBounds="True"
+    <telerik:RadWindowManager Modal="true" Behaviors="Close" KeepInScreenBounds="True"
         VisibleStatusbar="False" runat="server" DestroyOnClose="true">
     </telerik:RadWindowManager>
     <div class="main">
@@ -113,12 +113,15 @@
                                             <td>
                                                 <img class="search" id="imgSearch" alt="search" src="../Images/search_button.png" />
                                             </td>
+                                            <td>
+                                                <img class="search" id="ImgAddCustomer" alt="Add Customer" src="../Images/AddRecord.gif" />
+                                            </td>
                                         </tr>
                                         <tr id="tr1" runat="server">
                                             <td class="label">
                                                 Address
                                             </td>
-                                            <td colspan="2">
+                                            <td colspan="3">
                                                 <asp:Label ID="lblAddress1" for="LblBAddress1" runat="server"></asp:Label>
                                                 <input type="text" for="LblBAddress1,lblAddress1" name="TxtBillingAddress1" class="hidden txtarea"
                                                     id="TxtBillingAddress1" />
@@ -127,7 +130,7 @@
                                         <tr id="tr2" runat="server">
                                             <td>
                                             </td>
-                                            <td colspan="2">
+                                            <td colspan="3">
                                                 <asp:Label ID="lblAddress2" for="LblBAddress2" runat="server"></asp:Label>
                                                 <input type="text" for="LblBAddress2,lblAddress2" name="TxtBillingAddress2" class="hidden txtarea"
                                                     id="TxtBillingAddress2" />
@@ -136,7 +139,7 @@
                                         <tr id="tr3" runat="server">
                                             <td>
                                             </td>
-                                            <td colspan="2">
+                                            <td colspan="3">
                                                 <asp:Label ID="lblAddress3" runat="server"></asp:Label>
                                                 <input type="text" for="LblBAddress3,lblAddress3" name="TxtBillingAddress3" class="hidden txtarea"
                                                     id="TxtBillingAddress3" />
@@ -146,7 +149,7 @@
                                             <td class="label">
                                                 City
                                             </td>
-                                            <td colspan="2">
+                                            <td colspan="3">
                                                 <asp:Label ID="lblCity" runat="server"></asp:Label>
                                                 <input type="text" for="LblBAddress3,lblAddress3" name="TxtBillingCity" class="hidden"
                                                     id="TxtBillingCity" />
@@ -156,7 +159,7 @@
                                             <td class="label">
                                                 State
                                             </td>
-                                            <td colspan="2">
+                                            <td colspan="3">
                                                 <asp:Label ID="lblState" runat="server"></asp:Label>
                                                 <input type="text" for="lblState" name="TxtBillingState" class="hidden" id="TxtBillingState" />
                                             </td>
@@ -165,7 +168,7 @@
                                             <td class="label">
                                                 Country
                                             </td>
-                                            <td colspan="2">
+                                            <td colspan="3">
                                                 <asp:Label ID="lblCountry" for="LblBCountry" runat="server"></asp:Label>
                                                 <input type="text" for="lblCountry" name="TxtBillingCountry" class="hidden" id="TxtBillingCountry" />
                                             </td>
@@ -533,9 +536,9 @@
                             <tr>
                                 <td colspan="4">
                                     <asp:Button ID="BtnOrderConfirmationBack" runat="server" Text="<< Back" CssClass="btn" />
-                                    <asp:Button ID="btnSaveOrder" runat="server" Text="Save" OnClick="btnSaveOrder_Click"
+                                    <asp:Button ID="btnSaveOrder" runat="server" Text="Save" OnClick="BtnSaveOrderClick"
                                         CssClass="btn" />
-                                    <asp:Button ID="btnProcessOrder" runat="server" Text="Process" CssClass="btn" OnClick="btnProcessOrder_Click" />
+                                    <asp:Button ID="btnProcessOrder" runat="server" Text="Process" CssClass="btn" OnClick="BtnProcessOrderClick" />
                                 </td>
                             </tr>
                         </table>

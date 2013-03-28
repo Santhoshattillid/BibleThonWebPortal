@@ -2,6 +2,7 @@
 <Schema Namespace="TWOModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="TWOModelStoreContainer">
     <EntitySet Name="OrderDetails" EntityType="TWOModel.Store.OrderDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AuthorizeNetTransactions" EntityType="TWOModel.Store.AuthorizeNetTransactions" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
   <EntityType Name="OrderDetails">
     <Key>
@@ -15,5 +16,18 @@
     <Property Name="Operator" Type="nchar" Nullable="true" MaxLength="255" />
     <Property Name="CustomerName" Type="nchar" Nullable="true" MaxLength="255" />
     <Property Name="OrdTotal" Type="decimal" Nullable="true" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="AuthorizeNetTransactions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CardNumber" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="AuthorizationCode" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="InvoiceNumber" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="TransactionID" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Nullable="false" />
+    <Property Name="Approved" Type="bit" Nullable="false" />
   </EntityType>
 </Schema>

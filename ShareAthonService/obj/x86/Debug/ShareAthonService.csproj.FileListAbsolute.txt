@@ -1,0 +1,13 @@
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\ShareAthonService\bin\Debug\ShareAthonService.exe.config
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\ShareAthonService\bin\Debug\ShareAthonService.exe
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\ShareAthonService\bin\Debug\ShareAthonService.pdb
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\ShareAthonService\bin\Debug\AlbaBL.dll
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\ShareAthonService\bin\Debug\AlbaDL.dll
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\ShareAthonService\bin\Debug\AuthorizeNet.dll
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\ShareAthonService\bin\Debug\AlbaDL.pdb
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\ShareAthonService\bin\Debug\AlbaBL.pdb
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\ShareAthonService\bin\Debug\AuthorizeNet.pdb
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\ShareAthonService\bin\Debug\AuthorizeNet.xml
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\ShareAthonService\obj\x86\Debug\ShareAthonService.csprojResolveAssemblyReference.cache
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\ShareAthonService\obj\x86\Debug\ShareAthonService.exe
+C:\Users\Santhosh.TILLID\Desktop\My Works\BibleThonLatest\BibleThonWebPortal\ShareAthonService\obj\x86\Debug\ShareAthonService.pdb

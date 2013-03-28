@@ -25,6 +25,7 @@
     <Property Name="IncreasingTo" Type="decimal" Nullable="true" Precision="19" Scale="4" />
     <Property Name="DayToChargeMonthly" Type="int" Nullable="true" />
     <Property Name="OrderId" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="AuthorizeNetSubscriptionId" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="ShareAThonDonationFrequencies">
     <Key>
@@ -37,6 +38,7 @@
     <Property Name="Status" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="ShareAThonDonationId" Type="int" Nullable="false" />
     <Property Name="ShareAThonDonationId1" Type="int" Nullable="false" />
+    <Property Name="ModeOfDonation" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="ShareAThonOfferLines">
     <Key>

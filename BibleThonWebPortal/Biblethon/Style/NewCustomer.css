@@ -1,0 +1,48 @@
+﻿*
+{
+    padding: 0px;
+    margin: 0px;
+}
+body
+{
+    font-family: Arial;
+    background: #EFEFEF;
+    margin: 0;
+    padding: 0px;
+    color: #999;
+}
+.customerCreation
+{
+    margin: 0 auto;
+    background: #effbff;
+    padding: 10px;
+    font-size: 12px;
+    border: 1px solid #aaa;
+}
+.error
+{
+    color: #EF5050;
+}
+INPUT[type=text]
+{
+    width: 235px;
+    padding: 4px;
+    border: 1px solid #999;
+    margin-left: 5px;
+    color: #777;
+}
+INPUT[type=submit]
+{
+    /*width: 100px;     margin-left: 10px;     padding: 5px;*/
+    background: url(../../Images/btn-bg.png);
+    padding: 4px;
+    color: #FFF;
+    font-weight: bold;
+    border: 1px solid #EFEFEF;
+    font-size: 11px;
+}
+.navigations
+{
+    padding: 5px;
+    text-align: right;
+}

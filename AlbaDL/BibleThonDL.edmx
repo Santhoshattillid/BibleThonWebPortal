@@ -7,6 +7,7 @@
     <Schema Namespace="TWOModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="TWOModelStoreContainer">
     <EntitySet Name="OrderDetails" EntityType="TWOModel.Store.OrderDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AuthorizeNetTransactions" EntityType="TWOModel.Store.AuthorizeNetTransactions" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
   <EntityType Name="OrderDetails">
     <Key>
@@ -21,12 +22,26 @@
     <Property Name="CustomerName" Type="nchar" Nullable="true" MaxLength="255" />
     <Property Name="OrdTotal" Type="decimal" Nullable="true" Precision="18" Scale="2" />
   </EntityType>
+  <EntityType Name="AuthorizeNetTransactions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CardNumber" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="AuthorizationCode" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="InvoiceNumber" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="TransactionID" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Nullable="false" />
+    <Property Name="Approved" Type="bit" Nullable="false" />
+  </EntityType>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TWOModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="TWOEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="OrderDetails" EntityType="TWOModel.OrderDetail" />
+          <EntitySet Name="AuthorizeNetTransactions" EntityType="TWOModel.AuthorizeNetTransaction" />
         </EntityContainer>
         <EntityType Name="OrderDetail">
           <Key>
@@ -40,6 +55,19 @@
           <Property Name="Operator" Type="String" MaxLength="255" Unicode="true" FixedLength="true" />
           <Property Name="CustomerName" Type="String" MaxLength="255" Unicode="true" FixedLength="true" />
           <Property Name="OrdTotal" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="AuthorizeNetTransaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CardNumber" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="AuthorizationCode" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="InvoiceNumber" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="TransactionID" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="Message" Nullable="false" />
+          <Property Type="Decimal" Name="Amount" Nullable="false" />
+          <Property Type="Boolean" Name="Approved" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -58,6 +86,20 @@
           <ScalarProperty Name="Operator" ColumnName="Operator" />
           <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
           <ScalarProperty Name="OrdTotal" ColumnName="OrdTotal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuthorizeNetTransactions">
+      <EntityTypeMapping TypeName="IsTypeOf(TWOModel.AuthorizeNetTransaction)">
+        <MappingFragment StoreEntitySet="AuthorizeNetTransactions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+          <ScalarProperty Name="AuthorizationCode" ColumnName="AuthorizationCode" />
+          <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Approved" ColumnName="Approved" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -82,6 +124,7 @@
     <Diagrams>
       <Diagram Name="BibleThonDL">
         <EntityTypeShape EntityType="TWOModel.OrderDetail" Width="1.5" PointX="0.75" PointY="0.75" Height="2.5571907552083335" IsExpanded="true" />
+        <EntityTypeShape EntityType="TWOModel.AuthorizeNetTransaction" Width="1.5" PointX="2.5" PointY="0.75" Height="2.5571907552083331" />
       </Diagram>
     </Diagrams>
   </Designer>
